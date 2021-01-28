@@ -19,7 +19,7 @@ namespace SignalTrading.Examples.ConsoleApp
 			DateTimeOffset startTime = new DateTimeOffset(now.Year, now.Month, now.Day, 0, 0, 0, 0, TimeSpan.Zero);
 			IEnumerable<Pricing> prices = new[]
 			{
-				Pricing.FromLastPrice(startTime, 100), 
+				Pricing.FromLastPrice(startTime, 100),
 				Pricing.FromLastPrice(startTime.AddMinutes(1), 98), 
 				Pricing.FromLastPrice(startTime.AddMinutes(2), 95), 
 				Pricing.FromLastPrice(startTime.AddMinutes(3), 101), 
@@ -29,7 +29,8 @@ namespace SignalTrading.Examples.ConsoleApp
 				Pricing.FromLastPrice(startTime.AddMinutes(7), 102)
 			};
 
-			// In most scenarios, the second value of the signal input tuple will contain additional data.
+			// In a most scenarios, the second value of the signal input tuple will contain additional data such
+			// as a candlestick chart or other data that can be derived from the price stream.
 			IEnumerable<(Pricing, Pricing)> signalInput = prices.AsSignalInput();
 
 			// Define a trading strategy
@@ -49,12 +50,12 @@ namespace SignalTrading.Examples.ConsoleApp
 					return (signal.LongEntryTarget, EntryTarget.Disabled);
 				}
 
-				// Entry price must be set below current price (current price will be 100 USD in this example)
-				// The signal will take profit at 103 USD and exit with a loss at 90 USD
+				// Entry price must be set below current price.
 				double targetPrice = signal.Pricing.Last - 2;
 				EntryTarget longTarget = EntryTarget.Long(targetPrice, 10, targetPrice + 5, targetPrice - 5);
 
-				// 
+				// This validation is recommended because the signal will throw an exception if an invalid entry
+				// target is returned.
 				Debug.Assert(longTarget.IsValid(signal.Pricing));
 
 				return (longTarget, EntryTarget.Disabled);
