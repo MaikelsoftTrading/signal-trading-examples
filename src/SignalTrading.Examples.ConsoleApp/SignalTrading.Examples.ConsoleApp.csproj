@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="SignalTrading.Core" Version="0.0.2-alpha4" />
+    <PackageReference Include="SignalTrading.Core" Version="0.0.2-alpha6" />
   </ItemGroup>
 
 </Project>

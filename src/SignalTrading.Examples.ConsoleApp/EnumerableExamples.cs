@@ -22,24 +22,23 @@ namespace SignalTrading.Examples.ConsoleApp
 				Pricing.FromLastPrice(startTime, 100),
 				Pricing.FromLastPrice(startTime.AddMinutes(1), 98), 
 				Pricing.FromLastPrice(startTime.AddMinutes(2), 95), 
-				Pricing.FromLastPrice(startTime.AddMinutes(3), 101), 
 				Pricing.FromLastPrice(startTime.AddMinutes(4), 101), 
-				Pricing.FromLastPrice(startTime.AddMinutes(5), 98), 
+				Pricing.FromLastPrice(startTime.AddMinutes(5), 100), 
 				Pricing.FromLastPrice(startTime.AddMinutes(6), 103),
-				Pricing.FromLastPrice(startTime.AddMinutes(7), 102)
+				Pricing.FromLastPrice(startTime.AddMinutes(7), 104)
 			};
 
 			// In a most scenarios, the second value of the signal input tuple will contain additional data such
 			// as a candlestick chart or other data that can be derived from the price stream.
 			IEnumerable<(Pricing, Pricing)> signalInput = prices.AsSignalInput();
 
-			// Define a trading strategy
+			// Define a trading strategy. This is a callback function that returns the next entry targets.
 			static (EntryTarget longTarget, EntryTarget shortTarget) Strategy(Signal signal, Pricing data)
 			{
 				if (signal.Position.IsOpen)
 				{
-					// The position of the signal will open and close automatically and entry targets cannot be
-					// set while a position is open. So we will keep long and short entry disabled.
+					// The position of the signal opens and closes automatically and since entry targets cannot be
+					// set while a position is open, we will have to returned disabled targets.
 					return (EntryTarget.Disabled, EntryTarget.Disabled);
 				}
 
@@ -50,7 +49,7 @@ namespace SignalTrading.Examples.ConsoleApp
 					return (signal.LongEntryTarget, EntryTarget.Disabled);
 				}
 
-				// Entry price must be set below current price.
+				// Set the entry target price, profit target and loss limit. Entry price must be set below current price.
 				double targetPrice = signal.Pricing.Last - 2;
 				EntryTarget longTarget = EntryTarget.Long(targetPrice, 10, targetPrice + 5, targetPrice - 5);
 
@@ -64,7 +63,7 @@ namespace SignalTrading.Examples.ConsoleApp
 			// Generate signals
 			IEnumerable<Signal> signals = signalInput.GenerateSignals(symbolInfo, Strategy);
 
-			// The last signal is the most recent (previous signals can be used to track history)
+			// The last signal is the most recent
 			signals.Last().WriteToConsole();
 
 			ConsoleHelpers.WaitForAnyKeyToQuit();
