@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalTrading.Examples.ConsoleApp", "SignalTrading.Examples.ConsoleApp\SignalTrading.Examples.ConsoleApp.csproj", "{9DF7FE5F-AFA2-469F-8242-3CED10B0CFD8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9DF7FE5F-AFA2-469F-8242-3CED10B0CFD8}.Debug|x64.ActiveCfg = Debug|x64
+		{9DF7FE5F-AFA2-469F-8242-3CED10B0CFD8}.Debug|x64.Build.0 = Debug|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {87E439E5-24D0-4779-B7A8-A1F45E0D07D7}
+	EndGlobalSection
+EndGlobal
