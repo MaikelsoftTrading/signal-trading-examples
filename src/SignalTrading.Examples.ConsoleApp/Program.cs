@@ -8,8 +8,8 @@ namespace SignalTrading.Examples.ConsoleApp
 		{
 			ConsoleHelpers.ShowMenu(new  (string, Action)[]
 			{
-				(ExamplesIEnumerable.Title, ExamplesIEnumerable.ShowMenu),
-				(ExamplesIObservable.Title, ExamplesIObservable.ShowMenu)
+				(ExamplesWithIEnumerable.Title, ExamplesWithIEnumerable.ShowMenu),
+				(ExamplesWithIObservable.Title, ExamplesWithIObservable.ShowMenu)
 			}, "Main menu");
 		}
 	}

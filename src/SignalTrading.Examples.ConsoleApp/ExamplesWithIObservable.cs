@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
+using System.Reactive.Linq;
 
 namespace SignalTrading.Examples.ConsoleApp
 {
-	public static class ExamplesIEnumerable
+	public static class ExamplesWithIObservable
 	{
-		public static string Title => "Examples using System.Linq";
+		public static string Title => "Reactive programming examples";
 
 		public static void ShowMenu()
 		{
@@ -26,7 +25,7 @@ namespace SignalTrading.Examples.ConsoleApp
 			// Create some price data. The framework expects UTC timestamps.
 			DateTimeOffset now = DateTimeOffset.UtcNow;
 			DateTimeOffset startTime = new DateTimeOffset(now.Year, now.Month, now.Day, 0, 0, 0, 0, TimeSpan.Zero);
-			IEnumerable<Pricing> prices = new[]
+			IObservable<Pricing> prices = new[]
 			{
 				Pricing.FromLastPrice(startTime, 100),
 				Pricing.FromLastPrice(startTime.AddMinutes(1), 98), 
@@ -35,12 +34,12 @@ namespace SignalTrading.Examples.ConsoleApp
 				Pricing.FromLastPrice(startTime.AddMinutes(5), 100), 
 				Pricing.FromLastPrice(startTime.AddMinutes(6), 103),
 				Pricing.FromLastPrice(startTime.AddMinutes(7), 104)
-			};
+			}.ToObservable();
 
 			// For simplicity of this example, the signal will be generated from price data only. In real trading
 			// scenarios, the second value of the tuple is used to pass additional data to the trading strategy
 			// such as a candlestick chart.
-			IEnumerable<(Pricing, Pricing)> signalInput = prices.AsSignalInput();
+			IObservable<(Pricing, Pricing)> signalInput = prices.AsSignalInput();
 
 			// Define a trading strategy. This is a callback function that returns the next entry targets.
 			static (EntryTarget longTarget, EntryTarget shortTarget) Strategy(Signal signal, Pricing data)
@@ -72,13 +71,12 @@ namespace SignalTrading.Examples.ConsoleApp
 			}
 
 			// Generate signals
-			IEnumerable<Signal> signals = signalInput.GenerateSignals(symbolInfo, Strategy);
-
-			// Show information about the latest signal
-			signals.Last().WriteToConsole();
+			IObservable<Signal> signals = signalInput.GenerateSignals(symbolInfo, Strategy);
+			
+			// Show information about the last signal
+			signals.Wait().WriteToConsole();
 
 			ConsoleHelpers.WaitForAnyKeyToContinue();
 		}
-
 	}
 }
