@@ -11,7 +11,7 @@ The framework is built on top of an optimized C library and applies principles f
 The framework can be used in x64 applications that run on Windows or Linux (x64 platform should be selected). 
 
 ### License key
-Current version can be used without any costs. The first major release will require the purchase of a license key if you want to generate signals for more than one trading symbol.
+Current version can be used without any costs. The first major release (1.x.x) will require the purchase of a license key if you want to generate signals for more than one trading symbol.
 
 ### Prerequisites
 * A Windows or Linux development machine
