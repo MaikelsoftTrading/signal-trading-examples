@@ -5,37 +5,50 @@ namespace SignalTrading.Examples.ConsoleApp
 {
 	public static class ConsoleHelpers
 	{
-		public static void WaitForAnyKeyToQuit()
+		public static void ShowMenu(IReadOnlyList<(string, Action)> actions, string title)
+		{
+			if (Console.IsInputRedirected)
+			{
+				Console.WriteLine("This application cannot work if console input is redirected.");
+				return;
+			}
+			do
+			{
+				Console.Clear();
+				Console.WriteLine("===================================================");
+				Console.WriteLine(title);
+				Console.WriteLine("===================================================");
+				for (int i = 0; i < actions.Count; i++)
+				{
+					Console.WriteLine($"{i + 1}.   {actions[i].Item1}");
+				}
+				Console.WriteLine("ESC. Quit");
+				ConsoleKeyInfo key = Console.ReadKey(true);
+				if (key.Key == ConsoleKey.Escape)
+				{
+					return;
+				}
+				int index = key.KeyChar - '0' - 1;
+				if (index >= 0 && index < actions.Count)
+				{
+					Console.Clear();
+					actions[index].Item2();
+				}
+				else
+				{
+					Console.Beep();
+				}
+			} while (true);
+		}
+
+		public static void WaitForAnyKeyToContinue()
 		{
 			if (Console.IsInputRedirected)
 			{
 				return;
 			}
-			Console.Write("Press any key to quit...");
+			Console.Write("Press any key to continue...");
 			Console.ReadKey(true);
-		}
-
-		public static void WriteToConsole(this SymbolInfo symbol)
-		{
-			Console.WriteLine($"{symbol.Symbol} info:");
-			Console.WriteLine($"\tLot size: {symbol.LotSize:N10}");
-			Console.WriteLine($"\tTick size: {symbol.TickSize:N10}");
-			Console.WriteLine($"\tTrading fee: {symbol.TradingFeeRate:P4}");
-			Console.WriteLine($"\tInterest rate: {symbol.InterestRate:P4}");
-			Console.WriteLine($"\tInterest interval: {symbol.InterestInterval()}");
-		}
-
-		public static void WriteToConsole(this IEnumerable<Candle> candles)
-		{
-			foreach (Candle candle in candles)
-			{
-				candle.WriteToConsole();
-			}
-		}
-
-		public static void WriteToConsole(this Candle candle)
-		{
-			Console.WriteLine($"{candle.OpenTime():u} O={candle.Open}, H={candle.High}, L={candle.Low}, C={candle.Close}");
 		}
 
 		public static void WriteToConsole(this Signal signal, bool showAccountInfo = false)
@@ -96,9 +109,9 @@ namespace SignalTrading.Examples.ConsoleApp
 			Console.WriteLine($"\tInvestment: {performance.Investment.ToString(numberFormat)} USD");
 			Console.WriteLine($"\tEquity: {performance.Equity.ToString(numberFormat)} USD (peak: {performance.EquityPeak.ToString(numberFormat)} USD)");
 			Console.WriteLine($"\tProfit: {performance.Profit.ToString(numberFormat)}");
-			Console.WriteLine($"\tROI: {performance.ROI:P2}");
+			Console.WriteLine($"\tReturn on investment (ROI): {performance.ROI:P2}");
 			Console.WriteLine($"\tMaximum drawdown: {performance.MaximumDrawdown:P2}");
-			Console.WriteLine($"\tRoMaD: {performance.RoMaD:N2}");
+			Console.WriteLine($"\tReturn over maximum drawdown (RoMaD): {performance.RoMaD:N2}");
 			Console.WriteLine($"\tTrades closed: {performance.TradesClosed}");
 			Console.WriteLine($"\tTrades won: {performance.TradesWon} ({performance.WinRate:P2})");
 		}

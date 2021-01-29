@@ -5,16 +5,25 @@ using System.Linq;
 
 namespace SignalTrading.Examples.ConsoleApp
 {
-	public static class EnumerableExamples
+	public static class ExamplesIEnumerable
 	{
-		public static void HelloTrader()
+		public static string Title => "Examples using IEnumerable";
+
+		public static void ShowMenu()
 		{
-			// Create a trading symbol for which signals will be generated. Lot size and tick size are required
-			// and will be set to 1.
-			// In a realistic scenario the required info will come from an API.
+			ConsoleHelpers.ShowMenu(new  (string, Action)[]
+			{
+				("Generate signals from prices", GenerateSignalsFromPrices)
+			}, Title);
+		}
+
+		private static void GenerateSignalsFromPrices()
+		{
+			// Create a dummy trading symbol for which signals will be generated. Lot size and tick size are required
+			// and will be set to 1. For a real trading instrument this info is usually retrieved using an API.
 			SymbolInfo symbolInfo = SymbolInfo.Create("TEST-USD", 1, 1);
 			
-			// Create some price data. Timestamps must UTC times.
+			// Create some price data. The framework expects UTC timestamps.
 			DateTimeOffset now = DateTimeOffset.UtcNow;
 			DateTimeOffset startTime = new DateTimeOffset(now.Year, now.Month, now.Day, 0, 0, 0, 0, TimeSpan.Zero);
 			IEnumerable<Pricing> prices = new[]
@@ -28,8 +37,9 @@ namespace SignalTrading.Examples.ConsoleApp
 				Pricing.FromLastPrice(startTime.AddMinutes(7), 104)
 			};
 
-			// In a most scenarios, the second value of the signal input tuple will contain additional data such
-			// as a candlestick chart or other data that can be derived from the price stream.
+			// For simplicity of this example, the signal will be generated from price data only. In real trading
+			// scenarios, the second value of the tuple is used to pass additional data to the trading strategy
+			// such as a candlestick chart.
 			IEnumerable<(Pricing, Pricing)> signalInput = prices.AsSignalInput();
 
 			// Define a trading strategy. This is a callback function that returns the next entry targets.
@@ -37,8 +47,8 @@ namespace SignalTrading.Examples.ConsoleApp
 			{
 				if (signal.Position.IsOpen)
 				{
-					// The position of the signal opens and closes automatically and since entry targets cannot be
-					// set while a position is open, we will have to returned disabled targets.
+					// The position of the signal opens and closes automatically. Since entry targets cannot be
+					// set while a position is open, we will have to return disabled entry targets.
 					return (EntryTarget.Disabled, EntryTarget.Disabled);
 				}
 
@@ -53,8 +63,9 @@ namespace SignalTrading.Examples.ConsoleApp
 				double targetPrice = signal.Pricing.Last - 2;
 				EntryTarget longTarget = EntryTarget.Long(targetPrice, 10, targetPrice + 5, targetPrice - 5);
 
-				// This validation is recommended because the signal will throw an exception if an invalid entry
-				// target is returned.
+				// The validation below is recommended during development of a trading strategy. It validates that the profit
+				// target and loss limit are valid according to the entry price, and that the entry target is valid according
+				// to current prices.
 				Debug.Assert(longTarget.IsValid(signal.Pricing));
 
 				return (longTarget, EntryTarget.Disabled);
@@ -63,10 +74,11 @@ namespace SignalTrading.Examples.ConsoleApp
 			// Generate signals
 			IEnumerable<Signal> signals = signalInput.GenerateSignals(symbolInfo, Strategy);
 
-			// The last signal is the most recent
+			// Show information about the latest signal
 			signals.Last().WriteToConsole();
 
-			ConsoleHelpers.WaitForAnyKeyToQuit();
+			ConsoleHelpers.WaitForAnyKeyToContinue();
 		}
+
 	}
 }

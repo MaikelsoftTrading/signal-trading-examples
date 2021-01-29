@@ -1,15 +1,16 @@
-﻿namespace SignalTrading.Examples.ConsoleApp
+﻿using System;
+
+namespace SignalTrading.Examples.ConsoleApp
 {
 	class Program
 	{
 		static void Main(string[] args)
 		{
-			EnumerableExamples.HelloTrader();
+			ConsoleHelpers.ShowMenu(new  (string, Action)[]
+			{
+				(ExamplesIEnumerable.Title, ExamplesIEnumerable.ShowMenu),
+				(ExamplesIObservable.Title, ExamplesIObservable.ShowMenu)
+			}, "Main menu");
 		}
-	}
-
-	public static class ObservableExamples
-	{
-
 	}
 }
