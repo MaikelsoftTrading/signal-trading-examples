@@ -6,7 +6,7 @@ namespace SignalTrading.Examples.ConsoleApp
 {
 	public static class ExamplesIObservable
 	{
-		public static string Title => "Examples using System.Reactive.Linq (reactive programming)";
+		public static string Title => "Reactive programming examples";
 
 		public static void ShowMenu()
 		{
@@ -72,18 +72,10 @@ namespace SignalTrading.Examples.ConsoleApp
 
 			// Generate signals
 			IObservable<Signal> signals = signalInput.GenerateSignals(symbolInfo, Strategy);
-
+			
 			// Show information about the latest signal
-			Signal? latest = null;
-			signals.Subscribe(signal =>
-			{
-				Console.WriteLine($"Received new signal with timestamp {signal.Timestamp():u}");
-				latest = signal;
-			}, () =>
-			{
-				Console.WriteLine("Completed");
-				latest?.WriteToConsole();
-			});
+			Signal latest = signals.Wait();
+			latest.WriteToConsole();
 
 			ConsoleHelpers.WaitForAnyKeyToContinue();
 		}
