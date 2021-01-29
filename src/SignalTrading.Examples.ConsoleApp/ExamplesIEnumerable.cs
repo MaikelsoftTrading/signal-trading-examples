@@ -7,7 +7,7 @@ namespace SignalTrading.Examples.ConsoleApp
 {
 	public static class ExamplesIEnumerable
 	{
-		public static string Title => "Examples using IEnumerable";
+		public static string Title => "Examples using System.Linq";
 
 		public static void ShowMenu()
 		{

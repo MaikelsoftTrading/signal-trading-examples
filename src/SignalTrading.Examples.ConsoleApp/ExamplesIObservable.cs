@@ -6,7 +6,7 @@ namespace SignalTrading.Examples.ConsoleApp
 {
 	public static class ExamplesIObservable
 	{
-		public static string Title => "Examples using IObservable";
+		public static string Title => "Examples using System.Reactive.Linq (reactive programming)";
 
 		public static void ShowMenu()
 		{
