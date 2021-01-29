@@ -2,7 +2,7 @@
 This repository contains the developer documentation and C# examples for the SignalTrading framework, which can be installed through [NuGet](https://www.nuget.org/packages/SignalTrading.Core/). Bugs can be reported through the GitHub issue tracker. 
 
 ### About the framework
-The SignalTrading framework enables the rapid development of automated trading systems in .NET 5.0. It supports backtesting, live testing, and live trading by generating signals using pull or push mechanisms (IEnumerable or IObservable). Both long and short positions are supported and the leverage ratio can be set for each position. The framework estimates trading performance in real-time and reports unrealized profit, realized profit, return on investment, maximum drawdown, win rate, fees and interest paid, and more.
+The SignalTrading framework enables the rapid development of automated trading systems in .NET 5.0. It supports backtesting, live testing, and live trading by generating streams of signals according to a provided trading strategy. Streams are generated using either pull or push mechanisms (IEnumerable and IObservable). Both long and short trading is supported and the leverage ratio can be set for each position. The framework estimates trading performance in real-time and reports unrealized profit, realized profit, return on investment, maximum drawdown, win rate, fees and interest paid, and more.
 
 ### Framework design
 The framework is built on top of an optimized C library and applies principles from functional programming and stateless programming. It provides only pure functions and immutable objects. Most types are implemented as structs because of C#/C interopability. 
