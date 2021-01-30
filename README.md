@@ -14,8 +14,8 @@ The framework can be used in x64 applications that run on Windows or Linux (x64 
 Current version can be used without any costs. Starting at the first major version (1.x.x), a license key must be obtained if you want to generate signals for more than one trading symbol.
 
 ### Prerequisites
+* Basic knowledge of functional and reactive programming in C#
 * .NET 5.0 framework is installed
-* A C# development environment with the .NET 5.0 SDK and NuGet installed
-* Basic knowledge of functional programming in C# and reactive programming
-* A .NET programming interface to a market data provider for live prices, price history, etc.
-* For bot development: a .NET interface for retrieving balances and placing orders at the broker or exchange
+* C# development environment with the .NET 5.0 SDK and NuGet installed
+* .NET programming interface to a market data provider for retrieving live prices, price history, etc.
+* For bot development: .NET interface for retrieving account balance and placing orders at the broker or exchange
