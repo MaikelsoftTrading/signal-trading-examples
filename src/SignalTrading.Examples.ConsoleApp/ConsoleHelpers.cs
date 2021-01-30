@@ -12,6 +12,7 @@ namespace SignalTrading.Examples.ConsoleApp
 				Console.WriteLine("This application cannot work if console input is redirected.");
 				return;
 			}
+
 			do
 			{
 				Console.Clear();
@@ -22,12 +23,14 @@ namespace SignalTrading.Examples.ConsoleApp
 				{
 					Console.WriteLine($"{i + 1}.   {actions[i].Item1}");
 				}
+
 				Console.WriteLine("ESC. Quit");
 				ConsoleKeyInfo key = Console.ReadKey(true);
 				if (key.Key == ConsoleKey.Escape)
 				{
 					return;
 				}
+
 				int index = key.KeyChar - '0' - 1;
 				if (index >= 0 && index < actions.Count)
 				{
@@ -47,6 +50,7 @@ namespace SignalTrading.Examples.ConsoleApp
 			{
 				return;
 			}
+
 			Console.Write("Press any key to continue...");
 			Console.ReadKey(true);
 		}
@@ -70,7 +74,7 @@ namespace SignalTrading.Examples.ConsoleApp
 				signal.Account.Quote.WriteToConsole("Quote currency balance:", quoteNumberFormat);
 			}
 		}
-		
+
 		public static void WriteToConsole(this EntryTarget entryTarget, string title, string numberFormat)
 		{
 			Console.WriteLine(title);
@@ -79,19 +83,22 @@ namespace SignalTrading.Examples.ConsoleApp
 				Console.WriteLine("\tDisabled");
 				return;
 			}
+
 			Console.WriteLine($"\tPrice: {entryTarget.Price.ToString(numberFormat)} USD");
 			Console.WriteLine($"\tProfit target: {entryTarget.ProfitTarget.ToString(numberFormat)} USD");
 			Console.WriteLine($"\tLoss limit: {entryTarget.LossLimit.ToString(numberFormat)} USD");
 			Console.WriteLine($"\tLeverage ratio: {entryTarget.LeverageRatio}");
 		}
 
-		public static void WriteToConsole(this SignalPosition position, string baseNumberFormat, string quoteNumberFormat)
+		public static void WriteToConsole(this SignalPosition position, string baseNumberFormat,
+			string quoteNumberFormat)
 		{
 			if (!position.IsOpen)
 			{
 				Console.WriteLine("No open position");
 				return;
 			}
+
 			Console.WriteLine("Current position:");
 			Console.WriteLine($"\tSize: {position.Size.ToString(baseNumberFormat)}");
 			Console.WriteLine($"\tEntry price: {position.EntryPrice.ToString(quoteNumberFormat)} USD");
@@ -107,7 +114,8 @@ namespace SignalTrading.Examples.ConsoleApp
 			Console.WriteLine("Performance:");
 			Console.WriteLine($"\tStart time: {performance.StartTime():u}");
 			Console.WriteLine($"\tInvestment: {performance.Investment.ToString(numberFormat)} USD");
-			Console.WriteLine($"\tEquity: {performance.Equity.ToString(numberFormat)} USD (peak: {performance.EquityPeak.ToString(numberFormat)} USD)");
+			Console.WriteLine(
+				$"\tEquity: {performance.Equity.ToString(numberFormat)} USD (peak: {performance.EquityPeak.ToString(numberFormat)} USD)");
 			Console.WriteLine($"\tProfit: {performance.Profit.ToString(numberFormat)}");
 			Console.WriteLine($"\tReturn on investment (ROI): {performance.ROI:P2}");
 			Console.WriteLine($"\tMaximum drawdown: {performance.MaximumDrawdown:P2}");

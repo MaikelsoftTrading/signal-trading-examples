@@ -1,0 +1,21 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            // This will build the x64 configuration. There is a bug in OmniSharper which causes a warning message that can be ignored:
+            // "There was a mismatch between the processor architecture of the project being built "MSIL" and the processor architecture of the reference".
+            // It is probably related to this issue: https://github.com/OmniSharp/omnisharp-roslyn/issues/1628
+            "label": "Build examples project",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/SignalTrading.Examples.ConsoleApp/SignalTrading.Examples.ConsoleApp.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary",
+                "/p:Platform=x64"
+            ],
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}
