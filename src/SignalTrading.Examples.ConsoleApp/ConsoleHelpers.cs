@@ -53,11 +53,11 @@ namespace SignalTrading.Examples.ConsoleApp
 
 		public static void WriteToConsole(this Signal signal, bool showAccountInfo = false)
 		{
-			string baseNumberFormat = $"N{signal.SymbolInfo.BaseDecimals}";
-			string quoteNumberFormat = $"N{signal.SymbolInfo.QuoteDecimals}";
+			string baseNumberFormat = $"N{signal.Symbol.BaseDecimals}";
+			string quoteNumberFormat = $"N{signal.Symbol.QuoteDecimals}";
 
 			Console.WriteLine("==============================================================");
-			Console.WriteLine($"{signal.Symbol} signal @ {signal.Timestamp():u}");
+			Console.WriteLine($"{signal.Symbol.Name} signal @ {signal.Timestamp():u}");
 			Console.WriteLine("--------------------------------------------------------------");
 			signal.Pricing.WriteToConsole(quoteNumberFormat);
 			signal.LongEntryTarget.WriteToConsole("Long entry target:", quoteNumberFormat);

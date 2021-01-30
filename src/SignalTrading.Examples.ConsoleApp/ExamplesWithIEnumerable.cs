@@ -21,7 +21,7 @@ namespace SignalTrading.Examples.ConsoleApp
 		{
 			// Create a dummy trading symbol for which signals will be generated. Lot size and tick size are required
 			// and will be set to 1. For a real trading instrument this info is usually retrieved using an API.
-			SymbolInfo symbolInfo = SymbolInfo.Create("TEST-USD", 1, 1);
+			Symbol symbol = Symbol.Create("TEST-USD", 1, 1);
 			
 			// Create some price data. The framework expects UTC timestamps.
 			DateTimeOffset now = DateTimeOffset.UtcNow;
@@ -72,7 +72,7 @@ namespace SignalTrading.Examples.ConsoleApp
 			}
 
 			// Generate signals
-			IEnumerable<Signal> signals = signalInput.GenerateSignals(symbolInfo, Strategy);
+			IEnumerable<Signal> signals = signalInput.GenerateSignals(symbol, Strategy);
 
 			// Show information about the last signal
 			signals.Last().WriteToConsole();
