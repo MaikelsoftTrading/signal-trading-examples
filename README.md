@@ -31,11 +31,11 @@ private static readonly Symbol TestSymbol = Symbol.Create("EUR-USD", 0.1, 0.1);
 
 ### Step 2: Create a trading strategy
 ```C#
-		public static Strategy<Chart> CreateStrategy()
-		{
-			return (Signal signal, Chart chart) =>
-			{
-				return signal;
-			};
-		}
+public static Strategy<Chart> CreateStrategy()
+{
+	return (Signal signal, Chart chart) =>
+	{
+		return signal;
+	};
+}
 ```
