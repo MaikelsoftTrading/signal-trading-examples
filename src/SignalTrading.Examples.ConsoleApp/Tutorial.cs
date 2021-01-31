@@ -21,8 +21,7 @@ namespace SignalTrading.Examples.ConsoleApp
 
 		public static Strategy<Chart> CreateStrategy()
 		{
-			const int fastMaLength = 3;
-			const int slowMaLength = 6;
+			const int movingAverageLength = 4;
 
 			return (Signal signal, Chart chart) =>
 			{
@@ -33,33 +32,35 @@ namespace SignalTrading.Examples.ConsoleApp
 					return signal; 
 				}
 
-				// We're interested in closed candles only for our moving average crossover strategy. The last
-				// candle is 'open' as long as the end of the candle period has not been reached.
-				chart = chart.TakeClosedCandles();
-				if (chart.Count < slowMaLength)
+				if (signal.LongEntryTarget.IsEnabled)
 				{
+					// For simplicity of the tutorial, we will compute the entry target once and just wait for a
+					// position to be opened by the signal.
 					return signal;
 				}
 
-				// Compute the two moving averages from the chart
-				double fastMA = chart.Values.TakeLast(fastMaLength).Select(c => c.Close).Average();
-				double slowMA = chart.Values.TakeLast(slowMaLength).Select(c => c.Close).Average();
-				if (fastMA > slowMA)
+				// We're interested in closed candles only when working with moving averages.
+				chart = chart.TakeClosedCandles();
+				if (chart.Count < movingAverageLength)
 				{
-					// TODO: Replace with round method of Symbol
-					double entryPrice = TradingMath.RoundToTickSize(slowMA, signal.Symbol.TickSize);
-					double profitTarget = entryPrice + 400 * signal.Symbol.TickSize;
-					double lossLimit = entryPrice - 200 * signal.Symbol.TickSize;
-
-					EntryTarget entryTarget = EntryTarget.Long(entryPrice, 1, profitTarget, lossLimit);
-					if (signal.IsEntryTargetValid(entryTarget))
-					{
-						signal = signal.SetLongEntryTarget(entryTarget);
-					}
+					// Not enough candles for computing the moving average
+					return signal;
 				}
-				else
+
+				// Compute the moving average from the chart
+				double ma = chart.Values
+					.TakeLast(movingAverageLength)
+					.Select(candle => candle.Close)
+					.Average();
+
+				double profitTarget = signal.Symbol.RoundToTickSize(ma);
+				double entryPrice = profitTarget - 5;
+				double lossLimit = entryPrice - 10;
+
+				EntryTarget entryTarget = EntryTarget.Long(entryPrice, 1, profitTarget, lossLimit);
+				if (signal.IsEntryTargetValid(entryTarget))
 				{
-					signal = signal.SetLongEntryTarget(EntryTarget.Disabled);
+					signal = signal.SetLongEntryTarget(entryTarget);
 				}
 				
 				return signal;
