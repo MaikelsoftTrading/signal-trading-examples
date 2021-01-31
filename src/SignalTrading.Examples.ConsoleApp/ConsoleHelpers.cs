@@ -64,8 +64,8 @@ namespace SignalTrading.Examples.ConsoleApp
 			Console.WriteLine($"{signal.Symbol.Name} signal @ {signal.Timestamp():u}");
 			Console.WriteLine("--------------------------------------------------------------");
 			signal.Pricing.WriteToConsole(quoteNumberFormat);
-			signal.LongEntryTarget.WriteToConsole("Long entry target:", quoteNumberFormat);
-			signal.ShortEntryTarget.WriteToConsole("Short entry target:", quoteNumberFormat);
+			signal.LongTradeSetup.WriteToConsole("Long trade setup:", quoteNumberFormat);
+			signal.ShortTradeSetup.WriteToConsole("Short trade setup:", quoteNumberFormat);
 			signal.Position.WriteToConsole(baseNumberFormat, quoteNumberFormat);
 			signal.Performance.WriteToConsole(quoteNumberFormat);
 			if (showAccountInfo)
@@ -75,19 +75,19 @@ namespace SignalTrading.Examples.ConsoleApp
 			}
 		}
 
-		public static void WriteToConsole(this EntryTarget entryTarget, string title, string numberFormat)
+		public static void WriteToConsole(this TradeSetup setup, string title, string numberFormat)
 		{
 			Console.WriteLine(title);
-			if (!entryTarget.IsEnabled)
+			if (!setup.IsEnabled)
 			{
 				Console.WriteLine("\tDisabled");
 				return;
 			}
 
-			Console.WriteLine($"\tPrice: {entryTarget.Price.ToString(numberFormat)} USD");
-			Console.WriteLine($"\tProfit target: {entryTarget.ProfitTarget.ToString(numberFormat)} USD");
-			Console.WriteLine($"\tLoss limit: {entryTarget.LossLimit.ToString(numberFormat)} USD");
-			Console.WriteLine($"\tLeverage ratio: {entryTarget.LeverageRatio}");
+			Console.WriteLine($"\tEntry price: {setup.EntryPrice.ToString(numberFormat)} USD");
+			Console.WriteLine($"\tProfit target: {setup.ProfitTarget.ToString(numberFormat)} USD");
+			Console.WriteLine($"\tLoss limit: {setup.LossLimit.ToString(numberFormat)} USD");
+			Console.WriteLine($"\tLeverage ratio: {setup.LeverageRatio}");
 		}
 
 		public static void WriteToConsole(this SignalPosition position, string baseNumberFormat,

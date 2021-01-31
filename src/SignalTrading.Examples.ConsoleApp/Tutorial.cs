@@ -32,7 +32,7 @@ namespace SignalTrading.Examples.ConsoleApp
 					return signal; 
 				}
 
-				if (signal.LongEntryTarget.IsEnabled)
+				if (signal.LongTradeSetup.IsEnabled)
 				{
 					// For simplicity of the tutorial, we will compute the entry target once and just wait for a
 					// position to be opened by the signal.
@@ -57,10 +57,10 @@ namespace SignalTrading.Examples.ConsoleApp
 				double entryPrice = profitTarget - 5;
 				double lossLimit = entryPrice - 10;
 
-				EntryTarget entryTarget = EntryTarget.Long(entryPrice, 1, profitTarget, lossLimit);
-				if (signal.IsEntryTargetValid(entryTarget))
+				TradeSetup setup = TradeSetup.Long(entryPrice, 1, profitTarget, lossLimit);
+				if (signal.IsTradeSetupValid(setup))
 				{
-					signal = signal.SetLongEntryTarget(entryTarget);
+					signal = signal.SetLongTradeSetup(setup);
 				}
 				
 				return signal;

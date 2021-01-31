@@ -52,7 +52,7 @@ namespace SignalTrading.Examples.ConsoleApp
 					return signal;
 				}
 
-				if (signal.LongEntryTarget.IsEnabled)
+				if (signal.LongTradeSetup.IsEnabled)
 				{
 					// We will not change the entry target if already set. It is allowed however to
 					// replace current targets with new values.
@@ -61,12 +61,12 @@ namespace SignalTrading.Examples.ConsoleApp
 
 				// Set the entry target price, profit target and loss limit. Entry price must be set below current price.
 				double targetPrice = signal.Pricing.Last - 2;
-				EntryTarget longTarget = EntryTarget.Long(targetPrice, 10, targetPrice + 5, targetPrice - 5);
+				TradeSetup setup = TradeSetup.Long(targetPrice, 10, targetPrice + 5, targetPrice - 5);
 
 				// The validation below is recommended during development of a trading strategy.
-				Debug.Assert(signal.IsEntryTargetValid(longTarget));
+				Debug.Assert(signal.IsTradeSetupValid(setup));
 
-				return signal.SetLongEntryTarget(longTarget);
+				return signal.SetLongTradeSetup(setup);
 			}
 
 			// Generate signals
