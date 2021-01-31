@@ -26,7 +26,10 @@ Current version can be used without any costs. Starting at the first major versi
 
 ### Step 1: Create a trading symbol
 ```C#
-private static readonly Symbol TestSymbol = Symbol.Create("EUR-USD", lotSize: 0.1, tickSize: 0.1);
+private static readonly Symbol Amazon = Symbol
+	.Create("AMZN", lotSize: 1, tickSize: 0.01)
+	.SetBaseAsset("AMZN")
+	.SetQuoteCurrency("USD");
 ```
 
 ### Step 2: Create a trading strategy
