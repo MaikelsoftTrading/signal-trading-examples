@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Reactive.Linq;
+using SignalTrading.Reactive;
 
 namespace SignalTrading.Examples.ConsoleApp
 {
@@ -42,36 +43,36 @@ namespace SignalTrading.Examples.ConsoleApp
 			IObservable<(Pricing, Pricing)> signalInput = prices.AsSignalInput();
 
 			// Define a trading strategy. This is a callback function that returns the next entry targets.
-			static (EntryTarget longTarget, EntryTarget shortTarget) Strategy(Signal signal, Pricing data)
+			static Signal Strategy(Signal signal, Pricing data)
 			{
 				if (signal.Position.IsOpen)
 				{
 					// The position of the signal opens and closes automatically. Since entry targets cannot be
-					// set while a position is open, we will have to return disabled entry targets.
-					return (EntryTarget.Disabled, EntryTarget.Disabled);
+					// set while a position is open, we will leave the signal unchanged.
+					return signal;
 				}
 
 				if (signal.LongEntryTarget.IsEnabled)
 				{
 					// We will not change the entry target if already set. It is allowed however to
 					// replace current targets with new values.
-					return (signal.LongEntryTarget, EntryTarget.Disabled);
+					return signal;
 				}
 
 				// Set the entry target price, profit target and loss limit. Entry price must be set below current price.
 				double targetPrice = signal.Pricing.Last - 2;
 				EntryTarget longTarget = EntryTarget.Long(targetPrice, 10, targetPrice + 5, targetPrice - 5);
 
-				// The validation below is recommended during development of a trading strategy. It validates that the profit
-				// target and loss limit are valid according to the entry price, and that the entry target is valid according
-				// to current prices.
-				Debug.Assert(longTarget.IsValid(signal.Pricing));
+				// The validation below is recommended during development of a trading strategy.
+				Debug.Assert(signal.IsEntryTargetValid(longTarget));
 
-				return (longTarget, EntryTarget.Disabled);
+				return signal.SetLongEntryTarget(longTarget);
 			}
 
 			// Generate signals
-			IObservable<Signal> signals = signalInput.GenerateSignals(symbol, Strategy);
+			IObservable<Signal> signals = signalInput
+				.GenerateSignals(symbol, Strategy)
+				.SelectSignals();
 			
 			// Show information about the last signal
 			signals.Wait().WriteToConsole();
