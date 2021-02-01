@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Linq;
 using SignalTrading.Reactive;
@@ -71,7 +70,7 @@ namespace SignalTrading.Examples.ConsoleApp
 
 		#region Step 3: Create price data
 
-		public static IEnumerable<Pricing> CreatePriceData()
+		public static IObservable<Pricing> CreatePriceData()
 		{
 			DateTimeOffset now = DateTimeOffset.UtcNow;
 			DateTimeOffset start = new DateTimeOffset(now.Year, now.Month, now.Day, 0, 10, 0, 0, TimeSpan.Zero);
@@ -87,23 +86,17 @@ namespace SignalTrading.Examples.ConsoleApp
 				{
 					DateTimeOffset timestamp = start.AddMinutes(i * 30);
 					return Pricing.FromLastPrice(timestamp, price);
-				});
+				})
+				.ToObservable();
 		}
 
 		#endregion
 
 		#region Step 4: Build charts from prices
 
-		public static IEnumerable<(Pricing, Chart)> BuildCharts()
+		public static IObservable<(Pricing, Chart)> BuildCharts()
 		{
-			IEnumerable<Pricing> prices = CreatePriceData();
-			TimeSpan interval = TimeSpan.FromHours(1);
-			return prices.BuildCharts(interval);
-		}
-
-		public static IObservable<(Pricing, Chart)> BuildReactiveCharts()
-		{
-			IObservable<Pricing> prices = CreatePriceData().ToObservable();
+			IObservable<Pricing> prices = CreatePriceData();
 			TimeSpan interval = TimeSpan.FromHours(1);
 			return prices.BuildCharts(interval);
 		}
@@ -115,28 +108,7 @@ namespace SignalTrading.Examples.ConsoleApp
 		public static void GenerateSignals()
 		{
 			// Use the charts as input for the signals
-			IEnumerable<(Pricing, Chart)> signalInput = BuildCharts();
-			
-			// Get the strategy that was created earlier
-			Strategy<Chart> strategy = CreateStrategy();
-			
-			// Generate the signals from the input
-			IEnumerable<(Signal, Chart)> tuples = signalInput.GenerateSignals(Amazon, strategy);
-
-			// The result also contains the input data (Chart) but we're only interested in the signals
-			IEnumerable<Signal> signals = tuples.SelectSignals();
-
-			// Show some info about the last signal
-			Signal signal = signals.Last();
-			Console.WriteLine($"{signal.Symbol.Name} @ {signal.Timestamp():u}:");
-			Console.WriteLine($"\tLast price: {signal.Pricing.Last} {signal.Symbol.QuoteCurrencyName}");
-			Console.WriteLine($"\tCurrent position size: {signal.Position.Size} {signal.Symbol.BaseAssetName}");
-		}
-
-		public static void GenerateReactiveSignals()
-		{
-			// Use the charts as input for the signals
-			IObservable<(Pricing, Chart)> signalInput = BuildReactiveCharts();
+			IObservable<(Pricing, Chart)> signalInput = BuildCharts();
 			
 			// Get the strategy that was created earlier
 			Strategy<Chart> strategy = CreateStrategy();
