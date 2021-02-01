@@ -20,8 +20,6 @@ namespace SignalTrading.Examples.ConsoleApp
 					Console.WriteLine("Press any key to return...");
 					Console.ReadKey(true);
 				}),
-				(ExamplesWithIEnumerable.Title, ExamplesWithIEnumerable.ShowMenu),
-				(ExamplesWithIObservable.Title, ExamplesWithIObservable.ShowMenu)
 			}, "Main menu");
 		}
 	}

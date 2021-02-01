@@ -12,8 +12,8 @@ namespace SignalTrading.Examples.ConsoleApp
 
 		private static readonly Symbol Amazon = Symbol
 			.Create("AMZN", lotSize: 1, tickSize: 0.01)
-			.SetBaseAsset("AMZN")
-			.SetQuoteCurrency("USD");
+			.SetBaseAssetName("AMZN")
+			.SetQuoteCurrencyName("USD");
 
 		#endregion
 
@@ -129,8 +129,8 @@ namespace SignalTrading.Examples.ConsoleApp
 			// Show some info about the last signal
 			Signal signal = signals.Last();
 			Console.WriteLine($"{signal.Symbol.Name} @ {signal.Timestamp():u}:");
-			Console.WriteLine($"\tLast price: {signal.Pricing.Last} {signal.Symbol.QuoteCurrency}");
-			Console.WriteLine($"\tCurrent position size: {signal.Position.Size} {signal.Symbol.BaseAsset}");
+			Console.WriteLine($"\tLast price: {signal.Pricing.Last} {signal.Symbol.QuoteCurrencyName}");
+			Console.WriteLine($"\tCurrent position size: {signal.Position.Size} {signal.Symbol.BaseAssetName}");
 		}
 
 		public static void GenerateReactiveSignals()
@@ -150,8 +150,8 @@ namespace SignalTrading.Examples.ConsoleApp
 			// Show some info about the last signal
 			Signal signal = signals.Wait();
 			Console.WriteLine($"{signal.Symbol.Name} @ {signal.Timestamp():u}:");
-			Console.WriteLine($"\tLast price: {signal.Pricing.Last} {signal.Symbol.QuoteCurrency}");
-			Console.WriteLine($"\tCurrent position size: {signal.Position.Size} {signal.Symbol.BaseAsset}");
+			Console.WriteLine($"\tLast price: {signal.Pricing.Last} {signal.Symbol.QuoteCurrencyName}");
+			Console.WriteLine($"\tCurrent position size: {signal.Position.Size} {signal.Symbol.BaseAssetName}");
 		}
 
 		#endregion
