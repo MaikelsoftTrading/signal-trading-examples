@@ -1,0 +1,713 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Struct Signal
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Struct Signal
+   ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="SignalTrading.Signal">
+  
+  
+  <h1 id="SignalTrading_Signal" data-uid="SignalTrading.Signal" class="text-break">Struct Signal
+  </h1>
+  <div class="markdown level0 summary"><p>Defines the position that should be taken for a symbol, and stores metrics about the performance of
+the signal based on previous and current positions.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.ValueType.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.ValueType.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.ValueType.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="SignalTrading.html">SignalTrading</a></h6>
+  <h6><strong>Assembly</strong>: SignalTrading.Core.dll</h6>
+  <h5 id="SignalTrading_Signal_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public struct Signal</code></pre>
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="SignalTrading_Signal_Account_" data-uid="SignalTrading.Signal.Account*"></a>
+  <h4 id="SignalTrading_Signal_Account" data-uid="SignalTrading.Signal.Account">Account</h4>
+  <div class="markdown level1 summary"><p>Detailed balances of the base and quote asset at the time the signal was generated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IsolatedAccount Account { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SignalTrading.IsolatedAccount.html">IsolatedAccount</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SignalTrading_Signal_LongTradeSetup_" data-uid="SignalTrading.Signal.LongTradeSetup*"></a>
+  <h4 id="SignalTrading_Signal_LongTradeSetup" data-uid="SignalTrading.Signal.LongTradeSetup">LongTradeSetup</h4>
+  <div class="markdown level1 summary"><p>If no position is open, this value specifies at which price a long position should be opened as
+well as the profit target, loss limit and leverage ratio for the position. The target is empty
+(disabled) if a position has been opened.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TradeSetup LongTradeSetup { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SignalTrading.TradeSetup.html">TradeSetup</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SignalTrading_Signal_Performance_" data-uid="SignalTrading.Signal.Performance*"></a>
+  <h4 id="SignalTrading_Signal_Performance" data-uid="SignalTrading.Signal.Performance">Performance</h4>
+  <div class="markdown level1 summary"><p>Performance metrics of the signal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SignalPerformance Performance { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SignalTrading.SignalPerformance.html">SignalPerformance</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SignalTrading_Signal_Position_" data-uid="SignalTrading.Signal.Position*"></a>
+  <h4 id="SignalTrading_Signal_Position" data-uid="SignalTrading.Signal.Position">Position</h4>
+  <div class="markdown level1 summary"><p>The trading position that should be taken according to the signal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SignalPosition Position { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SignalTrading.SignalPosition.html">SignalPosition</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SignalTrading_Signal_Pricing_" data-uid="SignalTrading.Signal.Pricing*"></a>
+  <h4 id="SignalTrading_Signal_Pricing" data-uid="SignalTrading.Signal.Pricing">Pricing</h4>
+  <div class="markdown level1 summary"><p>Last known prices at the time the signal was generated. The timestamp of the pricing is therefore
+also the timestamp of the signal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Pricing Pricing { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SignalTrading.Pricing.html">Pricing</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SignalTrading_Signal_ShortTradeSetup_" data-uid="SignalTrading.Signal.ShortTradeSetup*"></a>
+  <h4 id="SignalTrading_Signal_ShortTradeSetup" data-uid="SignalTrading.Signal.ShortTradeSetup">ShortTradeSetup</h4>
+  <div class="markdown level1 summary"><p>If no position is open, this value specifies at which price a short position should be opened as
+well as the profit target, loss limit and leverage ratio for the position. The target is empty
+(disabled) if a position has been opened.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TradeSetup ShortTradeSetup { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SignalTrading.TradeSetup.html">TradeSetup</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SignalTrading_Signal_Symbol_" data-uid="SignalTrading.Signal.Symbol*"></a>
+  <h4 id="SignalTrading_Signal_Symbol" data-uid="SignalTrading.Signal.Symbol">Symbol</h4>
+  <div class="markdown level1 summary"><p>The trading symbol of the signal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Symbol Symbol { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SignalTrading.Symbol.html">Symbol</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="SignalTrading_Signal_ClearLongTradeSetup_" data-uid="SignalTrading.Signal.ClearLongTradeSetup*"></a>
+  <h4 id="SignalTrading_Signal_ClearLongTradeSetup" data-uid="SignalTrading.Signal.ClearLongTradeSetup">ClearLongTradeSetup()</h4>
+  <div class="markdown level1 summary"><p>Clears the long trade setup, so that no long position can be opened.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Pure]
+public Signal ClearLongTradeSetup()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SignalTrading.Signal.html">Signal</a></td>
+        <td><p>Signal with long trade setup cleared.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SignalTrading_Signal_ClearShortTradeSetup_" data-uid="SignalTrading.Signal.ClearShortTradeSetup*"></a>
+  <h4 id="SignalTrading_Signal_ClearShortTradeSetup" data-uid="SignalTrading.Signal.ClearShortTradeSetup">ClearShortTradeSetup()</h4>
+  <div class="markdown level1 summary"><p>Clears the short trade setup, so that no short position can be opened.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Pure]
+public Signal ClearShortTradeSetup()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SignalTrading.Signal.html">Signal</a></td>
+        <td><p>Signal with short trade setup cleared.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SignalTrading_Signal_IsTradeSetupAllowed_" data-uid="SignalTrading.Signal.IsTradeSetupAllowed*"></a>
+  <h4 id="SignalTrading_Signal_IsTradeSetupAllowed_SignalTrading_TradeSetup_" data-uid="SignalTrading.Signal.IsTradeSetupAllowed(SignalTrading.TradeSetup)">IsTradeSetupAllowed(TradeSetup)</h4>
+  <div class="markdown level1 summary"><p>Validates that specified trade setup is allowed in combination with current pricing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Pure]
+public bool IsTradeSetupAllowed(TradeSetup setup)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SignalTrading.TradeSetup.html">TradeSetup</a></td>
+        <td><span class="parametername">setup</span></td>
+        <td><p>The trade setup that must be validated.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if the trade setup is allowed, false otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SignalTrading_Signal_SetLongTradeSetup_" data-uid="SignalTrading.Signal.SetLongTradeSetup*"></a>
+  <h4 id="SignalTrading_Signal_SetLongTradeSetup_SignalTrading_TradeSetup_" data-uid="SignalTrading.Signal.SetLongTradeSetup(SignalTrading.TradeSetup)">SetLongTradeSetup(TradeSetup)</h4>
+  <div class="markdown level1 summary"><p>Sets the long entry target which specifies at which price to open a long position as well as the size,
+profit target and loss limit for the position after entry.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Pure]
+public Signal SetLongTradeSetup(TradeSetup setup)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SignalTrading.TradeSetup.html">TradeSetup</a></td>
+        <td><span class="parametername">setup</span></td>
+        <td><p>Entry target for a long position.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SignalTrading.Signal.html">Signal</a></td>
+        <td><p>Signal with the long entry target set to specified value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SignalTrading_Signal_SetPositionLossLimit_" data-uid="SignalTrading.Signal.SetPositionLossLimit*"></a>
+  <h4 id="SignalTrading_Signal_SetPositionLossLimit_System_Double_" data-uid="SignalTrading.Signal.SetPositionLossLimit(System.Double)">SetPositionLossLimit(Double)</h4>
+  <div class="markdown level1 summary"><p>Sets the loss limit of the open position to specified price.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Pure]
+public Signal SetPositionLossLimit(double price)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">price</span></td>
+        <td><p>New los limmit. Must be less than last price and current sell
+price if the position is long. If the position is short, the price must be greater than last price
+and current buy price.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SignalTrading.Signal.html">Signal</a></td>
+        <td><p>Signal with the loss limit of the position set to specified price.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="SignalTrading_Signal_SetPositionLossLimit_System_Double__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>An exception will be thrown if there is no open position or the price is out of range.</p>
+</div>
+  
+  
+  <a id="SignalTrading_Signal_SetPositionProfitTarget_" data-uid="SignalTrading.Signal.SetPositionProfitTarget*"></a>
+  <h4 id="SignalTrading_Signal_SetPositionProfitTarget_System_Double_" data-uid="SignalTrading.Signal.SetPositionProfitTarget(System.Double)">SetPositionProfitTarget(Double)</h4>
+  <div class="markdown level1 summary"><p>Sets the profit target of the open position to specified price.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Pure]
+public Signal SetPositionProfitTarget(double price)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">price</span></td>
+        <td><p>New profit target. Must be greater than last price and current sell
+price if the position is long. If the position is short, the price must be less than last price
+and current buy price.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SignalTrading.Signal.html">Signal</a></td>
+        <td><p>Signal with the profit target of the position set to specified price.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="SignalTrading_Signal_SetPositionProfitTarget_System_Double__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>An exception will be thrown if there is no open position or the price is out of range.</p>
+</div>
+  
+  
+  <a id="SignalTrading_Signal_SetShortTradeSetup_" data-uid="SignalTrading.Signal.SetShortTradeSetup*"></a>
+  <h4 id="SignalTrading_Signal_SetShortTradeSetup_SignalTrading_TradeSetup_" data-uid="SignalTrading.Signal.SetShortTradeSetup(SignalTrading.TradeSetup)">SetShortTradeSetup(TradeSetup)</h4>
+  <div class="markdown level1 summary"><p>Sets the short entry target which specifies at which price to open a short position as well as the size,
+profit target and loss limit for the position after entry.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Pure]
+public Signal SetShortTradeSetup(TradeSetup setup)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SignalTrading.TradeSetup.html">TradeSetup</a></td>
+        <td><span class="parametername">setup</span></td>
+        <td><p>Trade setup for a short position.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SignalTrading.Signal.html">Signal</a></td>
+        <td><p>Signal with the short trade setup set to specified value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SignalTrading_Signal_SetTradeSetups_" data-uid="SignalTrading.Signal.SetTradeSetups*"></a>
+  <h4 id="SignalTrading_Signal_SetTradeSetups_SignalTrading_TradeSetup_SignalTrading_TradeSetup_" data-uid="SignalTrading.Signal.SetTradeSetups(SignalTrading.TradeSetup,SignalTrading.TradeSetup)">SetTradeSetups(TradeSetup, TradeSetup)</h4>
+  <div class="markdown level1 summary"><p>Sets both the long and short entry target.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Pure]
+public Signal SetTradeSetups(TradeSetup longSetup, TradeSetup shortSetup)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SignalTrading.TradeSetup.html">TradeSetup</a></td>
+        <td><span class="parametername">longSetup</span></td>
+        <td><p>Long entry target.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="SignalTrading.TradeSetup.html">TradeSetup</a></td>
+        <td><span class="parametername">shortSetup</span></td>
+        <td><p>Short entry target.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SignalTrading.Signal.html">Signal</a></td>
+        <td><p>Signal with entry targets set to specified values.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SignalTrading_Signal_Timestamp_" data-uid="SignalTrading.Signal.Timestamp*"></a>
+  <h4 id="SignalTrading_Signal_Timestamp" data-uid="SignalTrading.Signal.Timestamp">Timestamp()</h4>
+  <div class="markdown level1 summary"><p>Returns the timestamp as a DateTimeOffset. This value is equal to
+the <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_Pricing">Pricing</a> timestamp.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Pure]
+public DateTimeOffset Timestamp()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.DateTimeOffset</span></td>
+        <td><p>DateTimeOffset</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

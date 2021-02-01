@@ -1,0 +1,621 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class ExtendIEnumerable
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class ExtendIEnumerable
+   ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="SignalTrading.ExtendIEnumerable">
+  
+  
+  <h1 id="SignalTrading_ExtendIEnumerable" data-uid="SignalTrading.ExtendIEnumerable" class="text-break">Class ExtendIEnumerable
+  </h1>
+  <div class="markdown level0 summary"><p>Extension methods for the IEnumerable&lt;T&gt; interface.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">ExtendIEnumerable</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="SignalTrading.html">SignalTrading</a></h6>
+  <h6><strong>Assembly</strong>: SignalTrading.Core.dll</h6>
+  <h5 id="SignalTrading_ExtendIEnumerable_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class ExtendIEnumerable</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="SignalTrading_ExtendIEnumerable_AsSignalInput_" data-uid="SignalTrading.ExtendIEnumerable.AsSignalInput*"></a>
+  <h4 id="SignalTrading_ExtendIEnumerable_AsSignalInput_System_Collections_Generic_IEnumerable_SignalTrading_Pricing__" data-uid="SignalTrading.ExtendIEnumerable.AsSignalInput(System.Collections.Generic.IEnumerable{SignalTrading.Pricing})">AsSignalInput(IEnumerable&lt;Pricing&gt;)</h4>
+  <div class="markdown level1 summary"><p>Creates tuples from specified prices that can be used as signal input if the trading strategy
+does not use other data than prices.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Pure]
+public static IEnumerable&lt;(Pricing, Pricing)&gt; AsSignalInput(this IEnumerable&lt;Pricing&gt; source)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>&gt;</td>
+        <td><span class="parametername">source</span></td>
+        <td><p>Source prices</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>, <a class="xref" href="SignalTrading.Pricing.html">Pricing</a>&gt;&gt;</td>
+        <td><p>Prices as tuples</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SignalTrading_ExtendIEnumerable_BuildCharts_" data-uid="SignalTrading.ExtendIEnumerable.BuildCharts*"></a>
+  <h4 id="SignalTrading_ExtendIEnumerable_BuildCharts_System_Collections_Generic_IEnumerable_SignalTrading_Candle__System_TimeSpan_" data-uid="SignalTrading.ExtendIEnumerable.BuildCharts(System.Collections.Generic.IEnumerable{SignalTrading.Candle},System.TimeSpan)">BuildCharts(IEnumerable&lt;Candle&gt;, TimeSpan)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Pure]
+public static IEnumerable&lt;(Pricing, Chart)&gt; BuildCharts(this IEnumerable&lt;Candle&gt; candles, TimeSpan chartInterval)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="SignalTrading.Candle.html">Candle</a>&gt;</td>
+        <td><span class="parametername">candles</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.TimeSpan</span></td>
+        <td><span class="parametername">chartInterval</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>, <a class="xref" href="SignalTrading.Chart.html">Chart</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SignalTrading_ExtendIEnumerable_BuildCharts_" data-uid="SignalTrading.ExtendIEnumerable.BuildCharts*"></a>
+  <h4 id="SignalTrading_ExtendIEnumerable_BuildCharts_System_Collections_Generic_IEnumerable_SignalTrading_Candle__System_TimeSpan_System_Collections_Generic_IEnumerable_SignalTrading_Pricing__System_Int32_" data-uid="SignalTrading.ExtendIEnumerable.BuildCharts(System.Collections.Generic.IEnumerable{SignalTrading.Candle},System.TimeSpan,System.Collections.Generic.IEnumerable{SignalTrading.Pricing},System.Int32)">BuildCharts(IEnumerable&lt;Candle&gt;, TimeSpan, IEnumerable&lt;Pricing&gt;, Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Pure]
+public static IEnumerable&lt;(Pricing, Chart)&gt; BuildCharts(this IEnumerable&lt;Candle&gt; candles, TimeSpan chartInterval, IEnumerable&lt;Pricing&gt; prices, int sessionStartHour = 0)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="SignalTrading.Candle.html">Candle</a>&gt;</td>
+        <td><span class="parametername">candles</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.TimeSpan</span></td>
+        <td><span class="parametername">chartInterval</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>&gt;</td>
+        <td><span class="parametername">prices</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">sessionStartHour</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>, <a class="xref" href="SignalTrading.Chart.html">Chart</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SignalTrading_ExtendIEnumerable_BuildCharts_" data-uid="SignalTrading.ExtendIEnumerable.BuildCharts*"></a>
+  <h4 id="SignalTrading_ExtendIEnumerable_BuildCharts_System_Collections_Generic_IEnumerable_SignalTrading_Pricing__System_TimeSpan_System_Int32_" data-uid="SignalTrading.ExtendIEnumerable.BuildCharts(System.Collections.Generic.IEnumerable{SignalTrading.Pricing},System.TimeSpan,System.Int32)">BuildCharts(IEnumerable&lt;Pricing&gt;, TimeSpan, Int32)</h4>
+  <div class="markdown level1 summary"><p>Builds candlestick charts from specified prices using specified chart interval. For intervals greater than
+one hour, candle opening times can be aligned to the session start hour of the corresponding exchange.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Pure]
+public static IEnumerable&lt;(Pricing, Chart)&gt; BuildCharts(this IEnumerable&lt;Pricing&gt; prices, TimeSpan chartInterval, int sessionStartHour = 0)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>&gt;</td>
+        <td><span class="parametername">prices</span></td>
+        <td><p>Prices</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.TimeSpan</span></td>
+        <td><span class="parametername">chartInterval</span></td>
+        <td><p>Interval</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">sessionStartHour</span></td>
+        <td><p>Session start hour (UTC). Valid range is 0 to 23.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>, <a class="xref" href="SignalTrading.Chart.html">Chart</a>&gt;&gt;</td>
+        <td><p>Charts combined with source prices</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SignalTrading_ExtendIEnumerable_GenerateSignals_" data-uid="SignalTrading.ExtendIEnumerable.GenerateSignals*"></a>
+  <h4 id="SignalTrading_ExtendIEnumerable_GenerateSignals__1_System_Collections_Generic_IEnumerable_System_ValueTuple_SignalTrading_Pricing___0___SignalTrading_Symbol_SignalTrading_Strategy___0__System_String_" data-uid="SignalTrading.ExtendIEnumerable.GenerateSignals``1(System.Collections.Generic.IEnumerable{System.ValueTuple{SignalTrading.Pricing,``0}},SignalTrading.Symbol,SignalTrading.Strategy{``0},System.String)">GenerateSignals&lt;TData&gt;(IEnumerable&lt;(Pricing, TData)&gt;, Symbol, Strategy&lt;TData&gt;, String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Pure]
+public static IEnumerable&lt;(Signal, TData)&gt; GenerateSignals&lt;TData&gt;(this IEnumerable&lt;(Pricing, TData)&gt; source, Symbol symbol, Strategy&lt;TData&gt; strategy, string licenseKey = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>, TData&gt;&gt;</td>
+        <td><span class="parametername">source</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="SignalTrading.Symbol.html">Symbol</a></td>
+        <td><span class="parametername">symbol</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="SignalTrading.Strategy-1.html">Strategy</a>&lt;TData&gt;</td>
+        <td><span class="parametername">strategy</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">licenseKey</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Signal.html">Signal</a>, TData&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TData</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SignalTrading_ExtendIEnumerable_SelectSignals_" data-uid="SignalTrading.ExtendIEnumerable.SelectSignals*"></a>
+  <h4 id="SignalTrading_ExtendIEnumerable_SelectSignals__1_System_Collections_Generic_IEnumerable_System_ValueTuple_SignalTrading_Signal___0___" data-uid="SignalTrading.ExtendIEnumerable.SelectSignals``1(System.Collections.Generic.IEnumerable{System.ValueTuple{SignalTrading.Signal,``0}})">SelectSignals&lt;TData&gt;(IEnumerable&lt;(Signal, TData)&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Pure]
+public static IEnumerable&lt;Signal&gt; SelectSignals&lt;TData&gt;(this IEnumerable&lt;(Signal, TData)&gt; source)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Signal.html">Signal</a>, TData&gt;&gt;</td>
+        <td><span class="parametername">source</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="SignalTrading.Signal.html">Signal</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TData</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SignalTrading_ExtendIEnumerable_ToSignalInput_" data-uid="SignalTrading.ExtendIEnumerable.ToSignalInput*"></a>
+  <h4 id="SignalTrading_ExtendIEnumerable_ToSignalInput__1_System_Collections_Generic_IEnumerable___0__System_Func___0_SignalTrading_Pricing__" data-uid="SignalTrading.ExtendIEnumerable.ToSignalInput``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,SignalTrading.Pricing})">ToSignalInput&lt;TData&gt;(IEnumerable&lt;TData&gt;, Func&lt;TData, Pricing&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Pure]
+public static IEnumerable&lt;(Pricing, TData)&gt; ToSignalInput&lt;TData&gt;(this IEnumerable&lt;TData&gt; source, Func&lt;TData, Pricing&gt; dataToPricingConverter)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;TData&gt;</td>
+        <td><span class="parametername">source</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TData, <a class="xref" href="SignalTrading.Pricing.html">Pricing</a>&gt;</td>
+        <td><span class="parametername">dataToPricingConverter</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>, TData&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TData</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SignalTrading_ExtendIEnumerable_ToSignalInput_" data-uid="SignalTrading.ExtendIEnumerable.ToSignalInput*"></a>
+  <h4 id="SignalTrading_ExtendIEnumerable_ToSignalInput__1_System_Collections_Generic_IEnumerable_SignalTrading_Pricing__System_Func_SignalTrading_Pricing___0__" data-uid="SignalTrading.ExtendIEnumerable.ToSignalInput``1(System.Collections.Generic.IEnumerable{SignalTrading.Pricing},System.Func{SignalTrading.Pricing,``0})">ToSignalInput&lt;TData&gt;(IEnumerable&lt;Pricing&gt;, Func&lt;Pricing, TData&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Pure]
+public static IEnumerable&lt;(Pricing, TData)&gt; ToSignalInput&lt;TData&gt;(this IEnumerable&lt;Pricing&gt; source, Func&lt;Pricing, TData&gt; pricingToDataConverter)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>&gt;</td>
+        <td><span class="parametername">source</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>, TData&gt;</td>
+        <td><span class="parametername">pricingToDataConverter</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>, TData&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TData</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

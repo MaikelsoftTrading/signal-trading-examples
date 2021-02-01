@@ -1,0 +1,319 @@
+{
+  "homepages": [],
+  "source_base_path": "C:/Development/repos/signal-trading/src/DotNet/Docfx",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SignalTrading.Candle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SignalTrading.Candle.html",
+          "hash": "dYTkTlDbx2vWaBi8PAWGFQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SignalTrading.Chart.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SignalTrading.Chart.html",
+          "hash": "BqQTqeqQTVU68PWH7yWG6g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SignalTrading.ExtendIEnumerable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SignalTrading.ExtendIEnumerable.html",
+          "hash": "pmj9CsVof1SEgGkin8Q7bA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SignalTrading.IsolatedAccount.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SignalTrading.IsolatedAccount.html",
+          "hash": "rYCowqHB/wiMXhnksjTi3Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SignalTrading.Ledger.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SignalTrading.Ledger.html",
+          "hash": "jXuk83L++2FziowZOjMzxg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SignalTrading.Pricing.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SignalTrading.Pricing.html",
+          "hash": "5n2KgfrboQCKWVBHZqqLiA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SignalTrading.Reactive.ExtendIObservable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SignalTrading.Reactive.ExtendIObservable.html",
+          "hash": "anI7Flr46Ag4a4pmfg848Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SignalTrading.Reactive.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SignalTrading.Reactive.html",
+          "hash": "2hBe8sIgarr7DPs+R/uT3w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SignalTrading.Signal.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SignalTrading.Signal.html",
+          "hash": "M2BH4UHYFuNNewyk8PjVCA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SignalTrading.SignalPerformance.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SignalTrading.SignalPerformance.html",
+          "hash": "Efu8QjI9Us/+AVdkoUMHWA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SignalTrading.SignalPosition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SignalTrading.SignalPosition.html",
+          "hash": "l/yawW1d/k+BV8wFENOtqg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SignalTrading.Strategy-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SignalTrading.Strategy-1.html",
+          "hash": "sUrdZLsvaRm2h3KjZMuocQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SignalTrading.Symbol.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SignalTrading.Symbol.html",
+          "hash": "9XC9YmWAlM+SIBT2Mf0w/A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SignalTrading.TradeSetup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SignalTrading.TradeSetup.html",
+          "hash": "l4/0PxEF/5W7rEQ9YI+xWQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SignalTrading.TradingMath.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SignalTrading.TradingMath.html",
+          "hash": "ReUgBngK9iPyEVor9I9YYQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SignalTrading.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SignalTrading.html",
+          "hash": "B3wCXughXENhfGukIKcVRQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "Fez2LAJlA/LcxwsSJvD1Lg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "9cmtGKztRRFuHHVtdtNhKQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html",
+          "hash": "DBXtMHwGaiVF5p07T4QIuw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "gB8AESyvNru97tzIZofEEg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "tQO1DM8dSupldq6BULlBCg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "+rHUkRZHZRi5gd1aTU6lJA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": true,
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 3,
+          "skipped_file_count": 3
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ManagedReferenceDocumentProcessor disable incremental build because last build doesn't contain version .",
+          "incrementalPhase": "build",
+          "total_file_count": 16,
+          "skipped_file_count": 0
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": true,
+        "details": "Can support incremental post processing.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

@@ -1,0 +1,480 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Struct TradeSetup
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Struct TradeSetup
+   ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="SignalTrading.TradeSetup">
+  
+  
+  <h1 id="SignalTrading_TradeSetup" data-uid="SignalTrading.TradeSetup" class="text-break">Struct TradeSetup
+  </h1>
+  <div class="markdown level0 summary"><p>Specifies at which price to open a position, the size and leverage ratio of the position,
+as well as profit target and loss limit for the position.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.ValueType.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.ValueType.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.ValueType.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="SignalTrading.html">SignalTrading</a></h6>
+  <h6><strong>Assembly</strong>: SignalTrading.Core.dll</h6>
+  <h5 id="SignalTrading_TradeSetup_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public struct TradeSetup</code></pre>
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="SignalTrading_TradeSetup_Disabled_" data-uid="SignalTrading.TradeSetup.Disabled*"></a>
+  <h4 id="SignalTrading_TradeSetup_Disabled" data-uid="SignalTrading.TradeSetup.Disabled">Disabled</h4>
+  <div class="markdown level1 summary"><p>Returns the value that indicates that no position must be opened.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TradeSetup Disabled { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SignalTrading.TradeSetup.html">TradeSetup</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SignalTrading_TradeSetup_EntryPrice_" data-uid="SignalTrading.TradeSetup.EntryPrice*"></a>
+  <h4 id="SignalTrading_TradeSetup_EntryPrice" data-uid="SignalTrading.TradeSetup.EntryPrice">EntryPrice</h4>
+  <div class="markdown level1 summary"><p>Entry trigger price. This is the limit price of the buy order (long) or sell order (short) that
+must be placed at the broker or exchange.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double EntryPrice { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SignalTrading_TradeSetup_IsEnabled_" data-uid="SignalTrading.TradeSetup.IsEnabled*"></a>
+  <h4 id="SignalTrading_TradeSetup_IsEnabled" data-uid="SignalTrading.TradeSetup.IsEnabled">IsEnabled</h4>
+  <div class="markdown level1 summary"><p>True if the setup can be triggered (and position can be opened), false otherwise.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsEnabled { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SignalTrading_TradeSetup_LeverageRatio_" data-uid="SignalTrading.TradeSetup.LeverageRatio*"></a>
+  <h4 id="SignalTrading_TradeSetup_LeverageRatio" data-uid="SignalTrading.TradeSetup.LeverageRatio">LeverageRatio</h4>
+  <div class="markdown level1 summary"><p>Leverage ratio that must be used for the position. Greater than or equal to 1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int LeverageRatio { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SignalTrading_TradeSetup_LossLimit_" data-uid="SignalTrading.TradeSetup.LossLimit*"></a>
+  <h4 id="SignalTrading_TradeSetup_LossLimit" data-uid="SignalTrading.TradeSetup.LossLimit">LossLimit</h4>
+  <div class="markdown level1 summary"><p>Price at which the position should be closed when losing money. This is the limit price of the stop loss order
+that must be placed as soon as the position is openend.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double LossLimit { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="SignalTrading_TradeSetup_LossLimit_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>In addition to the limit price, a trigger price needs to be chosen.</p>
+</div>
+  
+  
+  <a id="SignalTrading_TradeSetup_PositionSize_" data-uid="SignalTrading.TradeSetup.PositionSize*"></a>
+  <h4 id="SignalTrading_TradeSetup_PositionSize" data-uid="SignalTrading.TradeSetup.PositionSize">PositionSize</h4>
+  <div class="markdown level1 summary"><p>Desired size of the position where a negative value indicates a short position. This is the order quantity
+of the buy order (long) or the negated quantity of the sell order (short) that must be placed at the
+broker or exhange.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double PositionSize { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="SignalTrading_TradeSetup_PositionSize_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The actual size of the position could be slightly different because of trading fees and rounding.</p>
+</div>
+  
+  
+  <a id="SignalTrading_TradeSetup_ProfitTarget_" data-uid="SignalTrading.TradeSetup.ProfitTarget*"></a>
+  <h4 id="SignalTrading_TradeSetup_ProfitTarget" data-uid="SignalTrading.TradeSetup.ProfitTarget">ProfitTarget</h4>
+  <div class="markdown level1 summary"><p>Price at which the position should be closed when profitable. This is the limit price of the take profit
+order that must be placed as soon as the position is opened.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double ProfitTarget { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="SignalTrading_TradeSetup_Long_" data-uid="SignalTrading.TradeSetup.Long*"></a>
+  <h4 id="SignalTrading_TradeSetup_Long_System_Double_System_Double_System_Double_System_Double_System_Int32_" data-uid="SignalTrading.TradeSetup.Long(System.Double,System.Double,System.Double,System.Double,System.Int32)">Long(Double, Double, Double, Double, Int32)</h4>
+  <div class="markdown level1 summary"><p>Creates the trade setup for a long position.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Pure]
+public static TradeSetup Long(double entryPrice, double size, double profitTarget, double lossLimit, int leverageRatio = 1)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">entryPrice</span></td>
+        <td><p>Entry trigger price. Must be less than last trade price and less than current buy price.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">size</span></td>
+        <td><p>Desired size of the long position. Must be greater than 0.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">profitTarget</span></td>
+        <td><p>Price at which the position should be closed when profitable. Must be greater than entry price.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">lossLimit</span></td>
+        <td><p>Price at which the position should be closed when losing money. Must be less than entry price.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">leverageRatio</span></td>
+        <td><p>Leverage ratio that must be used for the position. Must be greater than or equal to 1.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SignalTrading.TradeSetup.html">TradeSetup</a></td>
+        <td><p>Trade setup with specified values.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SignalTrading_TradeSetup_Short_" data-uid="SignalTrading.TradeSetup.Short*"></a>
+  <h4 id="SignalTrading_TradeSetup_Short_System_Double_System_Double_System_Double_System_Double_System_Int32_" data-uid="SignalTrading.TradeSetup.Short(System.Double,System.Double,System.Double,System.Double,System.Int32)">Short(Double, Double, Double, Double, Int32)</h4>
+  <div class="markdown level1 summary"><p>Creates the trade setup for a short position.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Pure]
+public static TradeSetup Short(double entryPrice, double size, double profitTarget, double lossLimit, int leverageRatio = 1)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">entryPrice</span></td>
+        <td><p>MEntry trigger price. Must be greater than last trade price and greater than current sell price.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">size</span></td>
+        <td><p>Desired size of the short position. Must be less than 0.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">profitTarget</span></td>
+        <td><p>Price at which the position should be closed when profitable. Must be less than entry price.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">lossLimit</span></td>
+        <td><p>Price at which the position should be closed when losing money. Must be greater than entry price.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">leverageRatio</span></td>
+        <td><p>Leverage ratio that must be used for the position. Must be greater than or equal to 1.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SignalTrading.TradeSetup.html">TradeSetup</a></td>
+        <td><p>Trade setup with specified values.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
