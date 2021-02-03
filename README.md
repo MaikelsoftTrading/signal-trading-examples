@@ -24,6 +24,8 @@ Current version can be used without any costs. Starting at the first major versi
 * For bot development: .NET interface for retrieving account balance and placing orders from a broker or exchange
 
 # Development guide
+## Reference documentation
+The [C# reference documentation](https://maikelsofttrading.github.io/signal-trading-examples/api/index.html) here on Github is a detailed description of all data types, methods and functions of the framework.
 
 ## Tutorial
 (The development of this tutorial is in progress)
