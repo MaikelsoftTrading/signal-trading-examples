@@ -3,7 +3,7 @@ This repository contains the developer documentation and C# examples for the Sig
 
 ## About the framework
 This is a framework for building signal-based trading applications for backtesting, live testing and live trading. The framework can generate 
-trading signals from any type of data that contains price info. It can build candlestick charts from live prices, supports margin trading, leverage, and measures
+trading signals from any data source that emits timestamped price data. It can build candlestick charts from live prices, supports margin trading, leverage, and measures
 signal performance in real-time.
 
 ## Framework design
