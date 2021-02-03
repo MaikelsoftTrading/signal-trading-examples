@@ -127,25 +127,17 @@ public static IObservable<Pricing> GetPricing()
 }
 ```
 
-### Create observable charts from price data
-```C#
-public static IObservable<(Pricing, Chart)> BuildCharts()
-{
-	IObservable<Pricing> prices = GetPricing();
-	TimeSpan interval = TimeSpan.FromHours(1);
-	return prices.BuildCharts(interval);
-}
-```
-
 ### Generate signals from charts
 ```C#
 public static void GenerateSignals()
 {
-	// Use the charts as input for the signals
-	IObservable<(Pricing, Chart)> signalInput = BuildCharts();
+	// Create a strategy function that uses a moving average length of 3
+	Strategy<Chart> strategy = CreateMovingAverageStrategy(3);
 
-	// Get the strategy that was created earlier
-	Strategy<Chart> strategy = CreateStrategy();
+	IObservable<Pricing> prices = GetPricing();
+
+	// Use the charts as input for the signals
+	IObservable<(Pricing, Chart)> signalInput = prices.BuildCharts(TimeSpan.FromHours(1));
 
 	// Generate the signals from the input
 	IObservable<(Signal, Chart)> tuples = signalInput.GenerateSignals(Amazon, strategy);
