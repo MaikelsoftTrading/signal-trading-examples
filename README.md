@@ -26,6 +26,7 @@ Current version can be used without any costs. Starting at the first major versi
 # Development guide
 
 ## Tutorial
+(The developement of this tutorial is in progress)
 
 ### Create the trading symbol
 Create the trading symbol for which signals will be generated. Name, lot size and tick size are mandatory. Most market data APIs provide an end point for retrieving this information.
