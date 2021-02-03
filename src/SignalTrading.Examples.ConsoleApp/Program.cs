@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace SignalTrading.Examples.ConsoleApp
 {
@@ -6,6 +7,9 @@ namespace SignalTrading.Examples.ConsoleApp
 	{
 		static void Main(string[] args)
 		{
+			CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
+			CultureInfo.CurrentUICulture = CultureInfo.CurrentCulture;
+
 			ConsoleHelpers.ShowMenu(new  (string, Action)[]
 			{
 				("Generate signals from charts (Reactive)", () =>
