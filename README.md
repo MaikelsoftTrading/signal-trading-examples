@@ -17,11 +17,11 @@ The framework can be used in x64 applications that run on Windows or Linux (x64 
 Current version can be used without any costs. Starting at the first major version (1.x.x), a license key must be obtained if you want to generate signals for more than one trading symbol.
 
 ## Prerequisites
-* Basic knowledge of functional and reactive programming in C#
-* .NET 5.0 framework is installed
-* C# development environment with the .NET 5.0 SDK and NuGet installed
-* .NET programming interface to a market data provider for retrieving live prices, price history, etc.
-* For bot development: .NET interface for retrieving account balance and placing orders at the broker or exchange
+* Understanding of functional programming and reactive programming in C#
+* .NET 5.0 framework and the .NET 5.0 SDK are installed
+* C# development environment with NuGet package manager
+* A .NET programming interface to a market data provider (for retrieving live prices, candles history, etc.).
+* For bot development: .NET interface for retrieving account balance and placing orders from a broker or exchange
 
 # Development guide
 
@@ -161,6 +161,6 @@ public static void GenerateSignals()
 	Console.WriteLine($"\tCurrent position size: {signal.Position.Size.ToString(baseFormat)} {signal.Symbol.BaseAssetName}");
 	Console.WriteLine($"\tInvestment: {signal.Performance.Investment.ToString(quoteFormat)} {signal.Symbol.QuoteCurrencyName}");
 	Console.WriteLine($"\tProfit: {signal.Performance.Profit.ToString(quoteFormat)} {signal.Symbol.QuoteCurrencyName}");
-	Console.WriteLine($"\tReturn on investment: {signal.Performance.ROI:P2} {signal.Symbol.QuoteCurrencyName}");
+	Console.WriteLine($"\tReturn on investment: {signal.Performance.ROI:P2}");
 }
 ```
