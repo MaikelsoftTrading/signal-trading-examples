@@ -73,7 +73,9 @@
   
   <h1 id="SignalTrading_Chart" data-uid="SignalTrading.Chart" class="text-break">Class Chart
   </h1>
-  <div class="markdown level0 summary"><p>Candlestick chart.</p>
+  <div class="markdown level0 summary"><p>A candlestick chart that is generated from <a class="xref" href="SignalTrading.Pricing.html">Pricing</a> and/or <a class="xref" href="SignalTrading.Candle.html">Candle</a> sequences.
+See <a class="xref" href="SignalTrading.ExtendIEnumerable.html">ExtendIEnumerable</a> and <a class="xref" href="SignalTrading.Reactive.ExtendIObservable.html">ExtendIObservable</a>
+for chart building methods.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -148,32 +150,6 @@
   </table>
   
   
-  <a id="SignalTrading_Chart_Interval_" data-uid="SignalTrading.Chart.Interval*"></a>
-  <h4 id="SignalTrading_Chart_Interval" data-uid="SignalTrading.Chart.Interval">Interval</h4>
-  <div class="markdown level1 summary"><p>Duration of the candle periods.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TimeSpan Interval { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.TimeSpan</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
   <a id="SignalTrading_Chart_IsLastCandleClosed_" data-uid="SignalTrading.Chart.IsLastCandleClosed*"></a>
   <h4 id="SignalTrading_Chart_IsLastCandleClosed" data-uid="SignalTrading.Chart.IsLastCandleClosed">IsLastCandleClosed</h4>
   <div class="markdown level1 summary"><p>True if the last candle is closed, false otherwise.</p>
@@ -198,6 +174,10 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="SignalTrading_Chart_IsLastCandleClosed_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>A candle is considered closed if its timestamp is greater than or
+equal to the last millisecond of its period.</p>
+</div>
   
   
   <a id="SignalTrading_Chart_Item_" data-uid="SignalTrading.Chart.Item*"></a>
@@ -271,7 +251,8 @@
   
   <a id="SignalTrading_Chart_SessionStartHour_" data-uid="SignalTrading.Chart.SessionStartHour*"></a>
   <h4 id="SignalTrading_Chart_SessionStartHour" data-uid="SignalTrading.Chart.SessionStartHour">SessionStartHour</h4>
-  <div class="markdown level1 summary"><p>Session start hour to which candles are aligned [0-23].</p>
+  <div class="markdown level1 summary"><p>Session start hour to which candle opening times are aligned. In the range 0 to 23 and not applicable
+to timeframes of less than two hours.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -289,6 +270,32 @@
     <tbody>
       <tr>
         <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SignalTrading_Chart_TimeFrame_" data-uid="SignalTrading.Chart.TimeFrame*"></a>
+  <h4 id="SignalTrading_Chart_TimeFrame" data-uid="SignalTrading.Chart.TimeFrame">TimeFrame</h4>
+  <div class="markdown level1 summary"><p>Duration of the candle periods.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan TimeFrame { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.TimeSpan</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -367,7 +374,8 @@
   
   <a id="SignalTrading_Chart_GetEnumerator_" data-uid="SignalTrading.Chart.GetEnumerator*"></a>
   <h4 id="SignalTrading_Chart_GetEnumerator" data-uid="SignalTrading.Chart.GetEnumerator">GetEnumerator()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Iterates through all data points.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">

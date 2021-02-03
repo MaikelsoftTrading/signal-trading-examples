@@ -78,39 +78,46 @@
     <h3 id="classes">Classes
   </h3>
       <h4><a class="xref" href="SignalTrading.Chart.html">Chart</a></h4>
-      <section><p>Candlestick chart.</p>
+      <section><p>A candlestick chart that is generated from <a class="xref" href="SignalTrading.Pricing.html">Pricing</a> and/or <a class="xref" href="SignalTrading.Candle.html">Candle</a> sequences.
+See <a class="xref" href="SignalTrading.ExtendIEnumerable.html">ExtendIEnumerable</a> and <a class="xref" href="SignalTrading.Reactive.ExtendIObservable.html">ExtendIObservable</a>
+for chart building methods.</p>
 </section>
       <h4><a class="xref" href="SignalTrading.ExtendIEnumerable.html">ExtendIEnumerable</a></h4>
-      <section><p>Extension methods for the IEnumerable&lt;T&gt; interface.</p>
+      <section><p>The framework generates signals from <a class="xref" href="SignalTrading.Pricing.html">Pricing</a> data that is paired with
+additional data that must be analyzed. The <span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span> interface is therefore extended
+with methods that transform single elements to (<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>, TData) tuples,
+and a method that generates signals from these tuples.</p>
 </section>
-      <h4><a class="xref" href="SignalTrading.TradingMath.html">TradingMath</a></h4>
-      <section></section>
     <h3 id="structs">Structs
   </h3>
       <h4><a class="xref" href="SignalTrading.Candle.html">Candle</a></h4>
       <section><p>Represents price movement and volume within a specific time period.</p>
 </section>
       <h4><a class="xref" href="SignalTrading.IsolatedAccount.html">IsolatedAccount</a></h4>
-      <section><p>Keeps track of the balances for a trading pair.</p>
+      <section><p>Account balances of a trading symbol which are updated by a signal when positions
+are opened and closed.</p>
 </section>
       <h4><a class="xref" href="SignalTrading.Ledger.html">Ledger</a></h4>
-      <section><p>Accounting values that are updated by the signal when positions are opened or closed.</p>
+      <section><p>Balances of the base asset or quote currency that are updated by the signal when positions are opened and closed.</p>
 </section>
       <h4><a class="xref" href="SignalTrading.Pricing.html">Pricing</a></h4>
-      <section><p>Last known trade price and the best buy and sell prices at a given time.</p>
+      <section><p>Last trade price, best buy price and best sell price at a given time. <a class="xref" href="SignalTrading.Signal.html">Signal</a>
+needs these prices for detecting which price levels were hit (entry, profit target, loss limit) and
+for estimating the value of an open position.</p>
 </section>
       <h4><a class="xref" href="SignalTrading.Signal.html">Signal</a></h4>
-      <section><p>Defines the position that should be taken for a symbol, and stores metrics about the performance of
-the signal based on previous and current positions.</p>
+      <section><p>Informs about the trading position that should be taken for a symbol. The <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_Position">Position</a> of the signal
+can be either long, short or closed. The long and short trade setups of the signal define triggers for opening
+a position if <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_Position">Position</a> is closed.</p>
 </section>
       <h4><a class="xref" href="SignalTrading.SignalPerformance.html">SignalPerformance</a></h4>
       <section><p>Equity and performance metrics of a trading signal.</p>
 </section>
       <h4><a class="xref" href="SignalTrading.SignalPosition.html">SignalPosition</a></h4>
-      <section><p>Defines the trading position of a trading signal.</p>
+      <section><p>Represents the trading position of a <a class="xref" href="SignalTrading.Signal.html">Signal</a>.</p>
 </section>
       <h4><a class="xref" href="SignalTrading.Symbol.html">Symbol</a></h4>
-      <section><p>Information about a trading symbol/instrument.</p>
+      <section><p>Represents a trading symbol a.k.a. trading instrument at a broker or exchange.</p>
 </section>
       <h4><a class="xref" href="SignalTrading.TradeSetup.html">TradeSetup</a></h4>
       <section><p>Specifies at which price to open a position, the size and leverage ratio of the position,
@@ -119,7 +126,9 @@ as well as profit target and loss limit for the position.</p>
     <h3 id="delegates">Delegates
   </h3>
       <h4><a class="xref" href="SignalTrading.Strategy-1.html">Strategy&lt;TData&gt;</a></h4>
-      <section></section>
+      <section><p>The signature of a function that can set trade setups or change the <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_Position">Position</a> of a
+signal, based on the latest analysis data.</p>
+</section>
 </article>
           </div>
           

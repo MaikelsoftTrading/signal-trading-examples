@@ -194,19 +194,6 @@ references:
   isSpec: "True"
   fullName: SignalTrading.Chart.GetEnumerator
   nameWithType: Chart.GetEnumerator
-- uid: SignalTrading.Chart.Interval
-  name: Interval
-  href: api/SignalTrading.Chart.html#SignalTrading_Chart_Interval
-  commentId: P:SignalTrading.Chart.Interval
-  fullName: SignalTrading.Chart.Interval
-  nameWithType: Chart.Interval
-- uid: SignalTrading.Chart.Interval*
-  name: Interval
-  href: api/SignalTrading.Chart.html#SignalTrading_Chart_Interval_
-  commentId: Overload:SignalTrading.Chart.Interval
-  isSpec: "True"
-  fullName: SignalTrading.Chart.Interval
-  nameWithType: Chart.Interval
 - uid: SignalTrading.Chart.IsLastCandleClosed
   name: IsLastCandleClosed
   href: api/SignalTrading.Chart.html#SignalTrading_Chart_IsLastCandleClosed
@@ -292,6 +279,19 @@ references:
   isSpec: "True"
   fullName: SignalTrading.Chart.TakeClosedCandles
   nameWithType: Chart.TakeClosedCandles
+- uid: SignalTrading.Chart.TimeFrame
+  name: TimeFrame
+  href: api/SignalTrading.Chart.html#SignalTrading_Chart_TimeFrame
+  commentId: P:SignalTrading.Chart.TimeFrame
+  fullName: SignalTrading.Chart.TimeFrame
+  nameWithType: Chart.TimeFrame
+- uid: SignalTrading.Chart.TimeFrame*
+  name: TimeFrame
+  href: api/SignalTrading.Chart.html#SignalTrading_Chart_TimeFrame_
+  commentId: Overload:SignalTrading.Chart.TimeFrame
+  isSpec: "True"
+  fullName: SignalTrading.Chart.TimeFrame
+  nameWithType: Chart.TimeFrame
 - uid: SignalTrading.Chart.TryGetValue(System.DateTimeOffset,SignalTrading.Candle@)
   name: TryGetValue(DateTimeOffset, out Candle)
   href: api/SignalTrading.Chart.html#SignalTrading_Chart_TryGetValue_System_DateTimeOffset_SignalTrading_Candle__
@@ -327,22 +327,6 @@ references:
   commentId: T:SignalTrading.ExtendIEnumerable
   fullName: SignalTrading.ExtendIEnumerable
   nameWithType: ExtendIEnumerable
-- uid: SignalTrading.ExtendIEnumerable.AsSignalInput(System.Collections.Generic.IEnumerable{SignalTrading.Pricing})
-  name: AsSignalInput(IEnumerable<Pricing>)
-  href: api/SignalTrading.ExtendIEnumerable.html#SignalTrading_ExtendIEnumerable_AsSignalInput_System_Collections_Generic_IEnumerable_SignalTrading_Pricing__
-  commentId: M:SignalTrading.ExtendIEnumerable.AsSignalInput(System.Collections.Generic.IEnumerable{SignalTrading.Pricing})
-  name.vb: AsSignalInput(IEnumerable(Of Pricing))
-  fullName: SignalTrading.ExtendIEnumerable.AsSignalInput(System.Collections.Generic.IEnumerable<SignalTrading.Pricing>)
-  fullName.vb: SignalTrading.ExtendIEnumerable.AsSignalInput(System.Collections.Generic.IEnumerable(Of SignalTrading.Pricing))
-  nameWithType: ExtendIEnumerable.AsSignalInput(IEnumerable<Pricing>)
-  nameWithType.vb: ExtendIEnumerable.AsSignalInput(IEnumerable(Of Pricing))
-- uid: SignalTrading.ExtendIEnumerable.AsSignalInput*
-  name: AsSignalInput
-  href: api/SignalTrading.ExtendIEnumerable.html#SignalTrading_ExtendIEnumerable_AsSignalInput_
-  commentId: Overload:SignalTrading.ExtendIEnumerable.AsSignalInput
-  isSpec: "True"
-  fullName: SignalTrading.ExtendIEnumerable.AsSignalInput
-  nameWithType: ExtendIEnumerable.AsSignalInput
 - uid: SignalTrading.ExtendIEnumerable.BuildCharts(System.Collections.Generic.IEnumerable{SignalTrading.Candle},System.TimeSpan)
   name: BuildCharts(IEnumerable<Candle>, TimeSpan)
   href: api/SignalTrading.ExtendIEnumerable.html#SignalTrading_ExtendIEnumerable_BuildCharts_System_Collections_Generic_IEnumerable_SignalTrading_Candle__System_TimeSpan_
@@ -384,15 +368,15 @@ references:
   isSpec: "True"
   fullName: SignalTrading.ExtendIEnumerable.GenerateSignals
   nameWithType: ExtendIEnumerable.GenerateSignals
-- uid: SignalTrading.ExtendIEnumerable.GenerateSignals``1(System.Collections.Generic.IEnumerable{System.ValueTuple{SignalTrading.Pricing,``0}},SignalTrading.Symbol,SignalTrading.Strategy{``0},System.String)
-  name: GenerateSignals<TData>(IEnumerable<(Pricing, TData)>, Symbol, Strategy<TData>, String)
-  href: api/SignalTrading.ExtendIEnumerable.html#SignalTrading_ExtendIEnumerable_GenerateSignals__1_System_Collections_Generic_IEnumerable_System_ValueTuple_SignalTrading_Pricing___0___SignalTrading_Symbol_SignalTrading_Strategy___0__System_String_
-  commentId: M:SignalTrading.ExtendIEnumerable.GenerateSignals``1(System.Collections.Generic.IEnumerable{System.ValueTuple{SignalTrading.Pricing,``0}},SignalTrading.Symbol,SignalTrading.Strategy{``0},System.String)
-  name.vb: GenerateSignals(Of TData)(IEnumerable(Of (Pricing, TData)), Symbol, Strategy(Of TData), String)
-  fullName: SignalTrading.ExtendIEnumerable.GenerateSignals<TData>(System.Collections.Generic.IEnumerable<System.ValueTuple<SignalTrading.Pricing, TData>>, SignalTrading.Symbol, SignalTrading.Strategy<TData>, System.String)
-  fullName.vb: SignalTrading.ExtendIEnumerable.GenerateSignals(Of TData)(System.Collections.Generic.IEnumerable(Of System.ValueTuple(Of SignalTrading.Pricing, TData)), SignalTrading.Symbol, SignalTrading.Strategy(Of TData), System.String)
-  nameWithType: ExtendIEnumerable.GenerateSignals<TData>(IEnumerable<(Pricing, TData)>, Symbol, Strategy<TData>, String)
-  nameWithType.vb: ExtendIEnumerable.GenerateSignals(Of TData)(IEnumerable(Of (Pricing, TData)), Symbol, Strategy(Of TData), String)
+- uid: SignalTrading.ExtendIEnumerable.GenerateSignals``1(System.Collections.Generic.IEnumerable{System.ValueTuple{SignalTrading.Pricing,``0}},SignalTrading.Symbol,SignalTrading.Strategy{``0})
+  name: GenerateSignals<TData>(IEnumerable<(Pricing, TData)>, Symbol, Strategy<TData>)
+  href: api/SignalTrading.ExtendIEnumerable.html#SignalTrading_ExtendIEnumerable_GenerateSignals__1_System_Collections_Generic_IEnumerable_System_ValueTuple_SignalTrading_Pricing___0___SignalTrading_Symbol_SignalTrading_Strategy___0__
+  commentId: M:SignalTrading.ExtendIEnumerable.GenerateSignals``1(System.Collections.Generic.IEnumerable{System.ValueTuple{SignalTrading.Pricing,``0}},SignalTrading.Symbol,SignalTrading.Strategy{``0})
+  name.vb: GenerateSignals(Of TData)(IEnumerable(Of (Pricing, TData)), Symbol, Strategy(Of TData))
+  fullName: SignalTrading.ExtendIEnumerable.GenerateSignals<TData>(System.Collections.Generic.IEnumerable<System.ValueTuple<SignalTrading.Pricing, TData>>, SignalTrading.Symbol, SignalTrading.Strategy<TData>)
+  fullName.vb: SignalTrading.ExtendIEnumerable.GenerateSignals(Of TData)(System.Collections.Generic.IEnumerable(Of System.ValueTuple(Of SignalTrading.Pricing, TData)), SignalTrading.Symbol, SignalTrading.Strategy(Of TData))
+  nameWithType: ExtendIEnumerable.GenerateSignals<TData>(IEnumerable<(Pricing, TData)>, Symbol, Strategy<TData>)
+  nameWithType.vb: ExtendIEnumerable.GenerateSignals(Of TData)(IEnumerable(Of (Pricing, TData)), Symbol, Strategy(Of TData))
 - uid: SignalTrading.ExtendIEnumerable.SelectSignals*
   name: SelectSignals
   href: api/SignalTrading.ExtendIEnumerable.html#SignalTrading_ExtendIEnumerable_SelectSignals_
@@ -703,22 +687,6 @@ references:
   commentId: T:SignalTrading.Reactive.ExtendIObservable
   fullName: SignalTrading.Reactive.ExtendIObservable
   nameWithType: ExtendIObservable
-- uid: SignalTrading.Reactive.ExtendIObservable.AsSignalInput(System.IObservable{SignalTrading.Pricing})
-  name: AsSignalInput(IObservable<Pricing>)
-  href: api/SignalTrading.Reactive.ExtendIObservable.html#SignalTrading_Reactive_ExtendIObservable_AsSignalInput_System_IObservable_SignalTrading_Pricing__
-  commentId: M:SignalTrading.Reactive.ExtendIObservable.AsSignalInput(System.IObservable{SignalTrading.Pricing})
-  name.vb: AsSignalInput(IObservable(Of Pricing))
-  fullName: SignalTrading.Reactive.ExtendIObservable.AsSignalInput(System.IObservable<SignalTrading.Pricing>)
-  fullName.vb: SignalTrading.Reactive.ExtendIObservable.AsSignalInput(System.IObservable(Of SignalTrading.Pricing))
-  nameWithType: ExtendIObservable.AsSignalInput(IObservable<Pricing>)
-  nameWithType.vb: ExtendIObservable.AsSignalInput(IObservable(Of Pricing))
-- uid: SignalTrading.Reactive.ExtendIObservable.AsSignalInput*
-  name: AsSignalInput
-  href: api/SignalTrading.Reactive.ExtendIObservable.html#SignalTrading_Reactive_ExtendIObservable_AsSignalInput_
-  commentId: Overload:SignalTrading.Reactive.ExtendIObservable.AsSignalInput
-  isSpec: "True"
-  fullName: SignalTrading.Reactive.ExtendIObservable.AsSignalInput
-  nameWithType: ExtendIObservable.AsSignalInput
 - uid: SignalTrading.Reactive.ExtendIObservable.BuildCharts(System.IObservable{SignalTrading.Candle},System.TimeSpan)
   name: BuildCharts(IObservable<Candle>, TimeSpan)
   href: api/SignalTrading.Reactive.ExtendIObservable.html#SignalTrading_Reactive_ExtendIObservable_BuildCharts_System_IObservable_SignalTrading_Candle__System_TimeSpan_
@@ -760,15 +728,15 @@ references:
   isSpec: "True"
   fullName: SignalTrading.Reactive.ExtendIObservable.GenerateSignals
   nameWithType: ExtendIObservable.GenerateSignals
-- uid: SignalTrading.Reactive.ExtendIObservable.GenerateSignals``1(System.IObservable{System.ValueTuple{SignalTrading.Pricing,``0}},SignalTrading.Symbol,SignalTrading.Strategy{``0},System.String)
-  name: GenerateSignals<TData>(IObservable<(Pricing, TData)>, Symbol, Strategy<TData>, String)
-  href: api/SignalTrading.Reactive.ExtendIObservable.html#SignalTrading_Reactive_ExtendIObservable_GenerateSignals__1_System_IObservable_System_ValueTuple_SignalTrading_Pricing___0___SignalTrading_Symbol_SignalTrading_Strategy___0__System_String_
-  commentId: M:SignalTrading.Reactive.ExtendIObservable.GenerateSignals``1(System.IObservable{System.ValueTuple{SignalTrading.Pricing,``0}},SignalTrading.Symbol,SignalTrading.Strategy{``0},System.String)
-  name.vb: GenerateSignals(Of TData)(IObservable(Of (Pricing, TData)), Symbol, Strategy(Of TData), String)
-  fullName: SignalTrading.Reactive.ExtendIObservable.GenerateSignals<TData>(System.IObservable<System.ValueTuple<SignalTrading.Pricing, TData>>, SignalTrading.Symbol, SignalTrading.Strategy<TData>, System.String)
-  fullName.vb: SignalTrading.Reactive.ExtendIObservable.GenerateSignals(Of TData)(System.IObservable(Of System.ValueTuple(Of SignalTrading.Pricing, TData)), SignalTrading.Symbol, SignalTrading.Strategy(Of TData), System.String)
-  nameWithType: ExtendIObservable.GenerateSignals<TData>(IObservable<(Pricing, TData)>, Symbol, Strategy<TData>, String)
-  nameWithType.vb: ExtendIObservable.GenerateSignals(Of TData)(IObservable(Of (Pricing, TData)), Symbol, Strategy(Of TData), String)
+- uid: SignalTrading.Reactive.ExtendIObservable.GenerateSignals``1(System.IObservable{System.ValueTuple{SignalTrading.Pricing,``0}},SignalTrading.Symbol,SignalTrading.Strategy{``0})
+  name: GenerateSignals<TData>(IObservable<(Pricing, TData)>, Symbol, Strategy<TData>)
+  href: api/SignalTrading.Reactive.ExtendIObservable.html#SignalTrading_Reactive_ExtendIObservable_GenerateSignals__1_System_IObservable_System_ValueTuple_SignalTrading_Pricing___0___SignalTrading_Symbol_SignalTrading_Strategy___0__
+  commentId: M:SignalTrading.Reactive.ExtendIObservable.GenerateSignals``1(System.IObservable{System.ValueTuple{SignalTrading.Pricing,``0}},SignalTrading.Symbol,SignalTrading.Strategy{``0})
+  name.vb: GenerateSignals(Of TData)(IObservable(Of (Pricing, TData)), Symbol, Strategy(Of TData))
+  fullName: SignalTrading.Reactive.ExtendIObservable.GenerateSignals<TData>(System.IObservable<System.ValueTuple<SignalTrading.Pricing, TData>>, SignalTrading.Symbol, SignalTrading.Strategy<TData>)
+  fullName.vb: SignalTrading.Reactive.ExtendIObservable.GenerateSignals(Of TData)(System.IObservable(Of System.ValueTuple(Of SignalTrading.Pricing, TData)), SignalTrading.Symbol, SignalTrading.Strategy(Of TData))
+  nameWithType: ExtendIObservable.GenerateSignals<TData>(IObservable<(Pricing, TData)>, Symbol, Strategy<TData>)
+  nameWithType.vb: ExtendIObservable.GenerateSignals(Of TData)(IObservable(Of (Pricing, TData)), Symbol, Strategy(Of TData))
 - uid: SignalTrading.Reactive.ExtendIObservable.SelectSignals*
   name: SelectSignals
   href: api/SignalTrading.Reactive.ExtendIObservable.html#SignalTrading_Reactive_ExtendIObservable_SelectSignals_
@@ -1597,19 +1565,19 @@ references:
   isSpec: "True"
   fullName: SignalTrading.Symbol.SetQuoteDecimals
   nameWithType: Symbol.SetQuoteDecimals
-- uid: SignalTrading.Symbol.SetTradingFee(System.Double)
-  name: SetTradingFee(Double)
-  href: api/SignalTrading.Symbol.html#SignalTrading_Symbol_SetTradingFee_System_Double_
-  commentId: M:SignalTrading.Symbol.SetTradingFee(System.Double)
-  fullName: SignalTrading.Symbol.SetTradingFee(System.Double)
-  nameWithType: Symbol.SetTradingFee(Double)
-- uid: SignalTrading.Symbol.SetTradingFee*
-  name: SetTradingFee
-  href: api/SignalTrading.Symbol.html#SignalTrading_Symbol_SetTradingFee_
-  commentId: Overload:SignalTrading.Symbol.SetTradingFee
+- uid: SignalTrading.Symbol.SetTradingFeeRate(System.Double)
+  name: SetTradingFeeRate(Double)
+  href: api/SignalTrading.Symbol.html#SignalTrading_Symbol_SetTradingFeeRate_System_Double_
+  commentId: M:SignalTrading.Symbol.SetTradingFeeRate(System.Double)
+  fullName: SignalTrading.Symbol.SetTradingFeeRate(System.Double)
+  nameWithType: Symbol.SetTradingFeeRate(Double)
+- uid: SignalTrading.Symbol.SetTradingFeeRate*
+  name: SetTradingFeeRate
+  href: api/SignalTrading.Symbol.html#SignalTrading_Symbol_SetTradingFeeRate_
+  commentId: Overload:SignalTrading.Symbol.SetTradingFeeRate
   isSpec: "True"
-  fullName: SignalTrading.Symbol.SetTradingFee
-  nameWithType: Symbol.SetTradingFee
+  fullName: SignalTrading.Symbol.SetTradingFeeRate
+  nameWithType: Symbol.SetTradingFeeRate
 - uid: SignalTrading.Symbol.TickSize
   name: TickSize
   href: api/SignalTrading.Symbol.html#SignalTrading_Symbol_TickSize
@@ -1642,19 +1610,6 @@ references:
   commentId: T:SignalTrading.TradeSetup
   fullName: SignalTrading.TradeSetup
   nameWithType: TradeSetup
-- uid: SignalTrading.TradeSetup.Disabled
-  name: Disabled
-  href: api/SignalTrading.TradeSetup.html#SignalTrading_TradeSetup_Disabled
-  commentId: P:SignalTrading.TradeSetup.Disabled
-  fullName: SignalTrading.TradeSetup.Disabled
-  nameWithType: TradeSetup.Disabled
-- uid: SignalTrading.TradeSetup.Disabled*
-  name: Disabled
-  href: api/SignalTrading.TradeSetup.html#SignalTrading_TradeSetup_Disabled_
-  commentId: Overload:SignalTrading.TradeSetup.Disabled
-  isSpec: "True"
-  fullName: SignalTrading.TradeSetup.Disabled
-  nameWithType: TradeSetup.Disabled
 - uid: SignalTrading.TradeSetup.EntryPrice
   name: EntryPrice
   href: api/SignalTrading.TradeSetup.html#SignalTrading_TradeSetup_EntryPrice
@@ -1668,19 +1623,19 @@ references:
   isSpec: "True"
   fullName: SignalTrading.TradeSetup.EntryPrice
   nameWithType: TradeSetup.EntryPrice
-- uid: SignalTrading.TradeSetup.IsEnabled
-  name: IsEnabled
-  href: api/SignalTrading.TradeSetup.html#SignalTrading_TradeSetup_IsEnabled
-  commentId: P:SignalTrading.TradeSetup.IsEnabled
-  fullName: SignalTrading.TradeSetup.IsEnabled
-  nameWithType: TradeSetup.IsEnabled
-- uid: SignalTrading.TradeSetup.IsEnabled*
-  name: IsEnabled
-  href: api/SignalTrading.TradeSetup.html#SignalTrading_TradeSetup_IsEnabled_
-  commentId: Overload:SignalTrading.TradeSetup.IsEnabled
+- uid: SignalTrading.TradeSetup.IsSet
+  name: IsSet
+  href: api/SignalTrading.TradeSetup.html#SignalTrading_TradeSetup_IsSet
+  commentId: P:SignalTrading.TradeSetup.IsSet
+  fullName: SignalTrading.TradeSetup.IsSet
+  nameWithType: TradeSetup.IsSet
+- uid: SignalTrading.TradeSetup.IsSet*
+  name: IsSet
+  href: api/SignalTrading.TradeSetup.html#SignalTrading_TradeSetup_IsSet_
+  commentId: Overload:SignalTrading.TradeSetup.IsSet
   isSpec: "True"
-  fullName: SignalTrading.TradeSetup.IsEnabled
-  nameWithType: TradeSetup.IsEnabled
+  fullName: SignalTrading.TradeSetup.IsSet
+  nameWithType: TradeSetup.IsSet
 - uid: SignalTrading.TradeSetup.LeverageRatio
   name: LeverageRatio
   href: api/SignalTrading.TradeSetup.html#SignalTrading_TradeSetup_LeverageRatio
@@ -1759,61 +1714,3 @@ references:
   isSpec: "True"
   fullName: SignalTrading.TradeSetup.Short
   nameWithType: TradeSetup.Short
-- uid: SignalTrading.TradingMath
-  name: TradingMath
-  href: api/SignalTrading.TradingMath.html
-  commentId: T:SignalTrading.TradingMath
-  fullName: SignalTrading.TradingMath
-  nameWithType: TradingMath
-- uid: SignalTrading.TradingMath.NumberOfDecimals(System.Double)
-  name: NumberOfDecimals(Double)
-  href: api/SignalTrading.TradingMath.html#SignalTrading_TradingMath_NumberOfDecimals_System_Double_
-  commentId: M:SignalTrading.TradingMath.NumberOfDecimals(System.Double)
-  fullName: SignalTrading.TradingMath.NumberOfDecimals(System.Double)
-  nameWithType: TradingMath.NumberOfDecimals(Double)
-- uid: SignalTrading.TradingMath.NumberOfDecimals*
-  name: NumberOfDecimals
-  href: api/SignalTrading.TradingMath.html#SignalTrading_TradingMath_NumberOfDecimals_
-  commentId: Overload:SignalTrading.TradingMath.NumberOfDecimals
-  isSpec: "True"
-  fullName: SignalTrading.TradingMath.NumberOfDecimals
-  nameWithType: TradingMath.NumberOfDecimals
-- uid: SignalTrading.TradingMath.RoundDownToLotSize(System.Double,System.Double)
-  name: RoundDownToLotSize(Double, Double)
-  href: api/SignalTrading.TradingMath.html#SignalTrading_TradingMath_RoundDownToLotSize_System_Double_System_Double_
-  commentId: M:SignalTrading.TradingMath.RoundDownToLotSize(System.Double,System.Double)
-  fullName: SignalTrading.TradingMath.RoundDownToLotSize(System.Double, System.Double)
-  nameWithType: TradingMath.RoundDownToLotSize(Double, Double)
-- uid: SignalTrading.TradingMath.RoundDownToLotSize*
-  name: RoundDownToLotSize
-  href: api/SignalTrading.TradingMath.html#SignalTrading_TradingMath_RoundDownToLotSize_
-  commentId: Overload:SignalTrading.TradingMath.RoundDownToLotSize
-  isSpec: "True"
-  fullName: SignalTrading.TradingMath.RoundDownToLotSize
-  nameWithType: TradingMath.RoundDownToLotSize
-- uid: SignalTrading.TradingMath.RoundToTickSize(System.Double,System.Double)
-  name: RoundToTickSize(Double, Double)
-  href: api/SignalTrading.TradingMath.html#SignalTrading_TradingMath_RoundToTickSize_System_Double_System_Double_
-  commentId: M:SignalTrading.TradingMath.RoundToTickSize(System.Double,System.Double)
-  fullName: SignalTrading.TradingMath.RoundToTickSize(System.Double, System.Double)
-  nameWithType: TradingMath.RoundToTickSize(Double, Double)
-- uid: SignalTrading.TradingMath.RoundToTickSize*
-  name: RoundToTickSize
-  href: api/SignalTrading.TradingMath.html#SignalTrading_TradingMath_RoundToTickSize_
-  commentId: Overload:SignalTrading.TradingMath.RoundToTickSize
-  isSpec: "True"
-  fullName: SignalTrading.TradingMath.RoundToTickSize
-  nameWithType: TradingMath.RoundToTickSize
-- uid: SignalTrading.TradingMath.RoundUpToLotSize(System.Double,System.Double)
-  name: RoundUpToLotSize(Double, Double)
-  href: api/SignalTrading.TradingMath.html#SignalTrading_TradingMath_RoundUpToLotSize_System_Double_System_Double_
-  commentId: M:SignalTrading.TradingMath.RoundUpToLotSize(System.Double,System.Double)
-  fullName: SignalTrading.TradingMath.RoundUpToLotSize(System.Double, System.Double)
-  nameWithType: TradingMath.RoundUpToLotSize(Double, Double)
-- uid: SignalTrading.TradingMath.RoundUpToLotSize*
-  name: RoundUpToLotSize
-  href: api/SignalTrading.TradingMath.html#SignalTrading_TradingMath_RoundUpToLotSize_
-  commentId: Overload:SignalTrading.TradingMath.RoundUpToLotSize
-  isSpec: "True"
-  fullName: SignalTrading.TradingMath.RoundUpToLotSize
-  nameWithType: TradingMath.RoundUpToLotSize

@@ -73,7 +73,9 @@
   
   <h1 id="SignalTrading_Strategy_1" data-uid="SignalTrading.Strategy`1" class="text-break">Delegate Strategy&lt;TData&gt;
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>The signature of a function that can set trade setups or change the <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_Position">Position</a> of a
+signal, based on the latest analysis data.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <h6><strong>Namespace</strong>: <a class="xref" href="SignalTrading.html">SignalTrading</a></h6>
   <h6><strong>Assembly</strong>: SignalTrading.Core.dll</h6>
@@ -94,12 +96,13 @@
       <tr>
         <td><a class="xref" href="SignalTrading.Signal.html">Signal</a></td>
         <td><span class="parametername">signal</span></td>
-        <td></td>
+        <td><p>Signal with latest pricing and its position opened or closed accordingly.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">TData</span></td>
         <td><span class="parametername">data</span></td>
-        <td><p>Additional data (besides pricing) for determining the trading position</p>
+        <td><p>Input data that was paired with the latest pricing.</p>
 </td>
       </tr>
     </tbody>
@@ -115,7 +118,8 @@
     <tbody>
       <tr>
         <td><a class="xref" href="SignalTrading.Signal.html">Signal</a></td>
-        <td></td>
+        <td><p>Signal with trade setups and position according to the strategy.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -130,7 +134,7 @@
     <tbody>
       <tr>
         <td><span class="parametername">TData</span></td>
-        <td><p>Type of analysis data</p>
+        <td><p>Type of data to be analyzed by the strategy.</p>
 </td>
       </tr>
     </tbody>

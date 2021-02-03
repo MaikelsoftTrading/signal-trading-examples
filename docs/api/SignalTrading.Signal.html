@@ -73,8 +73,9 @@
   
   <h1 id="SignalTrading_Signal" data-uid="SignalTrading.Signal" class="text-break">Struct Signal
   </h1>
-  <div class="markdown level0 summary"><p>Defines the position that should be taken for a symbol, and stores metrics about the performance of
-the signal based on previous and current positions.</p>
+  <div class="markdown level0 summary"><p>Informs about the trading position that should be taken for a symbol. The <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_Position">Position</a> of the signal
+can be either long, short or closed. The long and short trade setups of the signal define triggers for opening
+a position if <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_Position">Position</a> is closed.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritedMembers">
@@ -104,13 +105,16 @@ the signal based on previous and current positions.</p>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public struct Signal</code></pre>
   </div>
+  <h5 id="SignalTrading_Signal_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>Information from the signal is to be used for placing orders at a broker or exchange, either manually or automatically by a bot.</p>
+</div>
   <h3 id="properties">Properties
   </h3>
   
   
   <a id="SignalTrading_Signal_Account_" data-uid="SignalTrading.Signal.Account*"></a>
   <h4 id="SignalTrading_Signal_Account" data-uid="SignalTrading.Signal.Account">Account</h4>
-  <div class="markdown level1 summary"><p>Detailed balances of the base and quote asset at the time the signal was generated.</p>
+  <div class="markdown level1 summary"><p>Account balances of the base asset and quote currency according to (history of) the signal.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -136,9 +140,8 @@ the signal based on previous and current positions.</p>
   
   <a id="SignalTrading_Signal_LongTradeSetup_" data-uid="SignalTrading.Signal.LongTradeSetup*"></a>
   <h4 id="SignalTrading_Signal_LongTradeSetup" data-uid="SignalTrading.Signal.LongTradeSetup">LongTradeSetup</h4>
-  <div class="markdown level1 summary"><p>If no position is open, this value specifies at which price a long position should be opened as
-well as the profit target, loss limit and leverage ratio for the position. The target is empty
-(disabled) if a position has been opened.</p>
+  <div class="markdown level1 summary"><p>Defines the trigger prices and requirements for the next long position. This value is empty
+if <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_Position">Position</a> is open.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -190,7 +193,7 @@ well as the profit target, loss limit and leverage ratio for the position. The t
   
   <a id="SignalTrading_Signal_Position_" data-uid="SignalTrading.Signal.Position*"></a>
   <h4 id="SignalTrading_Signal_Position" data-uid="SignalTrading.Signal.Position">Position</h4>
-  <div class="markdown level1 summary"><p>The trading position that should be taken according to the signal.</p>
+  <div class="markdown level1 summary"><p>Position (long, short or closed) at the time of the signal.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -216,8 +219,7 @@ well as the profit target, loss limit and leverage ratio for the position. The t
   
   <a id="SignalTrading_Signal_Pricing_" data-uid="SignalTrading.Signal.Pricing*"></a>
   <h4 id="SignalTrading_Signal_Pricing" data-uid="SignalTrading.Signal.Pricing">Pricing</h4>
-  <div class="markdown level1 summary"><p>Last known prices at the time the signal was generated. The timestamp of the pricing is therefore
-also the timestamp of the signal.</p>
+  <div class="markdown level1 summary"><p>Last known prices at the time the signal was generated.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -243,9 +245,8 @@ also the timestamp of the signal.</p>
   
   <a id="SignalTrading_Signal_ShortTradeSetup_" data-uid="SignalTrading.Signal.ShortTradeSetup*"></a>
   <h4 id="SignalTrading_Signal_ShortTradeSetup" data-uid="SignalTrading.Signal.ShortTradeSetup">ShortTradeSetup</h4>
-  <div class="markdown level1 summary"><p>If no position is open, this value specifies at which price a short position should be opened as
-well as the profit target, loss limit and leverage ratio for the position. The target is empty
-(disabled) if a position has been opened.</p>
+  <div class="markdown level1 summary"><p>Defines the trigger prices and requirements for the next short position. This value is empty
+if <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_Position">Position</a> is open.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -299,7 +300,7 @@ well as the profit target, loss limit and leverage ratio for the position. The t
   
   <a id="SignalTrading_Signal_ClearLongTradeSetup_" data-uid="SignalTrading.Signal.ClearLongTradeSetup*"></a>
   <h4 id="SignalTrading_Signal_ClearLongTradeSetup" data-uid="SignalTrading.Signal.ClearLongTradeSetup">ClearLongTradeSetup()</h4>
-  <div class="markdown level1 summary"><p>Clears the long trade setup, so that no long position can be opened.</p>
+  <div class="markdown level1 summary"><p>Clears <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_LongTradeSetup">LongTradeSetup</a> so that no long position can be opened.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -318,7 +319,7 @@ public Signal ClearLongTradeSetup()</code></pre>
     <tbody>
       <tr>
         <td><a class="xref" href="SignalTrading.Signal.html">Signal</a></td>
-        <td><p>Signal with long trade setup cleared.</p>
+        <td><p>Signal with an empty <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_LongTradeSetup">LongTradeSetup</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -327,7 +328,7 @@ public Signal ClearLongTradeSetup()</code></pre>
   
   <a id="SignalTrading_Signal_ClearShortTradeSetup_" data-uid="SignalTrading.Signal.ClearShortTradeSetup*"></a>
   <h4 id="SignalTrading_Signal_ClearShortTradeSetup" data-uid="SignalTrading.Signal.ClearShortTradeSetup">ClearShortTradeSetup()</h4>
-  <div class="markdown level1 summary"><p>Clears the short trade setup, so that no short position can be opened.</p>
+  <div class="markdown level1 summary"><p>Clears <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_ShortTradeSetup">ShortTradeSetup</a> so that no short position can be opened.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -346,7 +347,7 @@ public Signal ClearShortTradeSetup()</code></pre>
     <tbody>
       <tr>
         <td><a class="xref" href="SignalTrading.Signal.html">Signal</a></td>
-        <td><p>Signal with short trade setup cleared.</p>
+        <td><p>Signal with an empty <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_ShortTradeSetup">ShortTradeSetup</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -355,13 +356,15 @@ public Signal ClearShortTradeSetup()</code></pre>
   
   <a id="SignalTrading_Signal_IsTradeSetupAllowed_" data-uid="SignalTrading.Signal.IsTradeSetupAllowed*"></a>
   <h4 id="SignalTrading_Signal_IsTradeSetupAllowed_SignalTrading_TradeSetup_" data-uid="SignalTrading.Signal.IsTradeSetupAllowed(SignalTrading.TradeSetup)">IsTradeSetupAllowed(TradeSetup)</h4>
-  <div class="markdown level1 summary"><p>Validates that specified trade setup is allowed in combination with current pricing.</p>
+  <div class="markdown level1 summary"><p>Validates that specified trade setup is allowed according to current pricing. For example,
+because of hit detection, a long trade setup can only be set if the entry price is lower
+than last trade price and current buy price.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
-public bool IsTradeSetupAllowed(TradeSetup setup)</code></pre>
+public bool IsTradeSetupAllowed(TradeSetup tradeSetup)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -375,7 +378,7 @@ public bool IsTradeSetupAllowed(TradeSetup setup)</code></pre>
     <tbody>
       <tr>
         <td><a class="xref" href="SignalTrading.TradeSetup.html">TradeSetup</a></td>
-        <td><span class="parametername">setup</span></td>
+        <td><span class="parametername">tradeSetup</span></td>
         <td><p>The trade setup that must be validated.</p>
 </td>
       </tr>
@@ -392,7 +395,7 @@ public bool IsTradeSetupAllowed(TradeSetup setup)</code></pre>
     <tbody>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
-        <td><p>True if the trade setup is allowed, false otherwise.</p>
+        <td><p>True if the setup is allowed, false otherwise.</p>
 </td>
       </tr>
     </tbody>
@@ -401,14 +404,14 @@ public bool IsTradeSetupAllowed(TradeSetup setup)</code></pre>
   
   <a id="SignalTrading_Signal_SetLongTradeSetup_" data-uid="SignalTrading.Signal.SetLongTradeSetup*"></a>
   <h4 id="SignalTrading_Signal_SetLongTradeSetup_SignalTrading_TradeSetup_" data-uid="SignalTrading.Signal.SetLongTradeSetup(SignalTrading.TradeSetup)">SetLongTradeSetup(TradeSetup)</h4>
-  <div class="markdown level1 summary"><p>Sets the long entry target which specifies at which price to open a long position as well as the size,
-profit target and loss limit for the position after entry.</p>
+  <div class="markdown level1 summary"><p>Sets <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_LongTradeSetup">LongTradeSetup</a>. Specified setup must be allowed according to <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_Pricing">Pricing</a>
+(which can be checked using <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_IsTradeSetupAllowed_SignalTrading_TradeSetup_">IsTradeSetupAllowed(TradeSetup)</a>) and cannot be set if <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_Position">Position</a> is open.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
-public Signal SetLongTradeSetup(TradeSetup setup)</code></pre>
+public Signal SetLongTradeSetup(TradeSetup longTradeSetup)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -422,8 +425,8 @@ public Signal SetLongTradeSetup(TradeSetup setup)</code></pre>
     <tbody>
       <tr>
         <td><a class="xref" href="SignalTrading.TradeSetup.html">TradeSetup</a></td>
-        <td><span class="parametername">setup</span></td>
-        <td><p>Entry target for a long position.</p>
+        <td><span class="parametername">longTradeSetup</span></td>
+        <td><p>Long trade setup.</p>
 </td>
       </tr>
     </tbody>
@@ -439,22 +442,25 @@ public Signal SetLongTradeSetup(TradeSetup setup)</code></pre>
     <tbody>
       <tr>
         <td><a class="xref" href="SignalTrading.Signal.html">Signal</a></td>
-        <td><p>Signal with the long entry target set to specified value.</p>
+        <td><p>Signal with <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_LongTradeSetup">LongTradeSetup</a> set to specified value.</p>
 </td>
       </tr>
     </tbody>
   </table>
+  <h5 id="SignalTrading_Signal_SetLongTradeSetup_SignalTrading_TradeSetup__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>An exception will be thrown if <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_Position">Position</a> is open or specified setup conflicts with <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_Pricing">Pricing</a>.</p>
+</div>
   
   
   <a id="SignalTrading_Signal_SetPositionLossLimit_" data-uid="SignalTrading.Signal.SetPositionLossLimit*"></a>
   <h4 id="SignalTrading_Signal_SetPositionLossLimit_System_Double_" data-uid="SignalTrading.Signal.SetPositionLossLimit(System.Double)">SetPositionLossLimit(Double)</h4>
-  <div class="markdown level1 summary"><p>Sets the loss limit of the open position to specified price.</p>
+  <div class="markdown level1 summary"><p>Changes the loss limit of <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_Position">Position</a> after opening.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
-public Signal SetPositionLossLimit(double price)</code></pre>
+public Signal SetPositionLossLimit(double lossLimit)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -468,8 +474,8 @@ public Signal SetPositionLossLimit(double price)</code></pre>
     <tbody>
       <tr>
         <td><span class="xref">System.Double</span></td>
-        <td><span class="parametername">price</span></td>
-        <td><p>New los limmit. Must be less than last price and current sell
+        <td><span class="parametername">lossLimit</span></td>
+        <td><p>New loss limit. Must be less than last price and current sell
 price if the position is long. If the position is short, the price must be greater than last price
 and current buy price.</p>
 </td>
@@ -487,25 +493,25 @@ and current buy price.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="SignalTrading.Signal.html">Signal</a></td>
-        <td><p>Signal with the loss limit of the position set to specified price.</p>
+        <td><p>Signal with loss limit of <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_Position">Position</a> set to specified price.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 id="SignalTrading_Signal_SetPositionLossLimit_System_Double__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>An exception will be thrown if there is no open position or the price is out of range.</p>
+  <div class="markdown level1 remarks"><p>An exception will be thrown if <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_Position">Position</a> is closed or specified price is out of range.</p>
 </div>
   
   
   <a id="SignalTrading_Signal_SetPositionProfitTarget_" data-uid="SignalTrading.Signal.SetPositionProfitTarget*"></a>
   <h4 id="SignalTrading_Signal_SetPositionProfitTarget_System_Double_" data-uid="SignalTrading.Signal.SetPositionProfitTarget(System.Double)">SetPositionProfitTarget(Double)</h4>
-  <div class="markdown level1 summary"><p>Sets the profit target of the open position to specified price.</p>
+  <div class="markdown level1 summary"><p>Changes the profit target of <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_Position">Position</a> after opening.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
-public Signal SetPositionProfitTarget(double price)</code></pre>
+public Signal SetPositionProfitTarget(double profitTarget)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -519,7 +525,7 @@ public Signal SetPositionProfitTarget(double price)</code></pre>
     <tbody>
       <tr>
         <td><span class="xref">System.Double</span></td>
-        <td><span class="parametername">price</span></td>
+        <td><span class="parametername">profitTarget</span></td>
         <td><p>New profit target. Must be greater than last price and current sell
 price if the position is long. If the position is short, the price must be less than last price
 and current buy price.</p>
@@ -538,26 +544,26 @@ and current buy price.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="SignalTrading.Signal.html">Signal</a></td>
-        <td><p>Signal with the profit target of the position set to specified price.</p>
+        <td><p>Signal with profit target of <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_Position">Position</a> set to specified price.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 id="SignalTrading_Signal_SetPositionProfitTarget_System_Double__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>An exception will be thrown if there is no open position or the price is out of range.</p>
+  <div class="markdown level1 remarks"><p>An exception will be thrown if <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_Position">Position</a> is closed or specified price is out of range.</p>
 </div>
   
   
   <a id="SignalTrading_Signal_SetShortTradeSetup_" data-uid="SignalTrading.Signal.SetShortTradeSetup*"></a>
   <h4 id="SignalTrading_Signal_SetShortTradeSetup_SignalTrading_TradeSetup_" data-uid="SignalTrading.Signal.SetShortTradeSetup(SignalTrading.TradeSetup)">SetShortTradeSetup(TradeSetup)</h4>
-  <div class="markdown level1 summary"><p>Sets the short entry target which specifies at which price to open a short position as well as the size,
-profit target and loss limit for the position after entry.</p>
+  <div class="markdown level1 summary"><p>Sets <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_ShortTradeSetup">ShortTradeSetup</a>. Specified setup must be allowed according to <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_Pricing">Pricing</a>
+(which can be checked using <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_IsTradeSetupAllowed_SignalTrading_TradeSetup_">IsTradeSetupAllowed(TradeSetup)</a>) and cannot be set if <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_Position">Position</a> is open.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
-public Signal SetShortTradeSetup(TradeSetup setup)</code></pre>
+public Signal SetShortTradeSetup(TradeSetup shortTradeSetup)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -571,8 +577,8 @@ public Signal SetShortTradeSetup(TradeSetup setup)</code></pre>
     <tbody>
       <tr>
         <td><a class="xref" href="SignalTrading.TradeSetup.html">TradeSetup</a></td>
-        <td><span class="parametername">setup</span></td>
-        <td><p>Trade setup for a short position.</p>
+        <td><span class="parametername">shortTradeSetup</span></td>
+        <td><p>Short trade setup.</p>
 </td>
       </tr>
     </tbody>
@@ -588,22 +594,27 @@ public Signal SetShortTradeSetup(TradeSetup setup)</code></pre>
     <tbody>
       <tr>
         <td><a class="xref" href="SignalTrading.Signal.html">Signal</a></td>
-        <td><p>Signal with the short trade setup set to specified value.</p>
+        <td><p>Signal with <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_ShortTradeSetup">ShortTradeSetup</a> set to specified value.</p>
 </td>
       </tr>
     </tbody>
   </table>
+  <h5 id="SignalTrading_Signal_SetShortTradeSetup_SignalTrading_TradeSetup__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>An exception will be thrown if <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_Position">Position</a> is open or specified setup conflicts with <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_Pricing">Pricing</a>.</p>
+</div>
   
   
   <a id="SignalTrading_Signal_SetTradeSetups_" data-uid="SignalTrading.Signal.SetTradeSetups*"></a>
   <h4 id="SignalTrading_Signal_SetTradeSetups_SignalTrading_TradeSetup_SignalTrading_TradeSetup_" data-uid="SignalTrading.Signal.SetTradeSetups(SignalTrading.TradeSetup,SignalTrading.TradeSetup)">SetTradeSetups(TradeSetup, TradeSetup)</h4>
-  <div class="markdown level1 summary"><p>Sets both the long and short entry target.</p>
+  <div class="markdown level1 summary"><p>Sets both <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_LongTradeSetup">LongTradeSetup</a> and <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_ShortTradeSetup">ShortTradeSetup</a>.
+Specified setups must be allowed according to <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_Pricing">Pricing</a> (which can be checked using <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_IsTradeSetupAllowed_SignalTrading_TradeSetup_">IsTradeSetupAllowed(TradeSetup)</a>)
+and cannot be set if <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_Position">Position</a> is open.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
-public Signal SetTradeSetups(TradeSetup longSetup, TradeSetup shortSetup)</code></pre>
+public Signal SetTradeSetups(TradeSetup longTradeSetup, TradeSetup shortTradeSetup)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -617,14 +628,14 @@ public Signal SetTradeSetups(TradeSetup longSetup, TradeSetup shortSetup)</code>
     <tbody>
       <tr>
         <td><a class="xref" href="SignalTrading.TradeSetup.html">TradeSetup</a></td>
-        <td><span class="parametername">longSetup</span></td>
-        <td><p>Long entry target.</p>
+        <td><span class="parametername">longTradeSetup</span></td>
+        <td><p>Long trade setup.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="SignalTrading.TradeSetup.html">TradeSetup</a></td>
-        <td><span class="parametername">shortSetup</span></td>
-        <td><p>Short entry target.</p>
+        <td><span class="parametername">shortTradeSetup</span></td>
+        <td><p>Short trade setup.</p>
 </td>
       </tr>
     </tbody>
@@ -640,17 +651,19 @@ public Signal SetTradeSetups(TradeSetup longSetup, TradeSetup shortSetup)</code>
     <tbody>
       <tr>
         <td><a class="xref" href="SignalTrading.Signal.html">Signal</a></td>
-        <td><p>Signal with entry targets set to specified values.</p>
+        <td><p>Signal with <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_LongTradeSetup">LongTradeSetup</a> and <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_ShortTradeSetup">ShortTradeSetup</a> set to specified values.</p>
 </td>
       </tr>
     </tbody>
   </table>
+  <h5 id="SignalTrading_Signal_SetTradeSetups_SignalTrading_TradeSetup_SignalTrading_TradeSetup__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>An exception will be thrown if <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_Position">Position</a> is open or one or both setups conflict with <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_Pricing">Pricing</a>.</p>
+</div>
   
   
   <a id="SignalTrading_Signal_Timestamp_" data-uid="SignalTrading.Signal.Timestamp*"></a>
   <h4 id="SignalTrading_Signal_Timestamp" data-uid="SignalTrading.Signal.Timestamp">Timestamp()</h4>
-  <div class="markdown level1 summary"><p>Returns the timestamp as a DateTimeOffset. This value is equal to
-the <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_Pricing">Pricing</a> timestamp.</p>
+  <div class="markdown level1 summary"><p>Returns timestamp of the signal, which equals the timestamp of <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_Pricing">Pricing</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -674,6 +687,9 @@ public DateTimeOffset Timestamp()</code></pre>
       </tr>
     </tbody>
   </table>
+  <h5 id="SignalTrading_Signal_Timestamp_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The timestamp of pricing is returned because a signal is generated from prices and/or data that is paired with these prices.</p>
+</div>
 </article>
           </div>
           

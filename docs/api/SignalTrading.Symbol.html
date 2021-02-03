@@ -73,7 +73,7 @@
   
   <h1 id="SignalTrading_Symbol" data-uid="SignalTrading.Symbol" class="text-break">Struct Symbol
   </h1>
-  <div class="markdown level0 summary"><p>Information about a trading symbol/instrument.</p>
+  <div class="markdown level0 summary"><p>Represents a trading symbol a.k.a. trading instrument at a broker or exchange.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritedMembers">
@@ -221,7 +221,10 @@ the position is opened and then at each repeat interval until the position is cl
   
   <a id="SignalTrading_Symbol_LotSize_" data-uid="SignalTrading.Symbol.LotSize*"></a>
   <h4 id="SignalTrading_Symbol_LotSize" data-uid="SignalTrading.Symbol.LotSize">LotSize</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The number of units in one lot. Position sizes can be rounded to the lot size
+using <a class="xref" href="SignalTrading.Symbol.html#SignalTrading_Symbol_RoundDownToLotSize_System_Double_">RoundDownToLotSize(Double)</a> and
+<a class="xref" href="SignalTrading.Symbol.html#SignalTrading_Symbol_RoundUpToLotSize_System_Double_">RoundUpToLotSize(Double)</a>. This value is greater than zero.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -242,6 +245,9 @@ the position is opened and then at each repeat interval until the position is cl
       </tr>
     </tbody>
   </table>
+  <h5 id="SignalTrading_Symbol_LotSize_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Many trading APIs require that order quantities are rounded to the lot size.</p>
+</div>
   
   
   <a id="SignalTrading_Symbol_Name_" data-uid="SignalTrading.Symbol.Name*"></a>
@@ -330,7 +336,10 @@ the position is opened and then at each repeat interval until the position is cl
   
   <a id="SignalTrading_Symbol_TickSize_" data-uid="SignalTrading.Symbol.TickSize*"></a>
   <h4 id="SignalTrading_Symbol_TickSize" data-uid="SignalTrading.Symbol.TickSize">TickSize</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The minimum price movement of the ticker, for example 0.01. Prices can be rounded
+to the nearest tick size using <a class="xref" href="SignalTrading.Symbol.html#SignalTrading_Symbol_RoundToTickSize_System_Double_">RoundToTickSize(Double)</a>. This value
+is greater than zero.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -351,6 +360,9 @@ the position is opened and then at each repeat interval until the position is cl
       </tr>
     </tbody>
   </table>
+  <h5 id="SignalTrading_Symbol_TickSize_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Many trading APIs require that order prices are rounded to the tick size.</p>
+</div>
   
   
   <a id="SignalTrading_Symbol_TradingFeeRate_" data-uid="SignalTrading.Symbol.TradingFeeRate*"></a>
@@ -405,19 +417,19 @@ public static Symbol Create(string name, double lotSize, double tickSize)</code>
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">name</span></td>
-        <td><p>Name of the symbol, e.g. &quot;GOOGL&quot;, &quot;BTCUSD&quot;</p>
+        <td><p>Name of the symbol e.g. &quot;GOOGL&quot;, &quot;BTCUSD&quot;. Maximum length is 20 characters.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.Double</span></td>
         <td><span class="parametername">lotSize</span></td>
-        <td><p>Lot size. Must be greater than zero.</p>
+        <td><p>The number of units in one lot. Must be greater than zero.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.Double</span></td>
         <td><span class="parametername">tickSize</span></td>
-        <td><p>Tick size. Must be greater than zero.</p>
+        <td><p>The minimum price movement of the ticker, for example 0.01. Must be greater than zero.</p>
 </td>
       </tr>
     </tbody>
@@ -605,13 +617,13 @@ public double RoundUpToLotSize(double amount)</code></pre>
   
   <a id="SignalTrading_Symbol_SetBaseAssetName_" data-uid="SignalTrading.Symbol.SetBaseAssetName*"></a>
   <h4 id="SignalTrading_Symbol_SetBaseAssetName_System_String_" data-uid="SignalTrading.Symbol.SetBaseAssetName(System.String)">SetBaseAssetName(String)</h4>
-  <div class="markdown level1 summary"><p>Sets the name of the base asset.</p>
+  <div class="markdown level1 summary"><p>Sets <a class="xref" href="SignalTrading.Symbol.html#SignalTrading_Symbol_BaseAssetName">BaseAssetName</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
-public Symbol SetBaseAssetName(string name)</code></pre>
+public Symbol SetBaseAssetName(string baseAssetName)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -625,8 +637,8 @@ public Symbol SetBaseAssetName(string name)</code></pre>
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">name</span></td>
-        <td><p>Base asset name.</p>
+        <td><span class="parametername">baseAssetName</span></td>
+        <td><p>Base asset name. Maximum length is 10 characters.</p>
 </td>
       </tr>
     </tbody>
@@ -651,13 +663,13 @@ public Symbol SetBaseAssetName(string name)</code></pre>
   
   <a id="SignalTrading_Symbol_SetBaseDecimals_" data-uid="SignalTrading.Symbol.SetBaseDecimals*"></a>
   <h4 id="SignalTrading_Symbol_SetBaseDecimals_System_Int32_" data-uid="SignalTrading.Symbol.SetBaseDecimals(System.Int32)">SetBaseDecimals(Int32)</h4>
-  <div class="markdown level1 summary"><p>Sets the number of base decimals to specified value.</p>
+  <div class="markdown level1 summary"><p>Sets <a class="xref" href="SignalTrading.Symbol.html#SignalTrading_Symbol_BaseDecimals">BaseDecimals</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
-public Symbol SetBaseDecimals(int decimals)</code></pre>
+public Symbol SetBaseDecimals(int baseDecimals)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -671,7 +683,7 @@ public Symbol SetBaseDecimals(int decimals)</code></pre>
     <tbody>
       <tr>
         <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">decimals</span></td>
+        <td><span class="parametername">baseDecimals</span></td>
         <td><p>Number of decimals.</p>
 </td>
       </tr>
@@ -744,13 +756,13 @@ public Symbol SetInterest(double interestRate, TimeSpan interestInterval)</code>
   
   <a id="SignalTrading_Symbol_SetQuoteCurrencyName_" data-uid="SignalTrading.Symbol.SetQuoteCurrencyName*"></a>
   <h4 id="SignalTrading_Symbol_SetQuoteCurrencyName_System_String_" data-uid="SignalTrading.Symbol.SetQuoteCurrencyName(System.String)">SetQuoteCurrencyName(String)</h4>
-  <div class="markdown level1 summary"><p>Sets the name of the quote currency.</p>
+  <div class="markdown level1 summary"><p>Sets <a class="xref" href="SignalTrading.Symbol.html#SignalTrading_Symbol_QuoteCurrencyName">QuoteCurrencyName</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
-public Symbol SetQuoteCurrencyName(string name)</code></pre>
+public Symbol SetQuoteCurrencyName(string quoteCurrencyName)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -764,8 +776,8 @@ public Symbol SetQuoteCurrencyName(string name)</code></pre>
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">name</span></td>
-        <td><p>Quote currency name.</p>
+        <td><span class="parametername">quoteCurrencyName</span></td>
+        <td><p>Quote currency name. Maximum length is 10 characters.</p>
 </td>
       </tr>
     </tbody>
@@ -790,13 +802,13 @@ public Symbol SetQuoteCurrencyName(string name)</code></pre>
   
   <a id="SignalTrading_Symbol_SetQuoteDecimals_" data-uid="SignalTrading.Symbol.SetQuoteDecimals*"></a>
   <h4 id="SignalTrading_Symbol_SetQuoteDecimals_System_Int32_" data-uid="SignalTrading.Symbol.SetQuoteDecimals(System.Int32)">SetQuoteDecimals(Int32)</h4>
-  <div class="markdown level1 summary"><p>Sets the number of quote decimals to specified value.</p>
+  <div class="markdown level1 summary"><p>Sets <a class="xref" href="SignalTrading.Symbol.html#SignalTrading_Symbol_QuoteDecimals">QuoteDecimals</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
-public Symbol SetQuoteDecimals(int decimals)</code></pre>
+public Symbol SetQuoteDecimals(int quoteDecimals)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -810,8 +822,9 @@ public Symbol SetQuoteDecimals(int decimals)</code></pre>
     <tbody>
       <tr>
         <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">decimals</span></td>
-        <td></td>
+        <td><span class="parametername">quoteDecimals</span></td>
+        <td><p>Number of decimals.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -832,15 +845,15 @@ public Symbol SetQuoteDecimals(int decimals)</code></pre>
   </table>
   
   
-  <a id="SignalTrading_Symbol_SetTradingFee_" data-uid="SignalTrading.Symbol.SetTradingFee*"></a>
-  <h4 id="SignalTrading_Symbol_SetTradingFee_System_Double_" data-uid="SignalTrading.Symbol.SetTradingFee(System.Double)">SetTradingFee(Double)</h4>
+  <a id="SignalTrading_Symbol_SetTradingFeeRate_" data-uid="SignalTrading.Symbol.SetTradingFeeRate*"></a>
+  <h4 id="SignalTrading_Symbol_SetTradingFeeRate_System_Double_" data-uid="SignalTrading.Symbol.SetTradingFeeRate(System.Double)">SetTradingFeeRate(Double)</h4>
   <div class="markdown level1 summary"><p>Sets the trading fee rate.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
-public Symbol SetTradingFee(double tradingFeeRate)</code></pre>
+public Symbol SetTradingFeeRate(double tradingFeeRate)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">

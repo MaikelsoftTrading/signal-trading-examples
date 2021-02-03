@@ -73,7 +73,10 @@
   
   <h1 id="SignalTrading_ExtendIEnumerable" data-uid="SignalTrading.ExtendIEnumerable" class="text-break">Class ExtendIEnumerable
   </h1>
-  <div class="markdown level0 summary"><p>Extension methods for the IEnumerable&lt;T&gt; interface.</p>
+  <div class="markdown level0 summary"><p>The framework generates signals from <a class="xref" href="SignalTrading.Pricing.html">Pricing</a> data that is paired with
+additional data that must be analyzed. The <span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span> interface is therefore extended
+with methods that transform single elements to (<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>, TData) tuples,
+and a method that generates signals from these tuples.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -115,61 +118,16 @@
   </h3>
   
   
-  <a id="SignalTrading_ExtendIEnumerable_AsSignalInput_" data-uid="SignalTrading.ExtendIEnumerable.AsSignalInput*"></a>
-  <h4 id="SignalTrading_ExtendIEnumerable_AsSignalInput_System_Collections_Generic_IEnumerable_SignalTrading_Pricing__" data-uid="SignalTrading.ExtendIEnumerable.AsSignalInput(System.Collections.Generic.IEnumerable{SignalTrading.Pricing})">AsSignalInput(IEnumerable&lt;Pricing&gt;)</h4>
-  <div class="markdown level1 summary"><p>Creates tuples from specified prices that can be used as signal input if the trading strategy
-does not use other data than prices.</p>
+  <a id="SignalTrading_ExtendIEnumerable_BuildCharts_" data-uid="SignalTrading.ExtendIEnumerable.BuildCharts*"></a>
+  <h4 id="SignalTrading_ExtendIEnumerable_BuildCharts_System_Collections_Generic_IEnumerable_SignalTrading_Candle__System_TimeSpan_" data-uid="SignalTrading.ExtendIEnumerable.BuildCharts(System.Collections.Generic.IEnumerable{SignalTrading.Candle},System.TimeSpan)">BuildCharts(IEnumerable&lt;Candle&gt;, TimeSpan)</h4>
+  <div class="markdown level1 summary"><p>Builds candlestick charts from a <a class="xref" href="SignalTrading.Candle.html">Candle</a> sequence where each <a class="xref" href="SignalTrading.Chart.html">Chart</a> is paired with <a class="xref" href="SignalTrading.Pricing.html">Pricing</a>
+that is derived from the last candle on the chart.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
-public static IEnumerable&lt;(Pricing, Pricing)&gt; AsSignalInput(this IEnumerable&lt;Pricing&gt; source)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>&gt;</td>
-        <td><span class="parametername">source</span></td>
-        <td><p>Source prices</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>, <a class="xref" href="SignalTrading.Pricing.html">Pricing</a>&gt;&gt;</td>
-        <td><p>Prices as tuples</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="SignalTrading_ExtendIEnumerable_BuildCharts_" data-uid="SignalTrading.ExtendIEnumerable.BuildCharts*"></a>
-  <h4 id="SignalTrading_ExtendIEnumerable_BuildCharts_System_Collections_Generic_IEnumerable_SignalTrading_Candle__System_TimeSpan_" data-uid="SignalTrading.ExtendIEnumerable.BuildCharts(System.Collections.Generic.IEnumerable{SignalTrading.Candle},System.TimeSpan)">BuildCharts(IEnumerable&lt;Candle&gt;, TimeSpan)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Pure]
-public static IEnumerable&lt;(Pricing, Chart)&gt; BuildCharts(this IEnumerable&lt;Candle&gt; candles, TimeSpan chartInterval)</code></pre>
+public static IEnumerable&lt;(Pricing, Chart)&gt; BuildCharts(this IEnumerable&lt;Candle&gt; candles, TimeSpan timeFrame)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -184,12 +142,14 @@ public static IEnumerable&lt;(Pricing, Chart)&gt; BuildCharts(this IEnumerable&l
       <tr>
         <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="SignalTrading.Candle.html">Candle</a>&gt;</td>
         <td><span class="parametername">candles</span></td>
-        <td></td>
+        <td><p>Candles from which the charts must be built.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.TimeSpan</span></td>
-        <td><span class="parametername">chartInterval</span></td>
-        <td></td>
+        <td><span class="parametername">timeFrame</span></td>
+        <td><p>Time frame for the charts, which must correspond with the time frame of the candles.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -204,7 +164,8 @@ public static IEnumerable&lt;(Pricing, Chart)&gt; BuildCharts(this IEnumerable&l
     <tbody>
       <tr>
         <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>, <a class="xref" href="SignalTrading.Chart.html">Chart</a>&gt;&gt;</td>
-        <td></td>
+        <td><p>Tuples that can be used for generating signals.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -212,12 +173,14 @@ public static IEnumerable&lt;(Pricing, Chart)&gt; BuildCharts(this IEnumerable&l
   
   <a id="SignalTrading_ExtendIEnumerable_BuildCharts_" data-uid="SignalTrading.ExtendIEnumerable.BuildCharts*"></a>
   <h4 id="SignalTrading_ExtendIEnumerable_BuildCharts_System_Collections_Generic_IEnumerable_SignalTrading_Candle__System_TimeSpan_System_Collections_Generic_IEnumerable_SignalTrading_Pricing__System_Int32_" data-uid="SignalTrading.ExtendIEnumerable.BuildCharts(System.Collections.Generic.IEnumerable{SignalTrading.Candle},System.TimeSpan,System.Collections.Generic.IEnumerable{SignalTrading.Pricing},System.Int32)">BuildCharts(IEnumerable&lt;Candle&gt;, TimeSpan, IEnumerable&lt;Pricing&gt;, Int32)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Builds candlestick charts from <a class="xref" href="SignalTrading.Candle.html">Candle</a> and <a class="xref" href="SignalTrading.Pricing.html">Pricing</a> sequences, and pairs
+each chart with the source pricing or the pricing that was derived from the last candle on the chart.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
-public static IEnumerable&lt;(Pricing, Chart)&gt; BuildCharts(this IEnumerable&lt;Candle&gt; candles, TimeSpan chartInterval, IEnumerable&lt;Pricing&gt; prices, int sessionStartHour = 0)</code></pre>
+public static IEnumerable&lt;(Pricing, Chart)&gt; BuildCharts(this IEnumerable&lt;Candle&gt; candles, TimeSpan timeFrame, IEnumerable&lt;Pricing&gt; prices, int sessionStartHour = 0)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -232,22 +195,28 @@ public static IEnumerable&lt;(Pricing, Chart)&gt; BuildCharts(this IEnumerable&l
       <tr>
         <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="SignalTrading.Candle.html">Candle</a>&gt;</td>
         <td><span class="parametername">candles</span></td>
-        <td></td>
+        <td><p>Candles from which the charts must be built.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.TimeSpan</span></td>
-        <td><span class="parametername">chartInterval</span></td>
-        <td></td>
+        <td><span class="parametername">timeFrame</span></td>
+        <td><p>Time frame for the charts, which must correspond with the time frame of the candles.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>&gt;</td>
         <td><span class="parametername">prices</span></td>
-        <td></td>
+        <td><p>Pricing from which the charts must be built.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">sessionStartHour</span></td>
-        <td></td>
+        <td><p>Start hour of the trading session that will be taken into account when
+computing candle opening times. This only affects timeframes of two hours and more. Valid range is 0 to 23
+and the value must be adjusted to UTC.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -262,7 +231,8 @@ public static IEnumerable&lt;(Pricing, Chart)&gt; BuildCharts(this IEnumerable&l
     <tbody>
       <tr>
         <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>, <a class="xref" href="SignalTrading.Chart.html">Chart</a>&gt;&gt;</td>
-        <td></td>
+        <td><p>Tuples that can be used for generating signals.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -270,14 +240,14 @@ public static IEnumerable&lt;(Pricing, Chart)&gt; BuildCharts(this IEnumerable&l
   
   <a id="SignalTrading_ExtendIEnumerable_BuildCharts_" data-uid="SignalTrading.ExtendIEnumerable.BuildCharts*"></a>
   <h4 id="SignalTrading_ExtendIEnumerable_BuildCharts_System_Collections_Generic_IEnumerable_SignalTrading_Pricing__System_TimeSpan_System_Int32_" data-uid="SignalTrading.ExtendIEnumerable.BuildCharts(System.Collections.Generic.IEnumerable{SignalTrading.Pricing},System.TimeSpan,System.Int32)">BuildCharts(IEnumerable&lt;Pricing&gt;, TimeSpan, Int32)</h4>
-  <div class="markdown level1 summary"><p>Builds candlestick charts from specified prices using specified chart interval. For intervals greater than
-one hour, candle opening times can be aligned to the session start hour of the corresponding exchange.</p>
+  <div class="markdown level1 summary"><p>Builds candlestick charts from a <a class="xref" href="SignalTrading.Pricing.html">Pricing</a> sequence where each chart is paired with
+the pricing from which the last <a class="xref" href="SignalTrading.Candle.html">Candle</a> was created or updated.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
-public static IEnumerable&lt;(Pricing, Chart)&gt; BuildCharts(this IEnumerable&lt;Pricing&gt; prices, TimeSpan chartInterval, int sessionStartHour = 0)</code></pre>
+public static IEnumerable&lt;(Pricing, Chart)&gt; BuildCharts(this IEnumerable&lt;Pricing&gt; prices, TimeSpan timeFrame, int sessionStartHour = 0)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -292,19 +262,21 @@ public static IEnumerable&lt;(Pricing, Chart)&gt; BuildCharts(this IEnumerable&l
       <tr>
         <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>&gt;</td>
         <td><span class="parametername">prices</span></td>
-        <td><p>Prices</p>
+        <td><p>Pricing from which the charts must be built.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.TimeSpan</span></td>
-        <td><span class="parametername">chartInterval</span></td>
-        <td><p>Interval</p>
+        <td><span class="parametername">timeFrame</span></td>
+        <td><p>Time frame for the charts.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">sessionStartHour</span></td>
-        <td><p>Session start hour (UTC). Valid range is 0 to 23.</p>
+        <td><p>Start hour of the trading session that will be taken into account when
+computing candle opening times. This only affects timeframes of two hours and more. Valid range is 0 to 23
+and the value must be adjusted to UTC.</p>
 </td>
       </tr>
     </tbody>
@@ -320,7 +292,7 @@ public static IEnumerable&lt;(Pricing, Chart)&gt; BuildCharts(this IEnumerable&l
     <tbody>
       <tr>
         <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>, <a class="xref" href="SignalTrading.Chart.html">Chart</a>&gt;&gt;</td>
-        <td><p>Charts combined with source prices</p>
+        <td><p>Tuples that can be used for generating signals.</p>
 </td>
       </tr>
     </tbody>
@@ -328,13 +300,14 @@ public static IEnumerable&lt;(Pricing, Chart)&gt; BuildCharts(this IEnumerable&l
   
   
   <a id="SignalTrading_ExtendIEnumerable_GenerateSignals_" data-uid="SignalTrading.ExtendIEnumerable.GenerateSignals*"></a>
-  <h4 id="SignalTrading_ExtendIEnumerable_GenerateSignals__1_System_Collections_Generic_IEnumerable_System_ValueTuple_SignalTrading_Pricing___0___SignalTrading_Symbol_SignalTrading_Strategy___0__System_String_" data-uid="SignalTrading.ExtendIEnumerable.GenerateSignals``1(System.Collections.Generic.IEnumerable{System.ValueTuple{SignalTrading.Pricing,``0}},SignalTrading.Symbol,SignalTrading.Strategy{``0},System.String)">GenerateSignals&lt;TData&gt;(IEnumerable&lt;(Pricing, TData)&gt;, Symbol, Strategy&lt;TData&gt;, String)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="SignalTrading_ExtendIEnumerable_GenerateSignals__1_System_Collections_Generic_IEnumerable_System_ValueTuple_SignalTrading_Pricing___0___SignalTrading_Symbol_SignalTrading_Strategy___0__" data-uid="SignalTrading.ExtendIEnumerable.GenerateSignals``1(System.Collections.Generic.IEnumerable{System.ValueTuple{SignalTrading.Pricing,``0}},SignalTrading.Symbol,SignalTrading.Strategy{``0})">GenerateSignals&lt;TData&gt;(IEnumerable&lt;(Pricing, TData)&gt;, Symbol, Strategy&lt;TData&gt;)</h4>
+  <div class="markdown level1 summary"><p>Generates trading signals from specified source using specified strategy.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
-public static IEnumerable&lt;(Signal, TData)&gt; GenerateSignals&lt;TData&gt;(this IEnumerable&lt;(Pricing, TData)&gt; source, Symbol symbol, Strategy&lt;TData&gt; strategy, string licenseKey = null)</code></pre>
+public static IEnumerable&lt;(Signal, TData)&gt; GenerateSignals&lt;TData&gt;(this IEnumerable&lt;(Pricing, TData)&gt; source, Symbol symbol, Strategy&lt;TData&gt; strategy)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -349,22 +322,20 @@ public static IEnumerable&lt;(Signal, TData)&gt; GenerateSignals&lt;TData&gt;(th
       <tr>
         <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>, TData&gt;&gt;</td>
         <td><span class="parametername">source</span></td>
-        <td></td>
+        <td><p>Data from which signals must be generated.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="SignalTrading.Symbol.html">Symbol</a></td>
         <td><span class="parametername">symbol</span></td>
-        <td></td>
+        <td><p>Trading symbol for the signals.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="SignalTrading.Strategy-1.html">Strategy</a>&lt;TData&gt;</td>
         <td><span class="parametername">strategy</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">licenseKey</span></td>
-        <td></td>
+        <td><p>A trading strategy.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -379,7 +350,8 @@ public static IEnumerable&lt;(Signal, TData)&gt; GenerateSignals&lt;TData&gt;(th
     <tbody>
       <tr>
         <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Signal.html">Signal</a>, TData&gt;&gt;</td>
-        <td></td>
+        <td><p>Generated signals paired with the input data.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -394,7 +366,8 @@ public static IEnumerable&lt;(Signal, TData)&gt; GenerateSignals&lt;TData&gt;(th
     <tbody>
       <tr>
         <td><span class="parametername">TData</span></td>
-        <td></td>
+        <td><p>Type of data that is analyzed by the strategy.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -402,7 +375,8 @@ public static IEnumerable&lt;(Signal, TData)&gt; GenerateSignals&lt;TData&gt;(th
   
   <a id="SignalTrading_ExtendIEnumerable_SelectSignals_" data-uid="SignalTrading.ExtendIEnumerable.SelectSignals*"></a>
   <h4 id="SignalTrading_ExtendIEnumerable_SelectSignals__1_System_Collections_Generic_IEnumerable_System_ValueTuple_SignalTrading_Signal___0___" data-uid="SignalTrading.ExtendIEnumerable.SelectSignals``1(System.Collections.Generic.IEnumerable{System.ValueTuple{SignalTrading.Signal,``0}})">SelectSignals&lt;TData&gt;(IEnumerable&lt;(Signal, TData)&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the signals from the result of signal generation.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -422,7 +396,8 @@ public static IEnumerable&lt;Signal&gt; SelectSignals&lt;TData&gt;(this IEnumera
       <tr>
         <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Signal.html">Signal</a>, TData&gt;&gt;</td>
         <td><span class="parametername">source</span></td>
-        <td></td>
+        <td><p>Result of signal generation.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -437,7 +412,8 @@ public static IEnumerable&lt;Signal&gt; SelectSignals&lt;TData&gt;(this IEnumera
     <tbody>
       <tr>
         <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="SignalTrading.Signal.html">Signal</a>&gt;</td>
-        <td></td>
+        <td><p>Signals</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -452,7 +428,8 @@ public static IEnumerable&lt;Signal&gt; SelectSignals&lt;TData&gt;(this IEnumera
     <tbody>
       <tr>
         <td><span class="parametername">TData</span></td>
-        <td></td>
+        <td><p>Type of data in the result.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -460,7 +437,9 @@ public static IEnumerable&lt;Signal&gt; SelectSignals&lt;TData&gt;(this IEnumera
   
   <a id="SignalTrading_ExtendIEnumerable_ToSignalInput_" data-uid="SignalTrading.ExtendIEnumerable.ToSignalInput*"></a>
   <h4 id="SignalTrading_ExtendIEnumerable_ToSignalInput__1_System_Collections_Generic_IEnumerable___0__System_Func___0_SignalTrading_Pricing__" data-uid="SignalTrading.ExtendIEnumerable.ToSignalInput``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,SignalTrading.Pricing})">ToSignalInput&lt;TData&gt;(IEnumerable&lt;TData&gt;, Func&lt;TData, Pricing&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Maps each input element to <a class="xref" href="SignalTrading.Pricing.html">Pricing</a> data and returns tuples with
+the pricing and input element.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -480,12 +459,14 @@ public static IEnumerable&lt;(Pricing, TData)&gt; ToSignalInput&lt;TData&gt;(thi
       <tr>
         <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;TData&gt;</td>
         <td><span class="parametername">source</span></td>
-        <td></td>
+        <td><p>Source elements.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Func</span>&lt;TData, <a class="xref" href="SignalTrading.Pricing.html">Pricing</a>&gt;</td>
         <td><span class="parametername">dataToPricingConverter</span></td>
-        <td></td>
+        <td><p>Function that derives <a class="xref" href="SignalTrading.Pricing.html">Pricing</a> from an input element.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -500,7 +481,8 @@ public static IEnumerable&lt;(Pricing, TData)&gt; ToSignalInput&lt;TData&gt;(thi
     <tbody>
       <tr>
         <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>, TData&gt;&gt;</td>
-        <td></td>
+        <td><p>Tuples that can be used for generating signals.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -515,7 +497,8 @@ public static IEnumerable&lt;(Pricing, TData)&gt; ToSignalInput&lt;TData&gt;(thi
     <tbody>
       <tr>
         <td><span class="parametername">TData</span></td>
-        <td></td>
+        <td><p>Type of source data.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -523,7 +506,9 @@ public static IEnumerable&lt;(Pricing, TData)&gt; ToSignalInput&lt;TData&gt;(thi
   
   <a id="SignalTrading_ExtendIEnumerable_ToSignalInput_" data-uid="SignalTrading.ExtendIEnumerable.ToSignalInput*"></a>
   <h4 id="SignalTrading_ExtendIEnumerable_ToSignalInput__1_System_Collections_Generic_IEnumerable_SignalTrading_Pricing__System_Func_SignalTrading_Pricing___0__" data-uid="SignalTrading.ExtendIEnumerable.ToSignalInput``1(System.Collections.Generic.IEnumerable{SignalTrading.Pricing},System.Func{SignalTrading.Pricing,``0})">ToSignalInput&lt;TData&gt;(IEnumerable&lt;Pricing&gt;, Func&lt;Pricing, TData&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Derives data from each <a class="xref" href="SignalTrading.Pricing.html">Pricing</a> element and returns tuples with
+the pricing and derived data.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -543,12 +528,14 @@ public static IEnumerable&lt;(Pricing, TData)&gt; ToSignalInput&lt;TData&gt;(thi
       <tr>
         <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>&gt;</td>
         <td><span class="parametername">source</span></td>
-        <td></td>
+        <td><p>Source elements.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Func</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>, TData&gt;</td>
         <td><span class="parametername">pricingToDataConverter</span></td>
-        <td></td>
+        <td><p>Function that derives data from <a class="xref" href="SignalTrading.Pricing.html">Pricing</a>.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -563,7 +550,8 @@ public static IEnumerable&lt;(Pricing, TData)&gt; ToSignalInput&lt;TData&gt;(thi
     <tbody>
       <tr>
         <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>, TData&gt;&gt;</td>
-        <td></td>
+        <td><p>Tuples that can be used for generating signals.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -578,7 +566,8 @@ public static IEnumerable&lt;(Pricing, TData)&gt; ToSignalInput&lt;TData&gt;(thi
     <tbody>
       <tr>
         <td><span class="parametername">TData</span></td>
-        <td></td>
+        <td><p>Type of data that is derived from the pricing.</p>
+</td>
       </tr>
     </tbody>
   </table>

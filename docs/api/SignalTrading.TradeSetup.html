@@ -108,36 +108,10 @@ as well as profit target and loss limit for the position.</p>
   </h3>
   
   
-  <a id="SignalTrading_TradeSetup_Disabled_" data-uid="SignalTrading.TradeSetup.Disabled*"></a>
-  <h4 id="SignalTrading_TradeSetup_Disabled" data-uid="SignalTrading.TradeSetup.Disabled">Disabled</h4>
-  <div class="markdown level1 summary"><p>Returns the value that indicates that no position must be opened.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static TradeSetup Disabled { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SignalTrading.TradeSetup.html">TradeSetup</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
   <a id="SignalTrading_TradeSetup_EntryPrice_" data-uid="SignalTrading.TradeSetup.EntryPrice*"></a>
   <h4 id="SignalTrading_TradeSetup_EntryPrice" data-uid="SignalTrading.TradeSetup.EntryPrice">EntryPrice</h4>
   <div class="markdown level1 summary"><p>Entry trigger price. This is the limit price of the buy order (long) or sell order (short) that
-must be placed at the broker or exchange.</p>
+must be placed at the broker or exchange for opening the position.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -161,14 +135,14 @@ must be placed at the broker or exchange.</p>
   </table>
   
   
-  <a id="SignalTrading_TradeSetup_IsEnabled_" data-uid="SignalTrading.TradeSetup.IsEnabled*"></a>
-  <h4 id="SignalTrading_TradeSetup_IsEnabled" data-uid="SignalTrading.TradeSetup.IsEnabled">IsEnabled</h4>
-  <div class="markdown level1 summary"><p>True if the setup can be triggered (and position can be opened), false otherwise.</p>
+  <a id="SignalTrading_TradeSetup_IsSet_" data-uid="SignalTrading.TradeSetup.IsSet*"></a>
+  <h4 id="SignalTrading_TradeSetup_IsSet" data-uid="SignalTrading.TradeSetup.IsSet">IsSet</h4>
+  <div class="markdown level1 summary"><p>True if the setup has been set (and position can be opened), false otherwise.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsEnabled { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool IsSet { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -189,7 +163,8 @@ must be placed at the broker or exchange.</p>
   
   <a id="SignalTrading_TradeSetup_LeverageRatio_" data-uid="SignalTrading.TradeSetup.LeverageRatio*"></a>
   <h4 id="SignalTrading_TradeSetup_LeverageRatio" data-uid="SignalTrading.TradeSetup.LeverageRatio">LeverageRatio</h4>
-  <div class="markdown level1 summary"><p>Leverage ratio that must be used for the position. Greater than or equal to 1.</p>
+  <div class="markdown level1 summary"><p>Leverage ratio that must be used for the position, which multiplies (realized) profits and losses. Greater
+than or equal to 1.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -216,7 +191,7 @@ must be placed at the broker or exchange.</p>
   <a id="SignalTrading_TradeSetup_LossLimit_" data-uid="SignalTrading.TradeSetup.LossLimit*"></a>
   <h4 id="SignalTrading_TradeSetup_LossLimit" data-uid="SignalTrading.TradeSetup.LossLimit">LossLimit</h4>
   <div class="markdown level1 summary"><p>Price at which the position should be closed when losing money. This is the limit price of the stop loss order
-that must be placed as soon as the position is openend.</p>
+that must be placed as soon as the position is opened.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -239,7 +214,7 @@ that must be placed as soon as the position is openend.</p>
     </tbody>
   </table>
   <h5 id="SignalTrading_TradeSetup_LossLimit_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>In addition to the limit price, a trigger price needs to be chosen.</p>
+  <div class="markdown level1 remarks"><p>A <a class="xref" href="SignalTrading.Signal.html">Signal</a> ignores the trigger price of a stop loss order when closing the position.</p>
 </div>
   
   
@@ -305,7 +280,7 @@ order that must be placed as soon as the position is opened.</p>
   
   <a id="SignalTrading_TradeSetup_Long_" data-uid="SignalTrading.TradeSetup.Long*"></a>
   <h4 id="SignalTrading_TradeSetup_Long_System_Double_System_Double_System_Double_System_Double_System_Int32_" data-uid="SignalTrading.TradeSetup.Long(System.Double,System.Double,System.Double,System.Double,System.Int32)">Long(Double, Double, Double, Double, Int32)</h4>
-  <div class="markdown level1 summary"><p>Creates the trade setup for a long position.</p>
+  <div class="markdown level1 summary"><p>Creates a trade setup for a long position.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -326,25 +301,25 @@ public static TradeSetup Long(double entryPrice, double size, double profitTarge
       <tr>
         <td><span class="xref">System.Double</span></td>
         <td><span class="parametername">entryPrice</span></td>
-        <td><p>Entry trigger price. Must be less than last trade price and less than current buy price.</p>
+        <td><p>Entry trigger price. Must be less than last trade price, less than current buy price and should be rounded to tick size.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.Double</span></td>
         <td><span class="parametername">size</span></td>
-        <td><p>Desired size of the long position. Must be greater than 0.</p>
+        <td><p>Desired size of the long position. Must be greater than 0 and should be rounded to lot size.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.Double</span></td>
         <td><span class="parametername">profitTarget</span></td>
-        <td><p>Price at which the position should be closed when profitable. Must be greater than entry price.</p>
+        <td><p>Price at which the position should be closed when profitable. Must be greater than entry price and should be rounded to tick size.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.Double</span></td>
         <td><span class="parametername">lossLimit</span></td>
-        <td><p>Price at which the position should be closed when losing money. Must be less than entry price.</p>
+        <td><p>Price at which the position should be closed when losing money. Must be less than entry price and should be rounded to tick size.</p>
 </td>
       </tr>
       <tr>
@@ -375,7 +350,7 @@ public static TradeSetup Long(double entryPrice, double size, double profitTarge
   
   <a id="SignalTrading_TradeSetup_Short_" data-uid="SignalTrading.TradeSetup.Short*"></a>
   <h4 id="SignalTrading_TradeSetup_Short_System_Double_System_Double_System_Double_System_Double_System_Int32_" data-uid="SignalTrading.TradeSetup.Short(System.Double,System.Double,System.Double,System.Double,System.Int32)">Short(Double, Double, Double, Double, Int32)</h4>
-  <div class="markdown level1 summary"><p>Creates the trade setup for a short position.</p>
+  <div class="markdown level1 summary"><p>Creates a trade setup for a short position.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -396,25 +371,25 @@ public static TradeSetup Short(double entryPrice, double size, double profitTarg
       <tr>
         <td><span class="xref">System.Double</span></td>
         <td><span class="parametername">entryPrice</span></td>
-        <td><p>MEntry trigger price. Must be greater than last trade price and greater than current sell price.</p>
+        <td><p>Entry trigger price. Must be greater than last trade price, greater than current sell price and should be rounded to tick size.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.Double</span></td>
         <td><span class="parametername">size</span></td>
-        <td><p>Desired size of the short position. Must be less than 0.</p>
+        <td><p>Desired size of the short position. Must be less than 0 and should be rounded to lot size.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.Double</span></td>
         <td><span class="parametername">profitTarget</span></td>
-        <td><p>Price at which the position should be closed when profitable. Must be less than entry price.</p>
+        <td><p>Price at which the position should be closed when profitable. Must be less than entry price and should be rounded to tick size.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.Double</span></td>
         <td><span class="parametername">lossLimit</span></td>
-        <td><p>Price at which the position should be closed when losing money. Must be greater than entry price.</p>
+        <td><p>Price at which the position should be closed when losing money. Must be greater than entry price and should be rounded to tick size.</p>
 </td>
       </tr>
       <tr>

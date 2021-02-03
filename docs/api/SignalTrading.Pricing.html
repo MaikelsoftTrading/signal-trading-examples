@@ -73,7 +73,9 @@
   
   <h1 id="SignalTrading_Pricing" data-uid="SignalTrading.Pricing" class="text-break">Struct Pricing
   </h1>
-  <div class="markdown level0 summary"><p>Last known trade price and the best buy and sell prices at a given time.</p>
+  <div class="markdown level0 summary"><p>Last trade price, best buy price and best sell price at a given time. <a class="xref" href="SignalTrading.Signal.html">Signal</a>
+needs these prices for detecting which price levels were hit (entry, profit target, loss limit) and
+for estimating the value of an open position.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritedMembers">
@@ -103,6 +105,12 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public struct Pricing</code></pre>
   </div>
+  <h5 id="SignalTrading_Pricing_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>Not all market data providers can provide all these prices. If the buy (lowest ask) and
+sell (highest bid) prices are not known, the framework will use the last price for estimating the value
+of a position. If the last price is not known (e.g. with CFD trading) the last price will be set
+to the bid/ask midpoint.</p>
+</div>
   <h3 id="properties">Properties
   </h3>
   
@@ -213,7 +221,7 @@
   
   <a id="SignalTrading_Pricing_TimestampMilliseconds_" data-uid="SignalTrading.Pricing.TimestampMilliseconds*"></a>
   <h4 id="SignalTrading_Pricing_TimestampMilliseconds" data-uid="SignalTrading.Pricing.TimestampMilliseconds">TimestampMilliseconds</h4>
-  <div class="markdown level1 summary"><p>Unix timestamp of the prices as milliseconds.</p>
+  <div class="markdown level1 summary"><p>Unix timestamp of the prices in milliseconds.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -241,8 +249,8 @@
   
   <a id="SignalTrading_Pricing_FromBidAndAsk_" data-uid="SignalTrading.Pricing.FromBidAndAsk*"></a>
   <h4 id="SignalTrading_Pricing_FromBidAndAsk_System_DateTimeOffset_System_Double_System_Double_" data-uid="SignalTrading.Pricing.FromBidAndAsk(System.DateTimeOffset,System.Double,System.Double)">FromBidAndAsk(DateTimeOffset, Double, Double)</h4>
-  <div class="markdown level1 summary"><p>Initializes a pricing struct by setting the buy price to current ask price, sell price to
-current bid price and the last price to the midpoint of these prices.</p>
+  <div class="markdown level1 summary"><p>Creates a pricing object with buy price set to current ask price, sell price to
+current bid price and last price to the midpoint of these prices.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -300,8 +308,8 @@ public static Pricing FromBidAndAsk(DateTimeOffset timestamp, double bid, double
   
   <a id="SignalTrading_Pricing_FromBidAndAsk_" data-uid="SignalTrading.Pricing.FromBidAndAsk*"></a>
   <h4 id="SignalTrading_Pricing_FromBidAndAsk_System_Int64_System_Double_System_Double_" data-uid="SignalTrading.Pricing.FromBidAndAsk(System.Int64,System.Double,System.Double)">FromBidAndAsk(Int64, Double, Double)</h4>
-  <div class="markdown level1 summary"><p>Initializes a pricing struct by setting the buy price to specified ask price, sell price to
-specified bid price and the last price to the midpoint of these prices.</p>
+  <div class="markdown level1 summary"><p>Creates a pricing object with buy price set to current ask price, sell price to
+current bid price and last price to the midpoint of these prices.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -359,7 +367,7 @@ public static Pricing FromBidAndAsk(long timestampMilliseconds, double bid, doub
   
   <a id="SignalTrading_Pricing_FromLastBidAndAsk_" data-uid="SignalTrading.Pricing.FromLastBidAndAsk*"></a>
   <h4 id="SignalTrading_Pricing_FromLastBidAndAsk_System_DateTimeOffset_System_Double_System_Double_System_Double_" data-uid="SignalTrading.Pricing.FromLastBidAndAsk(System.DateTimeOffset,System.Double,System.Double,System.Double)">FromLastBidAndAsk(DateTimeOffset, Double, Double, Double)</h4>
-  <div class="markdown level1 summary"><p>Initializes a pricing struct by setting the last price to specified last price, buy price to specified ask price
+  <div class="markdown level1 summary"><p>Creates a pricing object with last price set to specified last price, buy price to specified ask price
 and sell price to specified bid price.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -424,7 +432,7 @@ public static Pricing FromLastBidAndAsk(DateTimeOffset timestamp, double last, d
   
   <a id="SignalTrading_Pricing_FromLastBidAndAsk_" data-uid="SignalTrading.Pricing.FromLastBidAndAsk*"></a>
   <h4 id="SignalTrading_Pricing_FromLastBidAndAsk_System_Int64_System_Double_System_Double_System_Double_" data-uid="SignalTrading.Pricing.FromLastBidAndAsk(System.Int64,System.Double,System.Double,System.Double)">FromLastBidAndAsk(Int64, Double, Double, Double)</h4>
-  <div class="markdown level1 summary"><p>Initializes a pricing struct by setting the last price to specified last price, buy price to specified ask price
+  <div class="markdown level1 summary"><p>Creates a pricing object with last price set to specified last price, buy price to specified ask price
 and sell price to specified bid price.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -489,7 +497,7 @@ public static Pricing FromLastBidAndAsk(long timestampMilliseconds, double last,
   
   <a id="SignalTrading_Pricing_FromLastPrice_" data-uid="SignalTrading.Pricing.FromLastPrice*"></a>
   <h4 id="SignalTrading_Pricing_FromLastPrice_System_DateTimeOffset_System_Double_" data-uid="SignalTrading.Pricing.FromLastPrice(System.DateTimeOffset,System.Double)">FromLastPrice(DateTimeOffset, Double)</h4>
-  <div class="markdown level1 summary"><p>Initializes a pricing struct by setting all prices to the last trade price.</p>
+  <div class="markdown level1 summary"><p>Creates a pricing object with all prices set to the last trade price.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -541,7 +549,7 @@ public static Pricing FromLastPrice(DateTimeOffset timestamp, double last)</code
   
   <a id="SignalTrading_Pricing_FromLastPrice_" data-uid="SignalTrading.Pricing.FromLastPrice*"></a>
   <h4 id="SignalTrading_Pricing_FromLastPrice_System_Int64_System_Double_" data-uid="SignalTrading.Pricing.FromLastPrice(System.Int64,System.Double)">FromLastPrice(Int64, Double)</h4>
-  <div class="markdown level1 summary"><p>Initializes a pricing struct by setting all prices to the price of the last trade.</p>
+  <div class="markdown level1 summary"><p>Creates a pricing object with all prices set to the last trade price.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
