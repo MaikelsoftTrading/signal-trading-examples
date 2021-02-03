@@ -27,29 +27,32 @@ Current version can be used without any costs. Starting at the first major versi
 
 ## Tutorial
 
-### Step 1: Create a trading symbol
+### Create the trading symbol
 Create the trading symbol for which signals will be generated. Name, lot size and tick size are mandatory. Most market data APIs provide an end point for retrieving this information.
 ```C#
-private static readonly Symbol Amazon = Symbol.Create("AMZN", lotSize:1, tickSize: 0.01);
+private static readonly Symbol Amazon = Symbol
+	.Create("AMZN", lotSize:0.1, tickSize: 0.01)
+	.SetBaseAssetName("AMZN")
+	.SetQuoteCurrencyName("USD");
 ```
 
-### Step 2: Create a trading strategy
+### Creating the strategy function
 ```C#
 public static Strategy<Chart> CreateStrategy()
 {
 	// Define the number of candles from which the average closing price is calculated
-	const int movingAverageLength = 4;
+	const int movingAverageLength = 3;
 
 	return (Signal signal, Chart chart) =>
 	{
-		// At this point, the signal is up-to-date with the latest prices and the position of the
+		// At this point, our signal is up-to-date with the latest prices and the position of the
 		// signal is opened or closed according to these prices and the trade setups that
 		// were set (see below).
 
 		if (signal.Position.IsOpen)
 		{
 			// If a position is open, we just wait for the position to close automatically
-			// when the profit target or loss limit is triggered.
+			// when its profit target or loss limit is triggered.
 			return signal; 
 		}
 
@@ -78,6 +81,9 @@ public static Strategy<Chart> CreateStrategy()
 		double lossLimit = entryPrice - 10;
 		TradeSetup setup = TradeSetup.Long(entryPrice, 1, profitTarget, lossLimit);
 
+		// A setup for long trading can only be set if its entry price is below the last trade price and
+		// below current buy price. This can easily be validated before setting the new setup so an 
+		// exception will be avoided.
 		if (signal.IsTradeSetupAllowed(setup))
 		{
 			signal = signal.SetLongTradeSetup(setup);
@@ -85,5 +91,76 @@ public static Strategy<Chart> CreateStrategy()
 
 		return signal;
 	};
+}
+```
+
+### Create observable price data
+```C#
+public static IObservable<Pricing> GetPricing()
+{
+	DateTimeOffset h0 = DateTimeOffset.UtcNow.Date;
+	DateTimeOffset h1 = h0.AddHours(1);
+	DateTimeOffset h2 = h1.AddHours(1);
+	DateTimeOffset h3 = h2.AddHours(1);
+	DateTimeOffset h4 = h3.AddHours(1);
+
+	// Emit some prices at irregular intervals
+	return new[]
+	{
+		Pricing.FromLastPrice(h0.AddMinutes(10), 3000.34),
+		Pricing.FromLastPrice(h0.AddMinutes(24), 3101.14),
+
+		Pricing.FromLastPrice(h1.AddMinutes(21), 3000.97),
+		Pricing.FromLastPrice(h1.AddMinutes(56), 3230.65),
+
+		Pricing.FromLastPrice(h2.AddMinutes(13), 3000.33),
+		Pricing.FromLastPrice(h2.AddMinutes(50), 3410.81),
+
+		Pricing.FromLastPrice(h3.AddMinutes(42), 3308.11),
+		Pricing.FromLastPrice(h3.AddMinutes(49), 3240.16),
+
+		Pricing.FromLastPrice(h4.AddMinutes(10), 3312.67),
+		Pricing.FromLastPrice(h4.AddMinutes(10), 3300.77),
+
+	}.ToObservable();
+}
+```
+
+### Create observable charts from price data
+```C#
+public static IObservable<(Pricing, Chart)> BuildCharts()
+{
+	IObservable<Pricing> prices = GetPricing();
+	TimeSpan interval = TimeSpan.FromHours(1);
+	return prices.BuildCharts(interval);
+}
+```
+
+### Generate signals from charts
+```C#
+public static void GenerateSignals()
+{
+	// Use the charts as input for the signals
+	IObservable<(Pricing, Chart)> signalInput = BuildCharts();
+
+	// Get the strategy that was created earlier
+	Strategy<Chart> strategy = CreateStrategy();
+
+	// Generate the signals from the input
+	IObservable<(Signal, Chart)> tuples = signalInput.GenerateSignals(Amazon, strategy);
+
+	// The result also contains the input data (Chart) but we're only interested in the signals
+	IObservable<Signal> signals = tuples.SelectSignals();
+
+	// Show some info from the last signal
+	Signal signal = signals.Wait();
+	Console.WriteLine($"{signal.Symbol.Name} signal @ {signal.Timestamp():u}:");
+	string baseFormat = $"N{signal.Symbol.BaseDecimals}";
+	string quoteFormat = $"N{signal.Symbol.QuoteDecimals}";
+	Console.WriteLine($"\tLast price: {signal.Pricing.Last.ToString(quoteFormat)} {signal.Symbol.QuoteCurrencyName}");
+	Console.WriteLine($"\tCurrent position size: {signal.Position.Size.ToString(baseFormat)} {signal.Symbol.BaseAssetName}");
+	Console.WriteLine($"\tInvestment: {signal.Performance.Investment.ToString(quoteFormat)} {signal.Symbol.QuoteCurrencyName}");
+	Console.WriteLine($"\tProfit: {signal.Performance.Profit.ToString(quoteFormat)} {signal.Symbol.QuoteCurrencyName}");
+	Console.WriteLine($"\tReturn on investment: {signal.Performance.ROI:P2} {signal.Symbol.QuoteCurrencyName}");
 }
 ```
