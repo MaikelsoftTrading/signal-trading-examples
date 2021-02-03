@@ -17,7 +17,7 @@ The framework can be used in x64 applications that run on Windows or Linux (x64 
 Current version can be used without any costs. Starting at the first major version (1.x.x), a license key must be obtained if you want to generate signals for more than one trading symbol.
 
 ## Prerequisites
-* Understanding of functional programming and reactive programming in C#
+* Basic understanding of functional programming and reactive programming in C#
 * .NET 5.0 framework and the .NET 5.0 SDK are installed
 * C# development environment with NuGet package manager
 * A .NET programming interface to a market data provider (for retrieving live prices, candles history, etc.).
@@ -59,7 +59,7 @@ public static Strategy<Chart> CreateStrategy()
 			return signal; 
 		}
 
-		if (signal.LongTradeSetup.IsEnabled)
+		if (signal.LongTradeSetup.IsSet)
 		{
 			// No position is open and we've already set up the long trade that we're interested in.
 			// It is however allowed to change the trade setups as long as no position is open.

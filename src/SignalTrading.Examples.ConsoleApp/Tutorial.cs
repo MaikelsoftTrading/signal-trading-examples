@@ -33,7 +33,7 @@ namespace SignalTrading.Examples.ConsoleApp
 					return signal; 
 				}
 
-				if (signal.LongTradeSetup.IsEnabled)
+				if (signal.LongTradeSetup.IsSet)
 				{
 					// No position is open and we've already set up the long trade that we're interested in.
 					return signal;
