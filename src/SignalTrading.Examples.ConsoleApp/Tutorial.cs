@@ -9,10 +9,11 @@ namespace SignalTrading.Examples.ConsoleApp
 	{
 		#region Step 1: Create a trading symbol
 
-		private static readonly Symbol Amazon = Symbol
-			.Create("AMZN", lotSize: 1, tickSize: 0.01)
-			.SetBaseAssetName("AMZN")
-			.SetQuoteCurrencyName("USD");
+		/// <summary>
+		/// Create the trading symbol for which signals will be generated. Name, lot size and tick size
+		/// are mandatory. Most market data APIs provide an end point for retrieving this information.
+		/// </summary>
+		private static readonly Symbol Amazon = Symbol.Create("AMZN", lotSize:1, tickSize: 0.01);
 
 		#endregion
 
@@ -20,43 +21,47 @@ namespace SignalTrading.Examples.ConsoleApp
 
 		public static Strategy<Chart> CreateStrategy()
 		{
+			// Define the number of candles from which the average closing price is calculated
 			const int movingAverageLength = 4;
 
 			return (Signal signal, Chart chart) =>
 			{
+				// At this point, our signal is up-to-date with the latest prices and the position of the
+				// signal is opened or closed according to these prices and the trade setups that
+				// were set (see below).
+
 				if (signal.Position.IsOpen)
 				{
-					// It is not allowed to set entry targets while the position is open. The position of the
-					// signal is closed automatically when the profit target or loss limit price is hit.
+					// If a position is open, we just wait for the position to close automatically
+					// when its profit target or loss limit is triggered.
 					return signal; 
 				}
 
 				if (signal.LongTradeSetup.IsEnabled)
 				{
-					// For simplicity of the tutorial, we will compute the entry target once and just wait for a
-					// position to be opened by the signal.
+					// No position is open and we've already set up the long trade that we're interested in.
+					// It is however allowed to change the trade setups as long as no position is open.
 					return signal;
 				}
 
+				// No position is open, there is no trade setup and we're gonna try to set up our trade.
 				// We're interested in closed candles only when working with moving averages.
 				chart = chart.TakeClosedCandles();
 				if (chart.Count < movingAverageLength)
 				{
-					// Not enough candles for computing the moving average
-					return signal;
+					return signal; // Not enough candles for computing the moving average
 				}
 
-				// Compute the moving average from the chart
-				double ma = chart.Values
-					.TakeLast(movingAverageLength)
-					.Select(candle => candle.Close)
-					.Average();
+				// Compute the average of the last closing prices
+				double ma = chart.Values.TakeLast(movingAverageLength).Average(candle => candle.Close);
 
-				double profitTarget = signal.Symbol.RoundToTickSize(ma);
+				// Create a long trade setup that enters below current moving average and takes profit
+				// at current moving average.
+				double profitTarget = signal.Symbol.RoundToTickSize(ma); // Price should be rounded to tick size
 				double entryPrice = profitTarget - 5;
 				double lossLimit = entryPrice - 10;
-
 				TradeSetup setup = TradeSetup.Long(entryPrice, 1, profitTarget, lossLimit);
+				
 				if (signal.IsTradeSetupAllowed(setup))
 				{
 					signal = signal.SetLongTradeSetup(setup);
