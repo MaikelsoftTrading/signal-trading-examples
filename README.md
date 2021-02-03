@@ -37,7 +37,7 @@ private static readonly Symbol Amazon = Symbol
 	.SetQuoteCurrencyName("USD");
 ```
 
-### Creating the strategy function
+### Create a factory function for our strategy
 ```C#
 public static Strategy<Chart> CreateStrategy()
 {
@@ -95,7 +95,7 @@ public static Strategy<Chart> CreateStrategy()
 }
 ```
 
-### Create observable price data
+### Create an observable Pricing sequence
 ```C#
 public static IObservable<Pricing> GetPricing()
 {
