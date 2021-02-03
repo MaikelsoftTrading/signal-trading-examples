@@ -7,7 +7,7 @@ trading signals from any type of data that contains price info. It can build can
 signal performance in real-time.
 
 ## Framework design
-The framework is built with .NET 5.0 on top of 64-bit native C libraries. It exposes only pure functions and immutable types. You will notice that most of these
+The framework is built with .NET 5.0 on top of 64-bit native C libraries (Windows, Linux). It exposes only pure functions and immutable types. You will notice that most of these
 types are implemented as structs because of C#/C interopability. 
 
 ## Limitations
