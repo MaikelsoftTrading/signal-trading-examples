@@ -57,7 +57,7 @@ namespace SignalTrading.Examples.ConsoleApp
 				double lossLimit = entryPrice - 10;
 
 				TradeSetup setup = TradeSetup.Long(entryPrice, 1, profitTarget, lossLimit);
-				if (signal.IsTradeSetupValid(setup))
+				if (signal.IsTradeSetupAllowed(setup))
 				{
 					signal = signal.SetLongTradeSetup(setup);
 				}
