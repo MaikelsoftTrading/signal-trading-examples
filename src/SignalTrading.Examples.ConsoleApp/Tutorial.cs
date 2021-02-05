@@ -10,7 +10,7 @@ namespace SignalTrading.Examples.ConsoleApp
 		#region Create a trading symbol
 
 		private static readonly Symbol Amazon = Symbol
-			.Create("AMZN", lotSize:0.1, tickSize: 0.01)
+			.Create("AMZN", lotSize: 0.1, tickSize: 0.01)
 			.SetBaseAssetName("AMZN")
 			.SetQuoteCurrencyName("USD");
 
@@ -30,7 +30,7 @@ namespace SignalTrading.Examples.ConsoleApp
 				{
 					// If a position is open, we just wait for the position to close automatically
 					// when its profit target or loss limit is triggered.
-					return signal; 
+					return signal;
 				}
 
 				if (signal.LongTradeSetup.IsSet)
@@ -56,7 +56,7 @@ namespace SignalTrading.Examples.ConsoleApp
 				double entryPrice = profitTarget - 5;
 				double lossLimit = entryPrice - 10;
 				TradeSetup setup = TradeSetup.Long(entryPrice, 1, profitTarget, lossLimit);
-				
+
 				// A setup for long trading can only be set if its entry price is below the last trade price and
 				// below current buy price. This can easily be validated before setting the new setup so an 
 				// exception will be avoided.
@@ -64,7 +64,7 @@ namespace SignalTrading.Examples.ConsoleApp
 				{
 					signal = signal.SetLongTradeSetup(setup);
 				}
-				
+
 				return signal;
 			};
 		}
@@ -80,7 +80,7 @@ namespace SignalTrading.Examples.ConsoleApp
 			DateTimeOffset h2 = h1.AddHours(1);
 			DateTimeOffset h3 = h2.AddHours(1);
 			DateTimeOffset h4 = h3.AddHours(1);
-			
+
 			// Emit some prices at irregular intervals
 			return new[]
 			{
@@ -98,25 +98,24 @@ namespace SignalTrading.Examples.ConsoleApp
 
 				Pricing.FromLastPrice(h4.AddMinutes(10), 3312.67),
 				Pricing.FromLastPrice(h4.AddMinutes(14), 3300.77)
-
 			}.ToObservable();
 		}
 
 		#endregion
-		
+
 		#region Generate signals from charts
 
 		public static void GenerateSignals()
 		{
 			// Create a strategy function that uses a moving average length of 3
 			Strategy<Chart> strategy = CreateMovingAverageStrategy(3);
-			
+
 			// Get the prices
 			IObservable<Pricing> prices = GetPricing();
-			
+
 			// Create a chart sequence from the prices
 			IObservable<(Pricing, Chart)> pricingWithChart = prices.BuildCharts(TimeSpan.FromHours(1));
-			
+
 			// Generate the signals from the input
 			IObservable<(Signal, Chart)> signalsWithChart = pricingWithChart.GenerateSignals(Amazon, strategy);
 
@@ -126,15 +125,19 @@ namespace SignalTrading.Examples.ConsoleApp
 			// In a real trading scenario we would subscribe to the observable. Here, we wait for the last
 			// signal.
 			Signal signal = signals.Wait();
-			
+
 			// Show the signal.
 			Console.WriteLine($"{signal.Symbol.Name} signal @ {signal.Timestamp():u}:");
 			string baseFormat = $"N{signal.Symbol.BaseDecimals}";
 			string quoteFormat = $"N{signal.Symbol.QuoteDecimals}";
-			Console.WriteLine($"\tLast price: {signal.Pricing.Last.ToString(quoteFormat)} {signal.Symbol.QuoteCurrencyName}");
-			Console.WriteLine($"\tCurrent position size: {signal.Position.Size.ToString(baseFormat)} {signal.Symbol.BaseAssetName}");
-			Console.WriteLine($"\tInvestment: {signal.Performance.Investment.ToString(quoteFormat)} {signal.Symbol.QuoteCurrencyName}");
-			Console.WriteLine($"\tProfit: {signal.Performance.Profit.ToString(quoteFormat)} {signal.Symbol.QuoteCurrencyName}");
+			Console.WriteLine(
+				$"\tLast price: {signal.Pricing.Last.ToString(quoteFormat)} {signal.Symbol.QuoteCurrencyName}");
+			Console.WriteLine(
+				$"\tCurrent position size: {signal.Position.Size.ToString(baseFormat)} {signal.Symbol.BaseAssetName}");
+			Console.WriteLine(
+				$"\tInvestment: {signal.Performance.Investment.ToString(quoteFormat)} {signal.Symbol.QuoteCurrencyName}");
+			Console.WriteLine(
+				$"\tProfit: {signal.Performance.Profit.ToString(quoteFormat)} {signal.Symbol.QuoteCurrencyName}");
 			Console.WriteLine($"\tReturn on investment: {signal.Performance.ROI:P2}");
 		}
 
