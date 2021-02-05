@@ -21,7 +21,7 @@ Current version can be used without any costs. Starting at the first major versi
 * .NET 5.0 framework and the .NET 5.0 SDK are installed
 * C# development environment with NuGet package manager
 * A .NET programming interface to a market data provider (for retrieving live prices, candles history, etc.).
-* For bot development: .NET interface for retrieving account balance and placing orders from a broker or exchange
+* For bot development: .NET interface for retrieving balances and placing orders at the broker or exchange
 
 # Development guide
 ## Reference documentation
