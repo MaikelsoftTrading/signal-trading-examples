@@ -29,7 +29,6 @@ namespace SignalTrading.Examples.ConsoleApp
 				if (signal.Position.IsOpen)
 				{
 					// If a position is open, we just wait for the position to close automatically
-					// when its profit target or loss limit is triggered.
 					return signal;
 				}
 
@@ -113,20 +112,20 @@ namespace SignalTrading.Examples.ConsoleApp
 			// Get the prices
 			IObservable<Pricing> prices = GetPricing();
 
-			// Create a chart sequence from the prices
+			// Build charts from prices
 			IObservable<(Pricing, Chart)> pricingWithChart = prices.BuildCharts(TimeSpan.FromHours(1));
 
-			// Generate the signals from the input
+			// Generate signals from the charts
 			IObservable<(Signal, Chart)> signalsWithChart = pricingWithChart.GenerateSignals(Amazon, strategy);
 
-			// The result also contains the input data (Chart) but we're only interested in the signals
+			// We're interested in the signals only
 			IObservable<Signal> signals = signalsWithChart.SelectSignals();
 
 			// In a real trading scenario we would subscribe to the observable. Here, we wait for the last
 			// signal.
 			Signal signal = signals.Wait();
 
-			// Show the signal.
+			// Show some information from the signal
 			Console.WriteLine($"{signal.Symbol.Name} signal @ {signal.Timestamp():u}:");
 			string baseFormat = $"N{signal.Symbol.BaseDecimals}";
 			string quoteFormat = $"N{signal.Symbol.QuoteDecimals}";
