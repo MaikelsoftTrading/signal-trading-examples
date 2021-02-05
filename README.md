@@ -32,14 +32,14 @@ The basic flow for generating signals from live price data, using candlestick ch
 
 1. Framework subscribes to provided pricing data source
 2. Framework receives (next) pricing object from source
-3. If this is the first pricing, framework initializes a candlestick Chart
+3. If this is the first pricing, framework initializes a candlestick chart with specified time frame
 4. Framework updates chart from pricing
 5. If this is the first pricing/chart, framework initializes a signal for provided symbol
 6. Framework updates signal with latest prices and subsequently:
-	1. If signal position is closed and trades have been set up, a position is opened if the entry price of a setup was triggered
-	2. If signal position is open, closes the position if its profit target or loss limit is hit
+	1. If signal position is closed and trades have been set up, position is opened if entry price of setup was triggered
+	2. If signal position is open, closes position if its profit target or loss limit price is hit
 7. Framework calls provided stategy function with signal and chart as arguments
-8. Strategy function sets up trades for next trading position or changes current position if necessary
+8. Strategy function sets up trades for next trading position or changes exit triggers of current position if necessary
 9. Strategy function returns signal
 10. Framework provides observers with returned signal
 11. Flow continues at step 2
