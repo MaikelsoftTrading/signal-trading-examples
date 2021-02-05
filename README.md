@@ -28,23 +28,21 @@ Current version can be used without any costs. Starting at the first major versi
 The [C# reference documentation](https://maikelsofttrading.github.io/signal-trading-examples/api/index.html) here on Github is a detailed description of all data types, methods and functions of the framework.
 
 ## Signal generation process
-The basic flow for generating signals for a trading symbol is:
+The basic flow for live trading using a price data stream and candlestick charts is:
 
-1. Framework receives latest price(s) for the symbol through either push (IObservable) or pull (IEnumerable)
-2. Additional data is derived from latest prices, e.g, a candlestick chart
-3. If this is the first input, framework creates a signal for the symbol
-4. Framework updates signal with latest prices and:
+1. Framework subscribes to a provided Pricing data source (which emits timestamped buy, sell and last prices)
+2. Framework receives (next) Pricing object from the source
+3. (If this is the first Pricing object, framework initializes a candlestick chart)
+4. Framework updates the candlestick chart from the latest prices
+5. (If this is the first pricing/chart, framework initializes a signal for the symbol)
+6. Framework updates signal with latest prices and:
 	1. If no position is open and trades have been set up, a position is opened if the entry price of a setup was triggered
 	2. If a position is open, closes the position if its profit target or loss limit is hit
-5. Framework calls strategy function with current signal and the additional data as arguments
-6. Strategy function sets up trades for the next trading position or changes current position if necessary
-7. Strategy function returns signal to framework
-8. Framework repeats the process
-
-An alternative flow is to start from custom data that includes latest prices and other information that must be analyzed by the strategy (e.g. # social media mentions, news headlines for the symbol, number of wallets for a cryptocurrency):
-1. Framework receives data in a custom format through either push (IObservable) or pull (IEnumerable)
-2. The custom data item is mapped to pricing information that the framework can work with (the Pricing struct)
-3. Continue at step 3 of basic flow.
+7. Framework calls the provided strategy function with the signal and chart as arguments
+8. Strategy function sets up trades for the next trading position or changes current position if necessary
+9. Strategy function returns signal to framework
+10. Framework provides observers with the new signal
+11. Flow repeats from step 2
 
 ## Tutorial
 (The development of this tutorial is in progress)
