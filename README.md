@@ -52,7 +52,7 @@ The basic flow for generating signals from live price data, using candlestick ch
 Create the trading symbol for which signals will be generated. Name, lot size and tick size are mandatory. Most market data APIs provide an end point for retrieving this information.
 ```C#
 private static readonly Symbol Amazon = Symbol
-	.Create("AMZN", lotSize:0.1, tickSize: 0.01)
+	.Create("AMZN", lotSize: 0.1, tickSize: 0.01)
 	.SetBaseAssetName("AMZN")
 	.SetQuoteCurrencyName("USD");
 ```
