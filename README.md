@@ -39,9 +39,11 @@ The basic flow for generating signals from live price data, using candlestick ch
 	1. If signal position is closed and trades have been set up, position is opened if entry price of setup was triggered
 	2. If signal position is open, closes position if its profit target or loss limit price is hit
 7. Framework calls provided stategy function with signal and chart as arguments
-8. Strategy function sets up trades for next trading position or changes exit triggers of current position if necessary
+8. Strategy function checks/modifies the signal as follows:
+	* If signal position is closed, sets trade setups for the next long and/or short position
+	* If signal postion is open, changes the profit target or loss limit if required (e.g. trailing stop loss)
 9. Strategy function returns signal
-10. Framework provides observers with returned signal
+10. Framework provides observers with signal
 11. Flow continues at step 2
 
 ## Tutorial
