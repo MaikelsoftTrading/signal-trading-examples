@@ -59,11 +59,8 @@ private static readonly Symbol Amazon = Symbol
 
 ### Create a factory function for our strategy
 ```C#
-public static Strategy<Chart> CreateStrategy()
+public static Strategy<Chart> CreateMovingAverageStrategy(int movingAverageLength)
 {
-	// Define the number of candles from which the average closing price is calculated
-	const int movingAverageLength = 3;
-
 	return (Signal signal, Chart chart) =>
 	{
 		// At this point, our signal is up-to-date with the latest prices and the position of the
@@ -73,14 +70,12 @@ public static Strategy<Chart> CreateStrategy()
 		if (signal.Position.IsOpen)
 		{
 			// If a position is open, we just wait for the position to close automatically
-			// when its profit target or loss limit is triggered.
-			return signal; 
+			return signal;
 		}
 
 		if (signal.LongTradeSetup.IsSet)
 		{
 			// No position is open and we've already set up the long trade that we're interested in.
-			// It is however allowed to change the trade setups as long as no position is open.
 			return signal;
 		}
 
@@ -141,39 +136,46 @@ public static IObservable<Pricing> GetPricing()
 		Pricing.FromLastPrice(h3.AddMinutes(49), 3240.16),
 
 		Pricing.FromLastPrice(h4.AddMinutes(10), 3312.67),
-		Pricing.FromLastPrice(h4.AddMinutes(10), 3300.77),
-
+		Pricing.FromLastPrice(h4.AddMinutes(14), 3300.77)
 	}.ToObservable();
 }
 ```
 
-### Generate signals from charts
+### Build charts and generate signals
 ```C#
 public static void GenerateSignals()
 {
 	// Create a strategy function that uses a moving average length of 3
 	Strategy<Chart> strategy = CreateMovingAverageStrategy(3);
 
+	// Get the prices
 	IObservable<Pricing> prices = GetPricing();
 
-	// Use the charts as input for the signals
-	IObservable<(Pricing, Chart)> signalInput = prices.BuildCharts(TimeSpan.FromHours(1));
+	// Build charts from prices
+	IObservable<(Pricing, Chart)> pricingWithChart = prices.BuildCharts(TimeSpan.FromHours(1));
 
-	// Generate the signals from the input
-	IObservable<(Signal, Chart)> tuples = signalInput.GenerateSignals(Amazon, strategy);
+	// Generate signals from the charts
+	IObservable<(Signal, Chart)> signalsWithChart = pricingWithChart.GenerateSignals(Amazon, strategy);
 
-	// The result also contains the input data (Chart) but we're only interested in the signals
-	IObservable<Signal> signals = tuples.SelectSignals();
+	// We're interested in the signals only
+	IObservable<Signal> signals = signalsWithChart.SelectSignals();
 
-	// Show some info from the last signal
+	// In a real trading scenario we would subscribe to the observable. Here, we wait for the last
+	// signal.
 	Signal signal = signals.Wait();
+
+	// Show some information from the signal
 	Console.WriteLine($"{signal.Symbol.Name} signal @ {signal.Timestamp():u}:");
 	string baseFormat = $"N{signal.Symbol.BaseDecimals}";
 	string quoteFormat = $"N{signal.Symbol.QuoteDecimals}";
-	Console.WriteLine($"\tLast price: {signal.Pricing.Last.ToString(quoteFormat)} {signal.Symbol.QuoteCurrencyName}");
-	Console.WriteLine($"\tCurrent position size: {signal.Position.Size.ToString(baseFormat)} {signal.Symbol.BaseAssetName}");
-	Console.WriteLine($"\tInvestment: {signal.Performance.Investment.ToString(quoteFormat)} {signal.Symbol.QuoteCurrencyName}");
-	Console.WriteLine($"\tProfit: {signal.Performance.Profit.ToString(quoteFormat)} {signal.Symbol.QuoteCurrencyName}");
+	Console.WriteLine(
+		$"\tLast price: {signal.Pricing.Last.ToString(quoteFormat)} {signal.Symbol.QuoteCurrencyName}");
+	Console.WriteLine(
+		$"\tCurrent position size: {signal.Position.Size.ToString(baseFormat)} {signal.Symbol.BaseAssetName}");
+	Console.WriteLine(
+		$"\tInvestment: {signal.Performance.Investment.ToString(quoteFormat)} {signal.Symbol.QuoteCurrencyName}");
+	Console.WriteLine(
+		$"\tProfit: {signal.Performance.Profit.ToString(quoteFormat)} {signal.Symbol.QuoteCurrencyName}");
 	Console.WriteLine($"\tReturn on investment: {signal.Performance.ROI:P2}");
 }
 ```
