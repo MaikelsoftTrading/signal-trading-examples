@@ -28,21 +28,21 @@ Current version can be used without any costs. Starting at the first major versi
 The [C# reference documentation](https://maikelsofttrading.github.io/signal-trading-examples/api/index.html) here on Github is a detailed description of all data types, methods and functions of the framework.
 
 ## Signal generation process
-The basic flow for live trading using a price data stream and candlestick charts is:
+The basic flow for generating signals from live price data, using candlestick charts, is described below. It requires an observable sequence of pricing objects, which can easily be created from any price data source (a Pricing object is timestamped Buy, Sell and Last prices). A time frame for the charts needs to be chosen and a strategy callback function must be provided.
 
-1. Framework subscribes to a provided Pricing data source (which emits timestamped buy, sell and last prices)
-2. Framework receives (next) Pricing object from the source
-3. (If this is the first Pricing object, framework initializes a candlestick chart)
-4. Framework updates the candlestick chart from the latest prices
-5. (If this is the first pricing/chart, framework initializes a signal for the symbol)
-6. Framework updates signal with latest prices and:
-	1. If no position is open and trades have been set up, a position is opened if the entry price of a setup was triggered
-	2. If a position is open, closes the position if its profit target or loss limit is hit
-7. Framework calls the provided strategy function with the signal and chart as arguments
-8. Strategy function sets up trades for the next trading position or changes current position if necessary
-9. Strategy function returns signal to framework
-10. Framework provides observers with the new signal
-11. Flow repeats from step 2
+1. Framework subscribes to provided pricing data source
+2. Framework receives (next) pricing object from source
+3. If this is the first pricing, framework initializes a candlestick Chart
+4. Framework updates chart from pricing
+5. If this is the first pricing/chart, framework initializes a signal for provided symbol
+6. Framework updates signal with latest prices and subsequently:
+	1. If signal position is closed and trades have been set up, a position is opened if the entry price of a setup was triggered
+	2. If signal position is open, closes the position if its profit target or loss limit is hit
+7. Framework calls provided stategy function with signal and chart as arguments
+8. Strategy function sets up trades for next trading position or changes current position if necessary
+9. Strategy function returns signal
+10. Framework provides observers with returned signal
+11. Flow continues at step 2
 
 ## Tutorial
 (The development of this tutorial is in progress)
