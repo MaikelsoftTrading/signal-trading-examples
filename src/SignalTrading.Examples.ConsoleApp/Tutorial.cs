@@ -97,7 +97,7 @@ namespace SignalTrading.Examples.ConsoleApp
 				Pricing.FromLastPrice(h3.AddMinutes(49), 3240.16),
 
 				Pricing.FromLastPrice(h4.AddMinutes(10), 3312.67),
-				Pricing.FromLastPrice(h4.AddMinutes(10), 3300.77),
+				Pricing.FromLastPrice(h4.AddMinutes(14), 3300.77)
 
 			}.ToObservable();
 		}
