@@ -78,7 +78,7 @@ namespace SignalTrading.Examples.ConsoleApp
 		public static void WriteToConsole(this TradeSetup setup, string title, string numberFormat)
 		{
 			Console.WriteLine(title);
-			if (!setup.IsEnabled)
+			if (!setup.IsSet)
 			{
 				Console.WriteLine("\tDisabled");
 				return;

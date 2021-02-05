@@ -120,8 +120,7 @@ and a method that generates signals from these tuples.</p>
   
   <a id="SignalTrading_ExtendIEnumerable_BuildCharts_" data-uid="SignalTrading.ExtendIEnumerable.BuildCharts*"></a>
   <h4 id="SignalTrading_ExtendIEnumerable_BuildCharts_System_Collections_Generic_IEnumerable_SignalTrading_Candle__System_TimeSpan_" data-uid="SignalTrading.ExtendIEnumerable.BuildCharts(System.Collections.Generic.IEnumerable{SignalTrading.Candle},System.TimeSpan)">BuildCharts(IEnumerable&lt;Candle&gt;, TimeSpan)</h4>
-  <div class="markdown level1 summary"><p>Builds candlestick charts from a <a class="xref" href="SignalTrading.Candle.html">Candle</a> sequence where each <a class="xref" href="SignalTrading.Chart.html">Chart</a> is paired with <a class="xref" href="SignalTrading.Pricing.html">Pricing</a>
-that is derived from the last candle on the chart.</p>
+  <div class="markdown level1 summary"><p>Builds candlestick charts from specified candles, using specified time frame.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -142,13 +141,13 @@ public static IEnumerable&lt;(Pricing, Chart)&gt; BuildCharts(this IEnumerable&l
       <tr>
         <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="SignalTrading.Candle.html">Candle</a>&gt;</td>
         <td><span class="parametername">candles</span></td>
-        <td><p>Candles from which the charts must be built.</p>
+        <td><p>Candles from which charts must be built.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.TimeSpan</span></td>
         <td><span class="parametername">timeFrame</span></td>
-        <td><p>Time frame for the charts, which must correspond with the time frame of the candles.</p>
+        <td><p>Time frame for the chart, which must correspond with the time frame of specified candles.</p>
 </td>
       </tr>
     </tbody>
@@ -164,74 +163,7 @@ public static IEnumerable&lt;(Pricing, Chart)&gt; BuildCharts(this IEnumerable&l
     <tbody>
       <tr>
         <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>, <a class="xref" href="SignalTrading.Chart.html">Chart</a>&gt;&gt;</td>
-        <td><p>Tuples that can be used for generating signals.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="SignalTrading_ExtendIEnumerable_BuildCharts_" data-uid="SignalTrading.ExtendIEnumerable.BuildCharts*"></a>
-  <h4 id="SignalTrading_ExtendIEnumerable_BuildCharts_System_Collections_Generic_IEnumerable_SignalTrading_Candle__System_TimeSpan_System_Collections_Generic_IEnumerable_SignalTrading_Pricing__System_Int32_" data-uid="SignalTrading.ExtendIEnumerable.BuildCharts(System.Collections.Generic.IEnumerable{SignalTrading.Candle},System.TimeSpan,System.Collections.Generic.IEnumerable{SignalTrading.Pricing},System.Int32)">BuildCharts(IEnumerable&lt;Candle&gt;, TimeSpan, IEnumerable&lt;Pricing&gt;, Int32)</h4>
-  <div class="markdown level1 summary"><p>Builds candlestick charts from <a class="xref" href="SignalTrading.Candle.html">Candle</a> and <a class="xref" href="SignalTrading.Pricing.html">Pricing</a> sequences, and pairs
-each chart with the source pricing or the pricing that was derived from the last candle on the chart.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Pure]
-public static IEnumerable&lt;(Pricing, Chart)&gt; BuildCharts(this IEnumerable&lt;Candle&gt; candles, TimeSpan timeFrame, IEnumerable&lt;Pricing&gt; prices, int sessionStartHour = 0)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="SignalTrading.Candle.html">Candle</a>&gt;</td>
-        <td><span class="parametername">candles</span></td>
-        <td><p>Candles from which the charts must be built.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.TimeSpan</span></td>
-        <td><span class="parametername">timeFrame</span></td>
-        <td><p>Time frame for the charts, which must correspond with the time frame of the candles.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>&gt;</td>
-        <td><span class="parametername">prices</span></td>
-        <td><p>Pricing from which the charts must be built.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">sessionStartHour</span></td>
-        <td><p>Start hour of the trading session that will be taken into account when
-computing candle opening times. This only affects timeframes of two hours and more. Valid range is 0 to 23
-and the value must be adjusted to UTC.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>, <a class="xref" href="SignalTrading.Chart.html">Chart</a>&gt;&gt;</td>
-        <td><p>Tuples that can be used for generating signals.</p>
+        <td><p>A sequence of tuples with pricing and chart.</p>
 </td>
       </tr>
     </tbody>
@@ -240,8 +172,7 @@ and the value must be adjusted to UTC.</p>
   
   <a id="SignalTrading_ExtendIEnumerable_BuildCharts_" data-uid="SignalTrading.ExtendIEnumerable.BuildCharts*"></a>
   <h4 id="SignalTrading_ExtendIEnumerable_BuildCharts_System_Collections_Generic_IEnumerable_SignalTrading_Pricing__System_TimeSpan_System_Int32_" data-uid="SignalTrading.ExtendIEnumerable.BuildCharts(System.Collections.Generic.IEnumerable{SignalTrading.Pricing},System.TimeSpan,System.Int32)">BuildCharts(IEnumerable&lt;Pricing&gt;, TimeSpan, Int32)</h4>
-  <div class="markdown level1 summary"><p>Builds candlestick charts from a <a class="xref" href="SignalTrading.Pricing.html">Pricing</a> sequence where each chart is paired with
-the pricing from which the last <a class="xref" href="SignalTrading.Candle.html">Candle</a> was created or updated.</p>
+  <div class="markdown level1 summary"><p>Builds candlestick charts from specified prices, using specified time frame.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -262,7 +193,7 @@ public static IEnumerable&lt;(Pricing, Chart)&gt; BuildCharts(this IEnumerable&l
       <tr>
         <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>&gt;</td>
         <td><span class="parametername">prices</span></td>
-        <td><p>Pricing from which the charts must be built.</p>
+        <td><p>Prices from which charts must be built.</p>
 </td>
       </tr>
       <tr>
@@ -274,8 +205,8 @@ public static IEnumerable&lt;(Pricing, Chart)&gt; BuildCharts(this IEnumerable&l
       <tr>
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">sessionStartHour</span></td>
-        <td><p>Start hour of the trading session that will be taken into account when
-computing candle opening times. This only affects timeframes of two hours and more. Valid range is 0 to 23
+        <td><p>Start hour of the trading session which is used when
+computing candle opening times of timeframes of two hours and more. Valid range is 0 to 23
 and the value must be adjusted to UTC.</p>
 </td>
       </tr>
@@ -292,7 +223,7 @@ and the value must be adjusted to UTC.</p>
     <tbody>
       <tr>
         <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>, <a class="xref" href="SignalTrading.Chart.html">Chart</a>&gt;&gt;</td>
-        <td><p>Tuples that can be used for generating signals.</p>
+        <td><p>A sequence of tuples with pricing and chart.</p>
 </td>
       </tr>
     </tbody>
@@ -429,6 +360,57 @@ public static IEnumerable&lt;Signal&gt; SelectSignals&lt;TData&gt;(this IEnumera
       <tr>
         <td><span class="parametername">TData</span></td>
         <td><p>Type of data in the result.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SignalTrading_ExtendIEnumerable_ToChart_" data-uid="SignalTrading.ExtendIEnumerable.ToChart*"></a>
+  <h4 id="SignalTrading_ExtendIEnumerable_ToChart_System_Collections_Generic_IEnumerable_SignalTrading_Candle__System_TimeSpan_" data-uid="SignalTrading.ExtendIEnumerable.ToChart(System.Collections.Generic.IEnumerable{SignalTrading.Candle},System.TimeSpan)">ToChart(IEnumerable&lt;Candle&gt;, TimeSpan)</h4>
+  <div class="markdown level1 summary"><p>Creates a candlestick chart from specified candles, with specified time frame.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Chart ToChart(this IEnumerable&lt;Candle&gt; candles, TimeSpan timeFrame)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="SignalTrading.Candle.html">Candle</a>&gt;</td>
+        <td><span class="parametername">candles</span></td>
+        <td><p>Candles that must be included in the chart.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.TimeSpan</span></td>
+        <td><span class="parametername">timeFrame</span></td>
+        <td><p>Time frame for the chart, which must correspond with the time frame of specified candles.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SignalTrading.Chart.html">Chart</a></td>
+        <td><p>Candlestick chart.</p>
 </td>
       </tr>
     </tbody>
