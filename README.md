@@ -30,14 +30,14 @@ The [C# reference documentation](https://maikelsofttrading.github.io/signal-trad
 ## Signal generation process
 The basic flow for generating signals from live price data, using candlestick charts, is described below. It requires an observable sequence of pricing objects, which can easily be created from any price data source (a Pricing object is timestamped Buy, Sell and Last prices). A time frame for the charts needs to be chosen and a strategy callback function must be provided.
 
-1. Framework subscribes to provided pricing data source
+1. Framework subscribes to provided pricing source
 2. Framework receives (next) pricing object from source
-3. If this is the first pricing, framework initializes a candlestick chart with specified time frame
+3. If this is the first pricing, framework creates candlestick chart for provided time frame
 4. Framework updates chart from pricing
-5. If this is the first pricing/chart, framework initializes a signal for provided symbol
+5. If this is the first pricing/chart, framework creates signal for provided symbol
 6. Framework updates signal with latest prices and subsequently:
-	1. If signal position is closed and trades have been set up, position is opened if entry price of setup was triggered
-	2. If signal position is open, closes position if its profit target or loss limit price is hit
+	1. If signal position is closed and trades have been set up, position is opened if an entry price was triggered
+	2. If signal position is open, closes position if its profit target or loss limit price was triggered
 7. Framework calls provided stategy function with signal and chart as arguments
 8. Strategy function checks/modifies the signal as follows:
 	* If signal position is closed, sets trade setups for the next long and/or short position
