@@ -113,7 +113,7 @@ namespace SignalTrading.Examples.ConsoleApp
 			IObservable<Pricing> prices = GetPricing();
 
 			// Build charts from prices
-			IObservable<(Pricing, Chart)> pricingWithChart = prices.BuildCharts(TimeSpan.FromHours(1));
+			IObservable<(Pricing, Chart)> pricingWithChart = prices.GenerateCharts(TimeSpan.FromHours(1));
 
 			// Generate signals from the charts
 			IObservable<(Signal, Chart)> signalsWithChart = pricingWithChart.GenerateSignals(Amazon, strategy);

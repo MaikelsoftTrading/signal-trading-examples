@@ -58,6 +58,25 @@ references:
   isSpec: "True"
   fullName: SignalTrading.Candle.High
   nameWithType: Candle.High
+- uid: SignalTrading.Candle.IsClosed(System.TimeSpan)
+  name: IsClosed(TimeSpan)
+  href: api/SignalTrading.Candle.html#SignalTrading_Candle_IsClosed_System_TimeSpan_
+  commentId: M:SignalTrading.Candle.IsClosed(System.TimeSpan)
+  fullName: SignalTrading.Candle.IsClosed(System.TimeSpan)
+  nameWithType: Candle.IsClosed(TimeSpan)
+- uid: SignalTrading.Candle.IsClosed(System.TimeSpan,System.DateTimeOffset)
+  name: IsClosed(TimeSpan, DateTimeOffset)
+  href: api/SignalTrading.Candle.html#SignalTrading_Candle_IsClosed_System_TimeSpan_System_DateTimeOffset_
+  commentId: M:SignalTrading.Candle.IsClosed(System.TimeSpan,System.DateTimeOffset)
+  fullName: SignalTrading.Candle.IsClosed(System.TimeSpan, System.DateTimeOffset)
+  nameWithType: Candle.IsClosed(TimeSpan, DateTimeOffset)
+- uid: SignalTrading.Candle.IsClosed*
+  name: IsClosed
+  href: api/SignalTrading.Candle.html#SignalTrading_Candle_IsClosed_
+  commentId: Overload:SignalTrading.Candle.IsClosed
+  isSpec: "True"
+  fullName: SignalTrading.Candle.IsClosed
+  nameWithType: Candle.IsClosed
 - uid: SignalTrading.Candle.Low
   name: Low
   href: api/SignalTrading.Candle.html#SignalTrading_Candle_Low
@@ -236,19 +255,6 @@ references:
   isSpec: "True"
   fullName: SignalTrading.Chart.Keys
   nameWithType: Chart.Keys
-- uid: SignalTrading.Chart.SessionStartHour
-  name: SessionStartHour
-  href: api/SignalTrading.Chart.html#SignalTrading_Chart_SessionStartHour
-  commentId: P:SignalTrading.Chart.SessionStartHour
-  fullName: SignalTrading.Chart.SessionStartHour
-  nameWithType: Chart.SessionStartHour
-- uid: SignalTrading.Chart.SessionStartHour*
-  name: SessionStartHour
-  href: api/SignalTrading.Chart.html#SignalTrading_Chart_SessionStartHour_
-  commentId: Overload:SignalTrading.Chart.SessionStartHour
-  isSpec: "True"
-  fullName: SignalTrading.Chart.SessionStartHour
-  nameWithType: Chart.SessionStartHour
 - uid: SignalTrading.Chart.System#Collections#IEnumerable#GetEnumerator
   name: IEnumerable.GetEnumerator()
   href: api/SignalTrading.Chart.html#SignalTrading_Chart_System_Collections_IEnumerable_GetEnumerator
@@ -327,31 +333,72 @@ references:
   commentId: T:SignalTrading.ExtendIEnumerable
   fullName: SignalTrading.ExtendIEnumerable
   nameWithType: ExtendIEnumerable
-- uid: SignalTrading.ExtendIEnumerable.BuildCharts(System.Collections.Generic.IEnumerable{SignalTrading.Candle},System.TimeSpan)
-  name: BuildCharts(IEnumerable<Candle>, TimeSpan)
-  href: api/SignalTrading.ExtendIEnumerable.html#SignalTrading_ExtendIEnumerable_BuildCharts_System_Collections_Generic_IEnumerable_SignalTrading_Candle__System_TimeSpan_
-  commentId: M:SignalTrading.ExtendIEnumerable.BuildCharts(System.Collections.Generic.IEnumerable{SignalTrading.Candle},System.TimeSpan)
-  name.vb: BuildCharts(IEnumerable(Of Candle), TimeSpan)
-  fullName: SignalTrading.ExtendIEnumerable.BuildCharts(System.Collections.Generic.IEnumerable<SignalTrading.Candle>, System.TimeSpan)
-  fullName.vb: SignalTrading.ExtendIEnumerable.BuildCharts(System.Collections.Generic.IEnumerable(Of SignalTrading.Candle), System.TimeSpan)
-  nameWithType: ExtendIEnumerable.BuildCharts(IEnumerable<Candle>, TimeSpan)
-  nameWithType.vb: ExtendIEnumerable.BuildCharts(IEnumerable(Of Candle), TimeSpan)
-- uid: SignalTrading.ExtendIEnumerable.BuildCharts(System.Collections.Generic.IEnumerable{SignalTrading.Pricing},System.TimeSpan,System.Int32)
-  name: BuildCharts(IEnumerable<Pricing>, TimeSpan, Int32)
-  href: api/SignalTrading.ExtendIEnumerable.html#SignalTrading_ExtendIEnumerable_BuildCharts_System_Collections_Generic_IEnumerable_SignalTrading_Pricing__System_TimeSpan_System_Int32_
-  commentId: M:SignalTrading.ExtendIEnumerable.BuildCharts(System.Collections.Generic.IEnumerable{SignalTrading.Pricing},System.TimeSpan,System.Int32)
-  name.vb: BuildCharts(IEnumerable(Of Pricing), TimeSpan, Int32)
-  fullName: SignalTrading.ExtendIEnumerable.BuildCharts(System.Collections.Generic.IEnumerable<SignalTrading.Pricing>, System.TimeSpan, System.Int32)
-  fullName.vb: SignalTrading.ExtendIEnumerable.BuildCharts(System.Collections.Generic.IEnumerable(Of SignalTrading.Pricing), System.TimeSpan, System.Int32)
-  nameWithType: ExtendIEnumerable.BuildCharts(IEnumerable<Pricing>, TimeSpan, Int32)
-  nameWithType.vb: ExtendIEnumerable.BuildCharts(IEnumerable(Of Pricing), TimeSpan, Int32)
-- uid: SignalTrading.ExtendIEnumerable.BuildCharts*
-  name: BuildCharts
-  href: api/SignalTrading.ExtendIEnumerable.html#SignalTrading_ExtendIEnumerable_BuildCharts_
-  commentId: Overload:SignalTrading.ExtendIEnumerable.BuildCharts
+- uid: SignalTrading.ExtendIEnumerable.BuildCandles(System.Collections.Generic.IEnumerable{SignalTrading.Pricing},System.TimeSpan,System.Int32)
+  name: BuildCandles(IEnumerable<Pricing>, TimeSpan, Int32)
+  href: api/SignalTrading.ExtendIEnumerable.html#SignalTrading_ExtendIEnumerable_BuildCandles_System_Collections_Generic_IEnumerable_SignalTrading_Pricing__System_TimeSpan_System_Int32_
+  commentId: M:SignalTrading.ExtendIEnumerable.BuildCandles(System.Collections.Generic.IEnumerable{SignalTrading.Pricing},System.TimeSpan,System.Int32)
+  name.vb: BuildCandles(IEnumerable(Of Pricing), TimeSpan, Int32)
+  fullName: SignalTrading.ExtendIEnumerable.BuildCandles(System.Collections.Generic.IEnumerable<SignalTrading.Pricing>, System.TimeSpan, System.Int32)
+  fullName.vb: SignalTrading.ExtendIEnumerable.BuildCandles(System.Collections.Generic.IEnumerable(Of SignalTrading.Pricing), System.TimeSpan, System.Int32)
+  nameWithType: ExtendIEnumerable.BuildCandles(IEnumerable<Pricing>, TimeSpan, Int32)
+  nameWithType.vb: ExtendIEnumerable.BuildCandles(IEnumerable(Of Pricing), TimeSpan, Int32)
+- uid: SignalTrading.ExtendIEnumerable.BuildCandles*
+  name: BuildCandles
+  href: api/SignalTrading.ExtendIEnumerable.html#SignalTrading_ExtendIEnumerable_BuildCandles_
+  commentId: Overload:SignalTrading.ExtendIEnumerable.BuildCandles
   isSpec: "True"
-  fullName: SignalTrading.ExtendIEnumerable.BuildCharts
-  nameWithType: ExtendIEnumerable.BuildCharts
+  fullName: SignalTrading.ExtendIEnumerable.BuildCandles
+  nameWithType: ExtendIEnumerable.BuildCandles
+- uid: SignalTrading.ExtendIEnumerable.ExtractPricing(System.Collections.Generic.IEnumerable{SignalTrading.Candle},System.TimeSpan)
+  name: ExtractPricing(IEnumerable<Candle>, TimeSpan)
+  href: api/SignalTrading.ExtendIEnumerable.html#SignalTrading_ExtendIEnumerable_ExtractPricing_System_Collections_Generic_IEnumerable_SignalTrading_Candle__System_TimeSpan_
+  commentId: M:SignalTrading.ExtendIEnumerable.ExtractPricing(System.Collections.Generic.IEnumerable{SignalTrading.Candle},System.TimeSpan)
+  name.vb: ExtractPricing(IEnumerable(Of Candle), TimeSpan)
+  fullName: SignalTrading.ExtendIEnumerable.ExtractPricing(System.Collections.Generic.IEnumerable<SignalTrading.Candle>, System.TimeSpan)
+  fullName.vb: SignalTrading.ExtendIEnumerable.ExtractPricing(System.Collections.Generic.IEnumerable(Of SignalTrading.Candle), System.TimeSpan)
+  nameWithType: ExtendIEnumerable.ExtractPricing(IEnumerable<Candle>, TimeSpan)
+  nameWithType.vb: ExtendIEnumerable.ExtractPricing(IEnumerable(Of Candle), TimeSpan)
+- uid: SignalTrading.ExtendIEnumerable.ExtractPricing*
+  name: ExtractPricing
+  href: api/SignalTrading.ExtendIEnumerable.html#SignalTrading_ExtendIEnumerable_ExtractPricing_
+  commentId: Overload:SignalTrading.ExtendIEnumerable.ExtractPricing
+  isSpec: "True"
+  fullName: SignalTrading.ExtendIEnumerable.ExtractPricing
+  nameWithType: ExtendIEnumerable.ExtractPricing
+- uid: SignalTrading.ExtendIEnumerable.GenerateCharts(System.Collections.Generic.IEnumerable{SignalTrading.Candle},System.TimeSpan)
+  name: GenerateCharts(IEnumerable<Candle>, TimeSpan)
+  href: api/SignalTrading.ExtendIEnumerable.html#SignalTrading_ExtendIEnumerable_GenerateCharts_System_Collections_Generic_IEnumerable_SignalTrading_Candle__System_TimeSpan_
+  commentId: M:SignalTrading.ExtendIEnumerable.GenerateCharts(System.Collections.Generic.IEnumerable{SignalTrading.Candle},System.TimeSpan)
+  name.vb: GenerateCharts(IEnumerable(Of Candle), TimeSpan)
+  fullName: SignalTrading.ExtendIEnumerable.GenerateCharts(System.Collections.Generic.IEnumerable<SignalTrading.Candle>, System.TimeSpan)
+  fullName.vb: SignalTrading.ExtendIEnumerable.GenerateCharts(System.Collections.Generic.IEnumerable(Of SignalTrading.Candle), System.TimeSpan)
+  nameWithType: ExtendIEnumerable.GenerateCharts(IEnumerable<Candle>, TimeSpan)
+  nameWithType.vb: ExtendIEnumerable.GenerateCharts(IEnumerable(Of Candle), TimeSpan)
+- uid: SignalTrading.ExtendIEnumerable.GenerateCharts(System.Collections.Generic.IEnumerable{SignalTrading.Pricing},System.TimeSpan,System.Int32)
+  name: GenerateCharts(IEnumerable<Pricing>, TimeSpan, Int32)
+  href: api/SignalTrading.ExtendIEnumerable.html#SignalTrading_ExtendIEnumerable_GenerateCharts_System_Collections_Generic_IEnumerable_SignalTrading_Pricing__System_TimeSpan_System_Int32_
+  commentId: M:SignalTrading.ExtendIEnumerable.GenerateCharts(System.Collections.Generic.IEnumerable{SignalTrading.Pricing},System.TimeSpan,System.Int32)
+  name.vb: GenerateCharts(IEnumerable(Of Pricing), TimeSpan, Int32)
+  fullName: SignalTrading.ExtendIEnumerable.GenerateCharts(System.Collections.Generic.IEnumerable<SignalTrading.Pricing>, System.TimeSpan, System.Int32)
+  fullName.vb: SignalTrading.ExtendIEnumerable.GenerateCharts(System.Collections.Generic.IEnumerable(Of SignalTrading.Pricing), System.TimeSpan, System.Int32)
+  nameWithType: ExtendIEnumerable.GenerateCharts(IEnumerable<Pricing>, TimeSpan, Int32)
+  nameWithType.vb: ExtendIEnumerable.GenerateCharts(IEnumerable(Of Pricing), TimeSpan, Int32)
+- uid: SignalTrading.ExtendIEnumerable.GenerateCharts(System.Collections.Generic.IEnumerable{System.ValueTuple{SignalTrading.Pricing,SignalTrading.Candle}},System.TimeSpan)
+  name: GenerateCharts(IEnumerable<(Pricing, Candle)>, TimeSpan)
+  href: api/SignalTrading.ExtendIEnumerable.html#SignalTrading_ExtendIEnumerable_GenerateCharts_System_Collections_Generic_IEnumerable_System_ValueTuple_SignalTrading_Pricing_SignalTrading_Candle___System_TimeSpan_
+  commentId: M:SignalTrading.ExtendIEnumerable.GenerateCharts(System.Collections.Generic.IEnumerable{System.ValueTuple{SignalTrading.Pricing,SignalTrading.Candle}},System.TimeSpan)
+  name.vb: GenerateCharts(IEnumerable(Of (Pricing, Candle)), TimeSpan)
+  fullName: SignalTrading.ExtendIEnumerable.GenerateCharts(System.Collections.Generic.IEnumerable<System.ValueTuple<SignalTrading.Pricing, SignalTrading.Candle>>, System.TimeSpan)
+  fullName.vb: SignalTrading.ExtendIEnumerable.GenerateCharts(System.Collections.Generic.IEnumerable(Of System.ValueTuple(Of SignalTrading.Pricing, SignalTrading.Candle)), System.TimeSpan)
+  nameWithType: ExtendIEnumerable.GenerateCharts(IEnumerable<(Pricing, Candle)>, TimeSpan)
+  nameWithType.vb: ExtendIEnumerable.GenerateCharts(IEnumerable(Of (Pricing, Candle)), TimeSpan)
+- uid: SignalTrading.ExtendIEnumerable.GenerateCharts*
+  name: GenerateCharts
+  href: api/SignalTrading.ExtendIEnumerable.html#SignalTrading_ExtendIEnumerable_GenerateCharts_
+  commentId: Overload:SignalTrading.ExtendIEnumerable.GenerateCharts
+  isSpec: "True"
+  fullName: SignalTrading.ExtendIEnumerable.GenerateCharts
+  nameWithType: ExtendIEnumerable.GenerateCharts
 - uid: SignalTrading.ExtendIEnumerable.GenerateSignals*
   name: GenerateSignals
   href: api/SignalTrading.ExtendIEnumerable.html#SignalTrading_ExtendIEnumerable_GenerateSignals_
@@ -384,22 +431,6 @@ references:
   fullName.vb: SignalTrading.ExtendIEnumerable.SelectSignals(Of TData)(System.Collections.Generic.IEnumerable(Of System.ValueTuple(Of SignalTrading.Signal, TData)))
   nameWithType: ExtendIEnumerable.SelectSignals<TData>(IEnumerable<(Signal, TData)>)
   nameWithType.vb: ExtendIEnumerable.SelectSignals(Of TData)(IEnumerable(Of (Signal, TData)))
-- uid: SignalTrading.ExtendIEnumerable.ToChart(System.Collections.Generic.IEnumerable{SignalTrading.Candle},System.TimeSpan)
-  name: ToChart(IEnumerable<Candle>, TimeSpan)
-  href: api/SignalTrading.ExtendIEnumerable.html#SignalTrading_ExtendIEnumerable_ToChart_System_Collections_Generic_IEnumerable_SignalTrading_Candle__System_TimeSpan_
-  commentId: M:SignalTrading.ExtendIEnumerable.ToChart(System.Collections.Generic.IEnumerable{SignalTrading.Candle},System.TimeSpan)
-  name.vb: ToChart(IEnumerable(Of Candle), TimeSpan)
-  fullName: SignalTrading.ExtendIEnumerable.ToChart(System.Collections.Generic.IEnumerable<SignalTrading.Candle>, System.TimeSpan)
-  fullName.vb: SignalTrading.ExtendIEnumerable.ToChart(System.Collections.Generic.IEnumerable(Of SignalTrading.Candle), System.TimeSpan)
-  nameWithType: ExtendIEnumerable.ToChart(IEnumerable<Candle>, TimeSpan)
-  nameWithType.vb: ExtendIEnumerable.ToChart(IEnumerable(Of Candle), TimeSpan)
-- uid: SignalTrading.ExtendIEnumerable.ToChart*
-  name: ToChart
-  href: api/SignalTrading.ExtendIEnumerable.html#SignalTrading_ExtendIEnumerable_ToChart_
-  commentId: Overload:SignalTrading.ExtendIEnumerable.ToChart
-  isSpec: "True"
-  fullName: SignalTrading.ExtendIEnumerable.ToChart
-  nameWithType: ExtendIEnumerable.ToChart
 - uid: SignalTrading.ExtendIEnumerable.ToSignalInput*
   name: ToSignalInput
   href: api/SignalTrading.ExtendIEnumerable.html#SignalTrading_ExtendIEnumerable_ToSignalInput_
@@ -694,49 +725,72 @@ references:
   commentId: T:SignalTrading.Reactive.ExtendIObservable
   fullName: SignalTrading.Reactive.ExtendIObservable
   nameWithType: ExtendIObservable
-- uid: SignalTrading.Reactive.ExtendIObservable.BuildCharts(System.IObservable{SignalTrading.Candle},SignalTrading.Chart)
-  name: BuildCharts(IObservable<Candle>, Chart)
-  href: api/SignalTrading.Reactive.ExtendIObservable.html#SignalTrading_Reactive_ExtendIObservable_BuildCharts_System_IObservable_SignalTrading_Candle__SignalTrading_Chart_
-  commentId: M:SignalTrading.Reactive.ExtendIObservable.BuildCharts(System.IObservable{SignalTrading.Candle},SignalTrading.Chart)
-  name.vb: BuildCharts(IObservable(Of Candle), Chart)
-  fullName: SignalTrading.Reactive.ExtendIObservable.BuildCharts(System.IObservable<SignalTrading.Candle>, SignalTrading.Chart)
-  fullName.vb: SignalTrading.Reactive.ExtendIObservable.BuildCharts(System.IObservable(Of SignalTrading.Candle), SignalTrading.Chart)
-  nameWithType: ExtendIObservable.BuildCharts(IObservable<Candle>, Chart)
-  nameWithType.vb: ExtendIObservable.BuildCharts(IObservable(Of Candle), Chart)
-- uid: SignalTrading.Reactive.ExtendIObservable.BuildCharts(System.IObservable{SignalTrading.Candle},System.TimeSpan)
-  name: BuildCharts(IObservable<Candle>, TimeSpan)
-  href: api/SignalTrading.Reactive.ExtendIObservable.html#SignalTrading_Reactive_ExtendIObservable_BuildCharts_System_IObservable_SignalTrading_Candle__System_TimeSpan_
-  commentId: M:SignalTrading.Reactive.ExtendIObservable.BuildCharts(System.IObservable{SignalTrading.Candle},System.TimeSpan)
-  name.vb: BuildCharts(IObservable(Of Candle), TimeSpan)
-  fullName: SignalTrading.Reactive.ExtendIObservable.BuildCharts(System.IObservable<SignalTrading.Candle>, System.TimeSpan)
-  fullName.vb: SignalTrading.Reactive.ExtendIObservable.BuildCharts(System.IObservable(Of SignalTrading.Candle), System.TimeSpan)
-  nameWithType: ExtendIObservable.BuildCharts(IObservable<Candle>, TimeSpan)
-  nameWithType.vb: ExtendIObservable.BuildCharts(IObservable(Of Candle), TimeSpan)
-- uid: SignalTrading.Reactive.ExtendIObservable.BuildCharts(System.IObservable{SignalTrading.Pricing},SignalTrading.Chart)
-  name: BuildCharts(IObservable<Pricing>, Chart)
-  href: api/SignalTrading.Reactive.ExtendIObservable.html#SignalTrading_Reactive_ExtendIObservable_BuildCharts_System_IObservable_SignalTrading_Pricing__SignalTrading_Chart_
-  commentId: M:SignalTrading.Reactive.ExtendIObservable.BuildCharts(System.IObservable{SignalTrading.Pricing},SignalTrading.Chart)
-  name.vb: BuildCharts(IObservable(Of Pricing), Chart)
-  fullName: SignalTrading.Reactive.ExtendIObservable.BuildCharts(System.IObservable<SignalTrading.Pricing>, SignalTrading.Chart)
-  fullName.vb: SignalTrading.Reactive.ExtendIObservable.BuildCharts(System.IObservable(Of SignalTrading.Pricing), SignalTrading.Chart)
-  nameWithType: ExtendIObservable.BuildCharts(IObservable<Pricing>, Chart)
-  nameWithType.vb: ExtendIObservable.BuildCharts(IObservable(Of Pricing), Chart)
-- uid: SignalTrading.Reactive.ExtendIObservable.BuildCharts(System.IObservable{SignalTrading.Pricing},System.TimeSpan,System.Int32)
-  name: BuildCharts(IObservable<Pricing>, TimeSpan, Int32)
-  href: api/SignalTrading.Reactive.ExtendIObservable.html#SignalTrading_Reactive_ExtendIObservable_BuildCharts_System_IObservable_SignalTrading_Pricing__System_TimeSpan_System_Int32_
-  commentId: M:SignalTrading.Reactive.ExtendIObservable.BuildCharts(System.IObservable{SignalTrading.Pricing},System.TimeSpan,System.Int32)
-  name.vb: BuildCharts(IObservable(Of Pricing), TimeSpan, Int32)
-  fullName: SignalTrading.Reactive.ExtendIObservable.BuildCharts(System.IObservable<SignalTrading.Pricing>, System.TimeSpan, System.Int32)
-  fullName.vb: SignalTrading.Reactive.ExtendIObservable.BuildCharts(System.IObservable(Of SignalTrading.Pricing), System.TimeSpan, System.Int32)
-  nameWithType: ExtendIObservable.BuildCharts(IObservable<Pricing>, TimeSpan, Int32)
-  nameWithType.vb: ExtendIObservable.BuildCharts(IObservable(Of Pricing), TimeSpan, Int32)
-- uid: SignalTrading.Reactive.ExtendIObservable.BuildCharts*
-  name: BuildCharts
-  href: api/SignalTrading.Reactive.ExtendIObservable.html#SignalTrading_Reactive_ExtendIObservable_BuildCharts_
-  commentId: Overload:SignalTrading.Reactive.ExtendIObservable.BuildCharts
+- uid: SignalTrading.Reactive.ExtendIObservable.BuildCandles(System.IObservable{SignalTrading.Pricing},System.TimeSpan,System.Int32,System.Nullable{SignalTrading.Candle})
+  name: BuildCandles(IObservable<Pricing>, TimeSpan, Int32, Nullable<Candle>)
+  href: api/SignalTrading.Reactive.ExtendIObservable.html#SignalTrading_Reactive_ExtendIObservable_BuildCandles_System_IObservable_SignalTrading_Pricing__System_TimeSpan_System_Int32_System_Nullable_SignalTrading_Candle__
+  commentId: M:SignalTrading.Reactive.ExtendIObservable.BuildCandles(System.IObservable{SignalTrading.Pricing},System.TimeSpan,System.Int32,System.Nullable{SignalTrading.Candle})
+  name.vb: BuildCandles(IObservable(Of Pricing), TimeSpan, Int32, Nullable(Of Candle))
+  fullName: SignalTrading.Reactive.ExtendIObservable.BuildCandles(System.IObservable<SignalTrading.Pricing>, System.TimeSpan, System.Int32, System.Nullable<SignalTrading.Candle>)
+  fullName.vb: SignalTrading.Reactive.ExtendIObservable.BuildCandles(System.IObservable(Of SignalTrading.Pricing), System.TimeSpan, System.Int32, System.Nullable(Of SignalTrading.Candle))
+  nameWithType: ExtendIObservable.BuildCandles(IObservable<Pricing>, TimeSpan, Int32, Nullable<Candle>)
+  nameWithType.vb: ExtendIObservable.BuildCandles(IObservable(Of Pricing), TimeSpan, Int32, Nullable(Of Candle))
+- uid: SignalTrading.Reactive.ExtendIObservable.BuildCandles*
+  name: BuildCandles
+  href: api/SignalTrading.Reactive.ExtendIObservable.html#SignalTrading_Reactive_ExtendIObservable_BuildCandles_
+  commentId: Overload:SignalTrading.Reactive.ExtendIObservable.BuildCandles
   isSpec: "True"
-  fullName: SignalTrading.Reactive.ExtendIObservable.BuildCharts
-  nameWithType: ExtendIObservable.BuildCharts
+  fullName: SignalTrading.Reactive.ExtendIObservable.BuildCandles
+  nameWithType: ExtendIObservable.BuildCandles
+- uid: SignalTrading.Reactive.ExtendIObservable.ExtractPricing(System.IObservable{SignalTrading.Candle},System.TimeSpan)
+  name: ExtractPricing(IObservable<Candle>, TimeSpan)
+  href: api/SignalTrading.Reactive.ExtendIObservable.html#SignalTrading_Reactive_ExtendIObservable_ExtractPricing_System_IObservable_SignalTrading_Candle__System_TimeSpan_
+  commentId: M:SignalTrading.Reactive.ExtendIObservable.ExtractPricing(System.IObservable{SignalTrading.Candle},System.TimeSpan)
+  name.vb: ExtractPricing(IObservable(Of Candle), TimeSpan)
+  fullName: SignalTrading.Reactive.ExtendIObservable.ExtractPricing(System.IObservable<SignalTrading.Candle>, System.TimeSpan)
+  fullName.vb: SignalTrading.Reactive.ExtendIObservable.ExtractPricing(System.IObservable(Of SignalTrading.Candle), System.TimeSpan)
+  nameWithType: ExtendIObservable.ExtractPricing(IObservable<Candle>, TimeSpan)
+  nameWithType.vb: ExtendIObservable.ExtractPricing(IObservable(Of Candle), TimeSpan)
+- uid: SignalTrading.Reactive.ExtendIObservable.ExtractPricing*
+  name: ExtractPricing
+  href: api/SignalTrading.Reactive.ExtendIObservable.html#SignalTrading_Reactive_ExtendIObservable_ExtractPricing_
+  commentId: Overload:SignalTrading.Reactive.ExtendIObservable.ExtractPricing
+  isSpec: "True"
+  fullName: SignalTrading.Reactive.ExtendIObservable.ExtractPricing
+  nameWithType: ExtendIObservable.ExtractPricing
+- uid: SignalTrading.Reactive.ExtendIObservable.GenerateCharts(System.IObservable{SignalTrading.Candle},System.TimeSpan)
+  name: GenerateCharts(IObservable<Candle>, TimeSpan)
+  href: api/SignalTrading.Reactive.ExtendIObservable.html#SignalTrading_Reactive_ExtendIObservable_GenerateCharts_System_IObservable_SignalTrading_Candle__System_TimeSpan_
+  commentId: M:SignalTrading.Reactive.ExtendIObservable.GenerateCharts(System.IObservable{SignalTrading.Candle},System.TimeSpan)
+  name.vb: GenerateCharts(IObservable(Of Candle), TimeSpan)
+  fullName: SignalTrading.Reactive.ExtendIObservable.GenerateCharts(System.IObservable<SignalTrading.Candle>, System.TimeSpan)
+  fullName.vb: SignalTrading.Reactive.ExtendIObservable.GenerateCharts(System.IObservable(Of SignalTrading.Candle), System.TimeSpan)
+  nameWithType: ExtendIObservable.GenerateCharts(IObservable<Candle>, TimeSpan)
+  nameWithType.vb: ExtendIObservable.GenerateCharts(IObservable(Of Candle), TimeSpan)
+- uid: SignalTrading.Reactive.ExtendIObservable.GenerateCharts(System.IObservable{SignalTrading.Pricing},System.TimeSpan,System.Int32)
+  name: GenerateCharts(IObservable<Pricing>, TimeSpan, Int32)
+  href: api/SignalTrading.Reactive.ExtendIObservable.html#SignalTrading_Reactive_ExtendIObservable_GenerateCharts_System_IObservable_SignalTrading_Pricing__System_TimeSpan_System_Int32_
+  commentId: M:SignalTrading.Reactive.ExtendIObservable.GenerateCharts(System.IObservable{SignalTrading.Pricing},System.TimeSpan,System.Int32)
+  name.vb: GenerateCharts(IObservable(Of Pricing), TimeSpan, Int32)
+  fullName: SignalTrading.Reactive.ExtendIObservable.GenerateCharts(System.IObservable<SignalTrading.Pricing>, System.TimeSpan, System.Int32)
+  fullName.vb: SignalTrading.Reactive.ExtendIObservable.GenerateCharts(System.IObservable(Of SignalTrading.Pricing), System.TimeSpan, System.Int32)
+  nameWithType: ExtendIObservable.GenerateCharts(IObservable<Pricing>, TimeSpan, Int32)
+  nameWithType.vb: ExtendIObservable.GenerateCharts(IObservable(Of Pricing), TimeSpan, Int32)
+- uid: SignalTrading.Reactive.ExtendIObservable.GenerateCharts(System.IObservable{System.ValueTuple{SignalTrading.Pricing,SignalTrading.Candle}},System.TimeSpan)
+  name: GenerateCharts(IObservable<(Pricing, Candle)>, TimeSpan)
+  href: api/SignalTrading.Reactive.ExtendIObservable.html#SignalTrading_Reactive_ExtendIObservable_GenerateCharts_System_IObservable_System_ValueTuple_SignalTrading_Pricing_SignalTrading_Candle___System_TimeSpan_
+  commentId: M:SignalTrading.Reactive.ExtendIObservable.GenerateCharts(System.IObservable{System.ValueTuple{SignalTrading.Pricing,SignalTrading.Candle}},System.TimeSpan)
+  name.vb: GenerateCharts(IObservable(Of (Pricing, Candle)), TimeSpan)
+  fullName: SignalTrading.Reactive.ExtendIObservable.GenerateCharts(System.IObservable<System.ValueTuple<SignalTrading.Pricing, SignalTrading.Candle>>, System.TimeSpan)
+  fullName.vb: SignalTrading.Reactive.ExtendIObservable.GenerateCharts(System.IObservable(Of System.ValueTuple(Of SignalTrading.Pricing, SignalTrading.Candle)), System.TimeSpan)
+  nameWithType: ExtendIObservable.GenerateCharts(IObservable<(Pricing, Candle)>, TimeSpan)
+  nameWithType.vb: ExtendIObservable.GenerateCharts(IObservable(Of (Pricing, Candle)), TimeSpan)
+- uid: SignalTrading.Reactive.ExtendIObservable.GenerateCharts*
+  name: GenerateCharts
+  href: api/SignalTrading.Reactive.ExtendIObservable.html#SignalTrading_Reactive_ExtendIObservable_GenerateCharts_
+  commentId: Overload:SignalTrading.Reactive.ExtendIObservable.GenerateCharts
+  isSpec: "True"
+  fullName: SignalTrading.Reactive.ExtendIObservable.GenerateCharts
+  nameWithType: ExtendIObservable.GenerateCharts
 - uid: SignalTrading.Reactive.ExtendIObservable.GenerateSignals*
   name: GenerateSignals
   href: api/SignalTrading.Reactive.ExtendIObservable.html#SignalTrading_Reactive_ExtendIObservable_GenerateSignals_

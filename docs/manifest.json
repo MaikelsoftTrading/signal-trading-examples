@@ -9,10 +9,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SignalTrading.Candle.html",
-          "hash": "5hyK61sVbNCOVj2/G1zq+A=="
+          "hash": "9t+7D/Tg7wpsWlcXz4omsA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -21,7 +21,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SignalTrading.Chart.html",
-          "hash": "j3lLBQHtrhZ6wXfvAWRVKg=="
+          "hash": "YltShy4sEbwrzTjwEW7UrA=="
         }
       },
       "is_incremental": false,
@@ -33,7 +33,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SignalTrading.ExtendIEnumerable.html",
-          "hash": "iKm7XeKsoV3hNoj9OarEkQ=="
+          "hash": "1J4AZ2+7CNlWDR+uJQB5GQ=="
         }
       },
       "is_incremental": false,
@@ -81,7 +81,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SignalTrading.Reactive.ExtendIObservable.html",
-          "hash": "mOhWogmPOcLm+GI1iuY+oQ=="
+          "hash": "HoDY6KUx7QKxgL7yxEtrQg=="
         }
       },
       "is_incremental": false,
@@ -93,7 +93,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SignalTrading.Reactive.html",
-          "hash": "jq4ML2Duinjw7HsNw7rW4Q=="
+          "hash": "NP2TLN0AvUagmZVFw4eS5A=="
         }
       },
       "is_incremental": false,
@@ -177,7 +177,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SignalTrading.html",
-          "hash": "Wnkc7y+HcSE30D8vzheTMQ=="
+          "hash": "oSsowPpULtIw4mjmD+1P5A=="
         }
       },
       "is_incremental": false,
@@ -251,7 +251,7 @@
           "can_incremental": true,
           "incrementalPhase": "build",
           "total_file_count": 15,
-          "skipped_file_count": 12
+          "skipped_file_count": 11
         },
         "TocDocumentProcessor": {
           "can_incremental": false,
