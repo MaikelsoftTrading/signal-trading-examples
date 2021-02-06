@@ -19,7 +19,7 @@ Current version can be used without any costs. Starting at the first major versi
 ## Prerequisites
 * Basic understanding of functional programming and reactive programming in C#
 * .NET 5.0 framework and the .NET 5.0 SDK are installed
-* Latest [Visual C++ Distributable Package (x64)](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) is installed if running on Windows
+* Latest [Visual C++ Redistributable (x64)](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) is installed if running on Windows
 * C# development environment with NuGet package manager
 * A .NET programming interface to a market data provider (for retrieving live prices, candles history, etc.).
 * For bot development: .NET interface for retrieving balances and placing orders at the broker or exchange
@@ -182,4 +182,4 @@ public static void GenerateSignals()
 ```
 ## Troubleshooting
 ### System.DllNotFoundException for 'libsignaltrading'
-Make sure that the Visual C++ distributable packages are installed.
+Make sure that the latest Visual C++ Redistributable (x64) is installed.
