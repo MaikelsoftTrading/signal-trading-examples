@@ -47,10 +47,10 @@ The basic flow for generating signals from live price data, using candlestick ch
 10. Flow continues at step 2
 
 ## Tutorial
-(The development of this tutorial is in progress)
+This tutorial explains how to generate trading signals from last trade prices, and how to to accomplish this with automatically generated candlestick charts. The trading strategy in this tutorial will be fairly simple. 
 
 ### Create the trading symbol
-Create the trading symbol for which signals will be generated. Name, lot size and tick size are mandatory. Most market data APIs provide an end point for retrieving this information.
+First, we need to create the trading symbol for which we're going to generate signals. Name, lot size and tick size are mandatory. In real trading scenarios this information is typically retrieved from a broker or exchange.
 ```C#
 private static readonly Symbol Amazon = Symbol
 	.Create("AMZN", lotSize: 0.1, tickSize: 0.01)
@@ -59,6 +59,7 @@ private static readonly Symbol Amazon = Symbol
 ```
 
 ### Create a factory function for our strategy
+Strategies in this framework are implemented as callback functions (that conform to the Strategy<TData> delegate). The factory method below will create and return the function that implements our strategy. The function computes a moving average from the charts, and sets up a trade that enters below this average and takes profit at the average.	
 ```C#
 public static Strategy<Chart> CreateMovingAverageStrategy(int movingAverageLength)
 {
