@@ -50,7 +50,7 @@ The basic flow for generating signals from live price data, using candlestick ch
 This tutorial explains how to generate trading signals from last trade prices, and how to to accomplish this with automatically generated candlestick charts. The trading strategy in this tutorial will be fairly simple. 
 
 ### Create the trading symbol
-First, we need to create the trading symbol for which we're going to generate signals. Name, lot size and tick size are mandatory. In real trading scenarios this information is typically retrieved from a broker or exchange using a REST API.
+First, we need to create the trading symbol for which we're going to generate signals. Name, lot size and tick size are mandatory. In a real trading scenario this information is retrieved from a broker or exchange using an API.
 ```C#
 private static readonly Symbol Amazon = Symbol
 	.Create("AMZN", lotSize: 0.1, tickSize: 0.01)
@@ -58,8 +58,8 @@ private static readonly Symbol Amazon = Symbol
 	.SetQuoteCurrencyName("USD");
 ```
 
-### Create a factory function for our strategy
-Strategies in this framework are implemented as callback functions (that conform to the Strategy<TData> delegate). The factory method below will create and return the function that implements our strategy. The function computes a moving average from the charts, and sets up a trade that enters below this average and takes profit at the average.	
+### Create a factory for our strategy
+Strategies are implemented as callback functions (that conform to the Strategy<TData> delegate) and the method below will create the function for our strategy. The function computes a moving average from the charts, sets up a trade that enters below this average and takes profit at the average.	
 ```C#
 public static Strategy<Chart> CreateMovingAverageStrategy(int movingAverageLength)
 {
@@ -112,7 +112,8 @@ public static Strategy<Chart> CreateMovingAverageStrategy(int movingAverageLengt
 }
 ```
 
-### Create an observable Pricing sequence
+### Create test data
+In order to demonstrate our strategy, we need some test data in the form of an observable Pricing sequence. The function below creates this observable which returns prices with arbitrary timestamps. These will be converted into candlesticks by the framework in the next step.
 ```C#
 public static IObservable<Pricing> GetPricing()
 {
