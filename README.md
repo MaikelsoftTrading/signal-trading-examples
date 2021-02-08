@@ -50,7 +50,7 @@ The basic flow for generating signals from live price data, using candlestick ch
 This tutorial explains how to generate trading signals from last trade prices, and how to to accomplish this with automatically generated candlestick charts. The trading strategy in this tutorial will be fairly simple. 
 
 ### Create the trading symbol
-First, we need to create the trading symbol for which we're going to generate signals. Name, lot size and tick size are mandatory. In real trading scenarios this information is typically retrieved from a broker or exchange.
+First, we need to create the trading symbol for which we're going to generate signals. Name, lot size and tick size are mandatory. In real trading scenarios this information is typically retrieved from a broker or exchange using a REST API.
 ```C#
 private static readonly Symbol Amazon = Symbol
 	.Create("AMZN", lotSize: 0.1, tickSize: 0.01)
