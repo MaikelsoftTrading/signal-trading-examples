@@ -184,4 +184,5 @@ public static void GenerateSignals()
 ```
 ## Troubleshooting
 ### System.DllNotFoundException for 'libsignaltrading'
-Make sure that the latest Visual C++ Redistributable (x64) is installed.
+If libsignaltrading.dll exists in the program folder, make sure that the latest Visual C++ Redistributable (x64) is installed.
+If libsignaltrading.dll (Windows) or libsignaltrading.so (Linux) does not exist, add the SignalTrading.Core package to the executing assembly.
