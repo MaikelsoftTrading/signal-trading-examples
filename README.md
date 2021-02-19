@@ -24,6 +24,13 @@ Current version can be used without any costs. Starting at the first major versi
 * A .NET programming interface to a market data provider (for retrieving live prices, candles history, etc.).
 * For bot development: .NET interface for retrieving balances and placing orders at the broker or exchange
 
+## Version history
+#### 0.5.5 -> 0.6.0 
+Small (*possibly breaking*) changes: 
+* Moved observable extension methods (ExtendIObservable) from SignalTrading.Reactive to SignalTrading namespace.
+* Renamed a few extension methods that are used for deriving data (ExtendIObservable and ExtendIEnumerable).
+* New extension methods for generating candles from pricing, that can be used for generating signals directly from candles (without generating charts).
+
 # Development guide
 ## Reference documentation
 The [C# reference documentation](https://maikelsofttrading.github.io/signal-trading-examples/api/index.html) here on Github is a detailed description of all data types, methods and functions of the framework.
