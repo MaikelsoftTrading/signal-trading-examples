@@ -165,6 +165,32 @@ if <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_Position
   </table>
   
   
+  <a id="SignalTrading_Signal_LongTradeSetupChangedMilliseconds_" data-uid="SignalTrading.Signal.LongTradeSetupChangedMilliseconds*"></a>
+  <h4 id="SignalTrading_Signal_LongTradeSetupChangedMilliseconds" data-uid="SignalTrading.Signal.LongTradeSetupChangedMilliseconds">LongTradeSetupChangedMilliseconds</h4>
+  <div class="markdown level1 summary"><p>Last time the long trade setup was changed or cleared.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long LongTradeSetupChangedMilliseconds { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="SignalTrading_Signal_Performance_" data-uid="SignalTrading.Signal.Performance*"></a>
   <h4 id="SignalTrading_Signal_Performance" data-uid="SignalTrading.Signal.Performance">Performance</h4>
   <div class="markdown level1 summary"><p>Performance metrics of the signal.</p>
@@ -264,6 +290,32 @@ if <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_Position
     <tbody>
       <tr>
         <td><a class="xref" href="SignalTrading.TradeSetup.html">TradeSetup</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SignalTrading_Signal_ShortTradeSetupChangedMilliseconds_" data-uid="SignalTrading.Signal.ShortTradeSetupChangedMilliseconds*"></a>
+  <h4 id="SignalTrading_Signal_ShortTradeSetupChangedMilliseconds" data-uid="SignalTrading.Signal.ShortTradeSetupChangedMilliseconds">ShortTradeSetupChangedMilliseconds</h4>
+  <div class="markdown level1 summary"><p>Last time the short trade setup was changed or cleared.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long ShortTradeSetupChangedMilliseconds { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -396,6 +448,33 @@ public bool IsTradeSetupAllowed(TradeSetup tradeSetup)</code></pre>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
         <td><p>True if the setup is allowed, false otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SignalTrading_Signal_LongTradeSetupChanged_" data-uid="SignalTrading.Signal.LongTradeSetupChanged*"></a>
+  <h4 id="SignalTrading_Signal_LongTradeSetupChanged" data-uid="SignalTrading.Signal.LongTradeSetupChanged">LongTradeSetupChanged()</h4>
+  <div class="markdown level1 summary"><p>Returns <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_LongTradeSetupChangedMilliseconds">LongTradeSetupChangedMilliseconds</a> as a DateTimeOffset.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTimeOffset LongTradeSetupChanged()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.DateTimeOffset</span></td>
+        <td><p>DateTimeOffset</p>
 </td>
       </tr>
     </tbody>
@@ -659,6 +738,33 @@ public Signal SetTradeSetups(TradeSetup longTradeSetup, TradeSetup shortTradeSet
   <h5 id="SignalTrading_Signal_SetTradeSetups_SignalTrading_TradeSetup_SignalTrading_TradeSetup__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>An exception will be thrown if <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_Position">Position</a> is open or one or both setups conflict with <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_Pricing">Pricing</a>.</p>
 </div>
+  
+  
+  <a id="SignalTrading_Signal_ShortTradeSetupChanged_" data-uid="SignalTrading.Signal.ShortTradeSetupChanged*"></a>
+  <h4 id="SignalTrading_Signal_ShortTradeSetupChanged" data-uid="SignalTrading.Signal.ShortTradeSetupChanged">ShortTradeSetupChanged()</h4>
+  <div class="markdown level1 summary"><p>Returns <a class="xref" href="SignalTrading.Signal.html#SignalTrading_Signal_ShortTradeSetupChangedMilliseconds">ShortTradeSetupChangedMilliseconds</a> as a DateTimeOffset.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTimeOffset ShortTradeSetupChanged()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.DateTimeOffset</span></td>
+        <td><p>DateTimeOffset</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   
   
   <a id="SignalTrading_Signal_Timestamp_" data-uid="SignalTrading.Signal.Timestamp*"></a>

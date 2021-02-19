@@ -9,7 +9,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SignalTrading.Candle.html",
-          "hash": "9t+7D/Tg7wpsWlcXz4omsA=="
+          "hash": "89S/Z2mLCvsSYPuFLYdUeg=="
         }
       },
       "is_incremental": false,
@@ -21,7 +21,19 @@
       "output": {
         ".html": {
           "relative_path": "api/SignalTrading.Chart.html",
-          "hash": "YltShy4sEbwrzTjwEW7UrA=="
+          "hash": "PoJP2dDnDP4fXAI49sowcg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SignalTrading.ExtendDateTimeOffset.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SignalTrading.ExtendDateTimeOffset.html",
+          "hash": "Xbu8KlX5FaR0h3rU97P0lQ=="
         }
       },
       "is_incremental": false,
@@ -33,7 +45,19 @@
       "output": {
         ".html": {
           "relative_path": "api/SignalTrading.ExtendIEnumerable.html",
-          "hash": "1J4AZ2+7CNlWDR+uJQB5GQ=="
+          "hash": "37CO1oy/kPWhnlU8QPjjIA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SignalTrading.ExtendIObservable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SignalTrading.ExtendIObservable.html",
+          "hash": "peKWOhhBGCPoylFkc6IXSw=="
         }
       },
       "is_incremental": false,
@@ -48,7 +72,7 @@
           "hash": "ORfYO1WRIP94ywufd7vogA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -60,7 +84,7 @@
           "hash": "6B3ha1FxmUlT24jmM8crQw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -72,30 +96,6 @@
           "hash": "pj03nNk8w7R86LZoJ+8TKw=="
         }
       },
-      "is_incremental": true,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SignalTrading.Reactive.ExtendIObservable.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SignalTrading.Reactive.ExtendIObservable.html",
-          "hash": "HoDY6KUx7QKxgL7yxEtrQg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SignalTrading.Reactive.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SignalTrading.Reactive.html",
-          "hash": "NP2TLN0AvUagmZVFw4eS5A=="
-        }
-      },
       "is_incremental": false,
       "version": ""
     },
@@ -105,10 +105,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SignalTrading.Signal.html",
-          "hash": "8Nbv4ASw34+rlWyU1S+67Q=="
+          "hash": "8I3PDsMjje0k6xApIC0Shg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -120,7 +120,7 @@
           "hash": "Efu8QjI9Us/+AVdkoUMHWA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -132,7 +132,7 @@
           "hash": "SdEnUPcJSlQVhthn6e9Qyg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -144,7 +144,7 @@
           "hash": "euv//1qfMMvkI9ec9CD5MQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -156,7 +156,7 @@
           "hash": "ivGV7PRT+vxd/b6OiXUikg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -168,7 +168,7 @@
           "hash": "yM2iEHlerG2lX3foPj5mGQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -177,7 +177,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SignalTrading.html",
-          "hash": "oSsowPpULtIw4mjmD+1P5A=="
+          "hash": "Kl/XWOcoMwbo0q+Tht/XiQ=="
         }
       },
       "is_incremental": false,
@@ -192,7 +192,7 @@
           "hash": "CPtWa1Tc+RDQXMtO5CS3bw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -201,7 +201,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "VT1yRB8uZtSz96zvdm2S7w=="
+          "hash": "HjKZoHXbEWN8QVo+wJtFcg=="
         }
       },
       "is_incremental": false,
@@ -251,7 +251,7 @@
           "can_incremental": true,
           "incrementalPhase": "build",
           "total_file_count": 15,
-          "skipped_file_count": 11
+          "skipped_file_count": 8
         },
         "TocDocumentProcessor": {
           "can_incremental": false,

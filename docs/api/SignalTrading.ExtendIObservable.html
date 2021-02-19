@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class ExtendIEnumerable
+    <title>Class ExtendIObservable
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class ExtendIEnumerable
+    <meta name="title" content="Class ExtendIObservable
    ">
     <meta name="generator" content="docfx 2.56.6.0">
     
@@ -68,18 +68,18 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="SignalTrading.ExtendIEnumerable">
+            <article class="content wrap" id="_content" data-uid="SignalTrading.ExtendIObservable">
   
   
-  <h1 id="SignalTrading_ExtendIEnumerable" data-uid="SignalTrading.ExtendIEnumerable" class="text-break">Class ExtendIEnumerable
+  <h1 id="SignalTrading_ExtendIObservable" data-uid="SignalTrading.ExtendIObservable" class="text-break">Class ExtendIObservable
   </h1>
-  <div class="markdown level0 summary"><p>Extends the <span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span> interface.</p>
+  <div class="markdown level0 summary"><p>Extends the <span class="xref">System.IObservable&lt;T&gt;</span> interface.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">ExtendIEnumerable</span></div>
+    <div class="level1"><span class="xref">ExtendIObservable</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -107,23 +107,23 @@
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="SignalTrading.html">SignalTrading</a></h6>
   <h6><strong>Assembly</strong>: SignalTrading.Core.dll</h6>
-  <h5 id="SignalTrading_ExtendIEnumerable_syntax">Syntax</h5>
+  <h5 id="SignalTrading_ExtendIObservable_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static class ExtendIEnumerable</code></pre>
+    <pre><code class="lang-csharp hljs">public static class ExtendIObservable</code></pre>
   </div>
   <h3 id="methods">Methods
   </h3>
   
   
-  <a id="SignalTrading_ExtendIEnumerable_GenerateCharts_" data-uid="SignalTrading.ExtendIEnumerable.GenerateCharts*"></a>
-  <h4 id="SignalTrading_ExtendIEnumerable_GenerateCharts_System_Collections_Generic_IEnumerable_SignalTrading_Candle__System_TimeSpan_" data-uid="SignalTrading.ExtendIEnumerable.GenerateCharts(System.Collections.Generic.IEnumerable{SignalTrading.Candle},System.TimeSpan)">GenerateCharts(IEnumerable&lt;Candle&gt;, TimeSpan)</h4>
+  <a id="SignalTrading_ExtendIObservable_GenerateCharts_" data-uid="SignalTrading.ExtendIObservable.GenerateCharts*"></a>
+  <h4 id="SignalTrading_ExtendIObservable_GenerateCharts_System_IObservable_SignalTrading_Candle__System_TimeSpan_" data-uid="SignalTrading.ExtendIObservable.GenerateCharts(System.IObservable{SignalTrading.Candle},System.TimeSpan)">GenerateCharts(IObservable&lt;Candle&gt;, TimeSpan)</h4>
   <div class="markdown level1 summary"><p>Generates candlestick charts from specified candles, using specified time frame.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
-public static IEnumerable&lt;(Pricing, Chart)&gt; GenerateCharts(this IEnumerable&lt;Candle&gt; source, TimeSpan timeFrame)</code></pre>
+public static IObservable&lt;(Pricing, Chart)&gt; GenerateCharts(this IObservable&lt;Candle&gt; source, TimeSpan timeFrame)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -136,7 +136,7 @@ public static IEnumerable&lt;(Pricing, Chart)&gt; GenerateCharts(this IEnumerabl
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="SignalTrading.Candle.html">Candle</a>&gt;</td>
+        <td><span class="xref">System.IObservable</span>&lt;<a class="xref" href="SignalTrading.Candle.html">Candle</a>&gt;</td>
         <td><span class="parametername">source</span></td>
         <td><p>Candles from which charts must be generated.</p>
 </td>
@@ -159,23 +159,23 @@ public static IEnumerable&lt;(Pricing, Chart)&gt; GenerateCharts(this IEnumerabl
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>, <a class="xref" href="SignalTrading.Chart.html">Chart</a>&gt;&gt;</td>
-        <td><p>A sequence of tuples with pricing and chart.</p>
+        <td><span class="xref">System.IObservable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>, <a class="xref" href="SignalTrading.Chart.html">Chart</a>&gt;&gt;</td>
+        <td><p>An observable sequence of tuples with pricing and chart.</p>
 </td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="SignalTrading_ExtendIEnumerable_GenerateCharts_" data-uid="SignalTrading.ExtendIEnumerable.GenerateCharts*"></a>
-  <h4 id="SignalTrading_ExtendIEnumerable_GenerateCharts_System_Collections_Generic_IEnumerable_SignalTrading_Pricing__System_TimeSpan_System_Int32_" data-uid="SignalTrading.ExtendIEnumerable.GenerateCharts(System.Collections.Generic.IEnumerable{SignalTrading.Pricing},System.TimeSpan,System.Int32)">GenerateCharts(IEnumerable&lt;Pricing&gt;, TimeSpan, Int32)</h4>
+  <a id="SignalTrading_ExtendIObservable_GenerateCharts_" data-uid="SignalTrading.ExtendIObservable.GenerateCharts*"></a>
+  <h4 id="SignalTrading_ExtendIObservable_GenerateCharts_System_IObservable_SignalTrading_Pricing__System_TimeSpan_System_Int32_" data-uid="SignalTrading.ExtendIObservable.GenerateCharts(System.IObservable{SignalTrading.Pricing},System.TimeSpan,System.Int32)">GenerateCharts(IObservable&lt;Pricing&gt;, TimeSpan, Int32)</h4>
   <div class="markdown level1 summary"><p>Generates candlestick charts from specified prices, using specified time frame.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
-public static IEnumerable&lt;(Pricing, Chart)&gt; GenerateCharts(this IEnumerable&lt;Pricing&gt; source, TimeSpan timeFrame, int sessionStartHour = 0)</code></pre>
+public static IObservable&lt;(Pricing, Chart)&gt; GenerateCharts(this IObservable&lt;Pricing&gt; source, TimeSpan timeFrame, int sessionStartHour = 0)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -188,7 +188,7 @@ public static IEnumerable&lt;(Pricing, Chart)&gt; GenerateCharts(this IEnumerabl
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>&gt;</td>
+        <td><span class="xref">System.IObservable</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>&gt;</td>
         <td><span class="parametername">source</span></td>
         <td><p>Prices from which charts must be generated.</p>
 </td>
@@ -217,23 +217,23 @@ public static IEnumerable&lt;(Pricing, Chart)&gt; GenerateCharts(this IEnumerabl
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>, <a class="xref" href="SignalTrading.Chart.html">Chart</a>&gt;&gt;</td>
-        <td><p>A sequence of tuples with pricing and chart.</p>
+        <td><span class="xref">System.IObservable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>, <a class="xref" href="SignalTrading.Chart.html">Chart</a>&gt;&gt;</td>
+        <td><p>An observable sequence of tuples with pricing and chart.</p>
 </td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="SignalTrading_ExtendIEnumerable_GenerateCharts_" data-uid="SignalTrading.ExtendIEnumerable.GenerateCharts*"></a>
-  <h4 id="SignalTrading_ExtendIEnumerable_GenerateCharts_System_Collections_Generic_IEnumerable_System_ValueTuple_SignalTrading_Pricing_SignalTrading_Candle___System_TimeSpan_" data-uid="SignalTrading.ExtendIEnumerable.GenerateCharts(System.Collections.Generic.IEnumerable{System.ValueTuple{SignalTrading.Pricing,SignalTrading.Candle}},System.TimeSpan)">GenerateCharts(IEnumerable&lt;(Pricing, Candle)&gt;, TimeSpan)</h4>
+  <a id="SignalTrading_ExtendIObservable_GenerateCharts_" data-uid="SignalTrading.ExtendIObservable.GenerateCharts*"></a>
+  <h4 id="SignalTrading_ExtendIObservable_GenerateCharts_System_IObservable_System_ValueTuple_SignalTrading_Pricing_SignalTrading_Candle___System_TimeSpan_" data-uid="SignalTrading.ExtendIObservable.GenerateCharts(System.IObservable{System.ValueTuple{SignalTrading.Pricing,SignalTrading.Candle}},System.TimeSpan)">GenerateCharts(IObservable&lt;(Pricing, Candle)&gt;, TimeSpan)</h4>
   <div class="markdown level1 summary"><p>Generates candlestick charts from specified tuples with pricing and candle.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
-public static IEnumerable&lt;(Pricing, Chart)&gt; GenerateCharts(this IEnumerable&lt;(Pricing, Candle)&gt; source, TimeSpan timeFrame)</code></pre>
+public static IObservable&lt;(Pricing, Chart)&gt; GenerateCharts(this IObservable&lt;(Pricing, Candle)&gt; source, TimeSpan timeFrame)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -246,7 +246,7 @@ public static IEnumerable&lt;(Pricing, Chart)&gt; GenerateCharts(this IEnumerabl
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>, <a class="xref" href="SignalTrading.Candle.html">Candle</a>&gt;&gt;</td>
+        <td><span class="xref">System.IObservable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>, <a class="xref" href="SignalTrading.Candle.html">Candle</a>&gt;&gt;</td>
         <td><span class="parametername">source</span></td>
         <td><p>Tuples from which charts must be generated.</p>
 </td>
@@ -269,23 +269,23 @@ public static IEnumerable&lt;(Pricing, Chart)&gt; GenerateCharts(this IEnumerabl
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>, <a class="xref" href="SignalTrading.Chart.html">Chart</a>&gt;&gt;</td>
-        <td><p>A sequence of tuples with pricing and chart.</p>
+        <td><span class="xref">System.IObservable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>, <a class="xref" href="SignalTrading.Chart.html">Chart</a>&gt;&gt;</td>
+        <td><p>An observable sequence of tuples with pricing and chart.</p>
 </td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="SignalTrading_ExtendIEnumerable_GenerateSignals_" data-uid="SignalTrading.ExtendIEnumerable.GenerateSignals*"></a>
-  <h4 id="SignalTrading_ExtendIEnumerable_GenerateSignals__1_System_Collections_Generic_IEnumerable_System_ValueTuple_SignalTrading_Pricing___0___SignalTrading_Symbol_SignalTrading_Strategy___0__" data-uid="SignalTrading.ExtendIEnumerable.GenerateSignals``1(System.Collections.Generic.IEnumerable{System.ValueTuple{SignalTrading.Pricing,``0}},SignalTrading.Symbol,SignalTrading.Strategy{``0})">GenerateSignals&lt;TData&gt;(IEnumerable&lt;(Pricing, TData)&gt;, Symbol, Strategy&lt;TData&gt;)</h4>
+  <a id="SignalTrading_ExtendIObservable_GenerateSignals_" data-uid="SignalTrading.ExtendIObservable.GenerateSignals*"></a>
+  <h4 id="SignalTrading_ExtendIObservable_GenerateSignals__1_System_IObservable_System_ValueTuple_SignalTrading_Pricing___0___SignalTrading_Symbol_SignalTrading_Strategy___0__" data-uid="SignalTrading.ExtendIObservable.GenerateSignals``1(System.IObservable{System.ValueTuple{SignalTrading.Pricing,``0}},SignalTrading.Symbol,SignalTrading.Strategy{``0})">GenerateSignals&lt;TData&gt;(IObservable&lt;(Pricing, TData)&gt;, Symbol, Strategy&lt;TData&gt;)</h4>
   <div class="markdown level1 summary"><p>Generates trading signals from specified source using specified strategy.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
-public static IEnumerable&lt;(Signal, TData)&gt; GenerateSignals&lt;TData&gt;(this IEnumerable&lt;(Pricing, TData)&gt; source, Symbol symbol, Strategy&lt;TData&gt; strategy)</code></pre>
+public static IObservable&lt;(Signal, TData)&gt; GenerateSignals&lt;TData&gt;(this IObservable&lt;(Pricing, TData)&gt; source, Symbol symbol, Strategy&lt;TData&gt; strategy)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -298,7 +298,7 @@ public static IEnumerable&lt;(Signal, TData)&gt; GenerateSignals&lt;TData&gt;(th
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>, TData&gt;&gt;</td>
+        <td><span class="xref">System.IObservable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>, TData&gt;&gt;</td>
         <td><span class="parametername">source</span></td>
         <td><p>Data from which signals must be generated.</p>
 </td>
@@ -327,8 +327,8 @@ public static IEnumerable&lt;(Signal, TData)&gt; GenerateSignals&lt;TData&gt;(th
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Signal.html">Signal</a>, TData&gt;&gt;</td>
-        <td><p>A sequence of tuples with pricing and signal.</p>
+        <td><span class="xref">System.IObservable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Signal.html">Signal</a>, TData&gt;&gt;</td>
+        <td><p>An observable sequence of tuples with signal and custom data.</p>
 </td>
       </tr>
     </tbody>
@@ -351,15 +351,15 @@ public static IEnumerable&lt;(Signal, TData)&gt; GenerateSignals&lt;TData&gt;(th
   </table>
   
   
-  <a id="SignalTrading_ExtendIEnumerable_SelectSignals_" data-uid="SignalTrading.ExtendIEnumerable.SelectSignals*"></a>
-  <h4 id="SignalTrading_ExtendIEnumerable_SelectSignals__1_System_Collections_Generic_IEnumerable_System_ValueTuple_SignalTrading_Signal___0___" data-uid="SignalTrading.ExtendIEnumerable.SelectSignals``1(System.Collections.Generic.IEnumerable{System.ValueTuple{SignalTrading.Signal,``0}})">SelectSignals&lt;TData&gt;(IEnumerable&lt;(Signal, TData)&gt;)</h4>
+  <a id="SignalTrading_ExtendIObservable_SelectSignals_" data-uid="SignalTrading.ExtendIObservable.SelectSignals*"></a>
+  <h4 id="SignalTrading_ExtendIObservable_SelectSignals__1_System_IObservable_System_ValueTuple_SignalTrading_Signal___0___" data-uid="SignalTrading.ExtendIObservable.SelectSignals``1(System.IObservable{System.ValueTuple{SignalTrading.Signal,``0}})">SelectSignals&lt;TData&gt;(IObservable&lt;(Signal, TData)&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns the signals from the result of signal generation.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
-public static IEnumerable&lt;Signal&gt; SelectSignals&lt;TData&gt;(this IEnumerable&lt;(Signal, TData)&gt; source)</code></pre>
+public static IObservable&lt;Signal&gt; SelectSignals&lt;TData&gt;(this IObservable&lt;(Signal, TData)&gt; source)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -372,7 +372,7 @@ public static IEnumerable&lt;Signal&gt; SelectSignals&lt;TData&gt;(this IEnumera
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Signal.html">Signal</a>, TData&gt;&gt;</td>
+        <td><span class="xref">System.IObservable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Signal.html">Signal</a>, TData&gt;&gt;</td>
         <td><span class="parametername">source</span></td>
         <td><p>Result of signal generation.</p>
 </td>
@@ -389,8 +389,8 @@ public static IEnumerable&lt;Signal&gt; SelectSignals&lt;TData&gt;(this IEnumera
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="SignalTrading.Signal.html">Signal</a>&gt;</td>
-        <td><p>A sequence of signals.</p>
+        <td><span class="xref">System.IObservable</span>&lt;<a class="xref" href="SignalTrading.Signal.html">Signal</a>&gt;</td>
+        <td><p>An observable sequence of signals.</p>
 </td>
       </tr>
     </tbody>
@@ -413,15 +413,15 @@ public static IEnumerable&lt;Signal&gt; SelectSignals&lt;TData&gt;(this IEnumera
   </table>
   
   
-  <a id="SignalTrading_ExtendIEnumerable_WithClosedCandles_" data-uid="SignalTrading.ExtendIEnumerable.WithClosedCandles*"></a>
-  <h4 id="SignalTrading_ExtendIEnumerable_WithClosedCandles_System_Collections_Generic_IEnumerable_SignalTrading_Pricing__System_TimeSpan_System_Int32_" data-uid="SignalTrading.ExtendIEnumerable.WithClosedCandles(System.Collections.Generic.IEnumerable{SignalTrading.Pricing},System.TimeSpan,System.Int32)">WithClosedCandles(IEnumerable&lt;Pricing&gt;, TimeSpan, Int32)</h4>
-  <div class="markdown level1 summary"><p>Generates closed candles from a pricing sequence.</p>
+  <a id="SignalTrading_ExtendIObservable_WithClosedCandles_" data-uid="SignalTrading.ExtendIObservable.WithClosedCandles*"></a>
+  <h4 id="SignalTrading_ExtendIObservable_WithClosedCandles_System_IObservable_SignalTrading_Pricing__System_TimeSpan_System_Int32_" data-uid="SignalTrading.ExtendIObservable.WithClosedCandles(System.IObservable{SignalTrading.Pricing},System.TimeSpan,System.Int32)">WithClosedCandles(IObservable&lt;Pricing&gt;, TimeSpan, Int32)</h4>
+  <div class="markdown level1 summary"><p>Generates closed candles from an observable pricing sequence.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
-public static IEnumerable&lt;(Pricing, IReadOnlyList&lt;Candle&gt;)&gt; WithClosedCandles(this IEnumerable&lt;Pricing&gt; source, TimeSpan timeFrame, int sessionStartHour = 0)</code></pre>
+public static IObservable&lt;(Pricing, IReadOnlyList&lt;Candle&gt;)&gt; WithClosedCandles(this IObservable&lt;Pricing&gt; source, TimeSpan timeFrame, int sessionStartHour = 0)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -434,7 +434,7 @@ public static IEnumerable&lt;(Pricing, IReadOnlyList&lt;Candle&gt;)&gt; WithClos
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>&gt;</td>
+        <td><span class="xref">System.IObservable</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>&gt;</td>
         <td><span class="parametername">source</span></td>
         <td><p>Source elements.</p>
 </td>
@@ -463,24 +463,24 @@ public static IEnumerable&lt;(Pricing, IReadOnlyList&lt;Candle&gt;)&gt; WithClos
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>, <span class="xref">System.Collections.Generic.IReadOnlyList</span>&lt;<a class="xref" href="SignalTrading.Candle.html">Candle</a>&gt;&gt;&gt;</td>
-        <td><p>A sequence of tuples with pricing and candles that were closed according to the pricing. Each tuple
-will contain either zero, one or two candles.</p>
+        <td><span class="xref">System.IObservable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>, <span class="xref">System.Collections.Generic.IReadOnlyList</span>&lt;<a class="xref" href="SignalTrading.Candle.html">Candle</a>&gt;&gt;&gt;</td>
+        <td><p>An observable sequence of tuples with pricing and candles that were closed according to the pricing.
+Each tuple will contain either zero, one or two candles.</p>
 </td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="SignalTrading_ExtendIEnumerable_WithCustomData_" data-uid="SignalTrading.ExtendIEnumerable.WithCustomData*"></a>
-  <h4 id="SignalTrading_ExtendIEnumerable_WithCustomData__1_System_Collections_Generic_IEnumerable_SignalTrading_Pricing__System_Func_SignalTrading_Pricing___0__" data-uid="SignalTrading.ExtendIEnumerable.WithCustomData``1(System.Collections.Generic.IEnumerable{SignalTrading.Pricing},System.Func{SignalTrading.Pricing,``0})">WithCustomData&lt;TData&gt;(IEnumerable&lt;Pricing&gt;, Func&lt;Pricing, TData&gt;)</h4>
-  <div class="markdown level1 summary"><p>Generates custom data from a pricing sequence.</p>
+  <a id="SignalTrading_ExtendIObservable_WithCustomData_" data-uid="SignalTrading.ExtendIObservable.WithCustomData*"></a>
+  <h4 id="SignalTrading_ExtendIObservable_WithCustomData__1_System_IObservable_SignalTrading_Pricing__System_Func_SignalTrading_Pricing___0__" data-uid="SignalTrading.ExtendIObservable.WithCustomData``1(System.IObservable{SignalTrading.Pricing},System.Func{SignalTrading.Pricing,``0})">WithCustomData&lt;TData&gt;(IObservable&lt;Pricing&gt;, Func&lt;Pricing, TData&gt;)</h4>
+  <div class="markdown level1 summary"><p>Generates custom data from an observable pricing sequence.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
-public static IEnumerable&lt;(Pricing, TData)&gt; WithCustomData&lt;TData&gt;(this IEnumerable&lt;Pricing&gt; source, Func&lt;Pricing, TData&gt; pricingToDataConverter)</code></pre>
+public static IObservable&lt;(Pricing, TData)&gt; WithCustomData&lt;TData&gt;(this IObservable&lt;Pricing&gt; source, Func&lt;Pricing, TData&gt; pricingToDataConverter)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -493,7 +493,7 @@ public static IEnumerable&lt;(Pricing, TData)&gt; WithCustomData&lt;TData&gt;(th
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>&gt;</td>
+        <td><span class="xref">System.IObservable</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>&gt;</td>
         <td><span class="parametername">source</span></td>
         <td><p>Source elements.</p>
 </td>
@@ -516,8 +516,8 @@ public static IEnumerable&lt;(Pricing, TData)&gt; WithCustomData&lt;TData&gt;(th
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>, TData&gt;&gt;</td>
-        <td><p>A sequence of tuples with pricing and custom data.</p>
+        <td><span class="xref">System.IObservable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>, TData&gt;&gt;</td>
+        <td><p>An observable sequence of tuples with pricing and custom data.</p>
 </td>
       </tr>
     </tbody>
@@ -540,15 +540,15 @@ public static IEnumerable&lt;(Pricing, TData)&gt; WithCustomData&lt;TData&gt;(th
   </table>
   
   
-  <a id="SignalTrading_ExtendIEnumerable_WithLastCandle_" data-uid="SignalTrading.ExtendIEnumerable.WithLastCandle*"></a>
-  <h4 id="SignalTrading_ExtendIEnumerable_WithLastCandle_System_Collections_Generic_IEnumerable_SignalTrading_Pricing__System_TimeSpan_System_Int32_" data-uid="SignalTrading.ExtendIEnumerable.WithLastCandle(System.Collections.Generic.IEnumerable{SignalTrading.Pricing},System.TimeSpan,System.Int32)">WithLastCandle(IEnumerable&lt;Pricing&gt;, TimeSpan, Int32)</h4>
-  <div class="markdown level1 summary"><p>Generates candles from a pricing sequence.</p>
+  <a id="SignalTrading_ExtendIObservable_WithLastCandle_" data-uid="SignalTrading.ExtendIObservable.WithLastCandle*"></a>
+  <h4 id="SignalTrading_ExtendIObservable_WithLastCandle_System_IObservable_SignalTrading_Pricing__System_TimeSpan_System_Int32_System_Nullable_SignalTrading_Candle__" data-uid="SignalTrading.ExtendIObservable.WithLastCandle(System.IObservable{SignalTrading.Pricing},System.TimeSpan,System.Int32,System.Nullable{SignalTrading.Candle})">WithLastCandle(IObservable&lt;Pricing&gt;, TimeSpan, Int32, Nullable&lt;Candle&gt;)</h4>
+  <div class="markdown level1 summary"><p>Generates candles from an observable pricing sequence.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
-public static IEnumerable&lt;(Pricing, Candle)&gt; WithLastCandle(this IEnumerable&lt;Pricing&gt; source, TimeSpan timeFrame, int sessionStartHour = 0)</code></pre>
+public static IObservable&lt;(Pricing, Candle)&gt; WithLastCandle(this IObservable&lt;Pricing&gt; source, TimeSpan timeFrame, int sessionStartHour = 0, Candle? seed = default(Candle? ))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -561,7 +561,7 @@ public static IEnumerable&lt;(Pricing, Candle)&gt; WithLastCandle(this IEnumerab
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>&gt;</td>
+        <td><span class="xref">System.IObservable</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>&gt;</td>
         <td><span class="parametername">source</span></td>
         <td><p>Source elements</p>
 </td>
@@ -578,6 +578,12 @@ public static IEnumerable&lt;(Pricing, Candle)&gt; WithLastCandle(this IEnumerab
         <td><p>Start hour of the trading session in the range 0 to 23. Affects time frames of two hours and more.</p>
 </td>
       </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<a class="xref" href="SignalTrading.Candle.html">Candle</a>&gt;</td>
+        <td><span class="parametername">seed</span></td>
+        <td><p>Last candle if prices must be combined with historical data.</p>
+</td>
+      </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
@@ -590,23 +596,23 @@ public static IEnumerable&lt;(Pricing, Candle)&gt; WithLastCandle(this IEnumerab
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>, <a class="xref" href="SignalTrading.Candle.html">Candle</a>&gt;&gt;</td>
-        <td><p>A sequence of tuples with pricing and resulting candle.</p>
+        <td><span class="xref">System.IObservable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>, <a class="xref" href="SignalTrading.Candle.html">Candle</a>&gt;&gt;</td>
+        <td><p>An observable sequence of tuples with pricing and resulting candle.</p>
 </td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="SignalTrading_ExtendIEnumerable_WithPricing_" data-uid="SignalTrading.ExtendIEnumerable.WithPricing*"></a>
-  <h4 id="SignalTrading_ExtendIEnumerable_WithPricing_System_Collections_Generic_IEnumerable_SignalTrading_Candle__System_TimeSpan_" data-uid="SignalTrading.ExtendIEnumerable.WithPricing(System.Collections.Generic.IEnumerable{SignalTrading.Candle},System.TimeSpan)">WithPricing(IEnumerable&lt;Candle&gt;, TimeSpan)</h4>
-  <div class="markdown level1 summary"><p>Generates pricing from a candle sequence.</p>
+  <a id="SignalTrading_ExtendIObservable_WithPricing_" data-uid="SignalTrading.ExtendIObservable.WithPricing*"></a>
+  <h4 id="SignalTrading_ExtendIObservable_WithPricing_System_IObservable_SignalTrading_Candle__System_TimeSpan_" data-uid="SignalTrading.ExtendIObservable.WithPricing(System.IObservable{SignalTrading.Candle},System.TimeSpan)">WithPricing(IObservable&lt;Candle&gt;, TimeSpan)</h4>
+  <div class="markdown level1 summary"><p>Generates pricing from an observable candle sequence.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
-public static IEnumerable&lt;(Pricing, Candle)&gt; WithPricing(this IEnumerable&lt;Candle&gt; source, TimeSpan timeFrame)</code></pre>
+public static IObservable&lt;(Pricing, Candle)&gt; WithPricing(this IObservable&lt;Candle&gt; source, TimeSpan timeFrame)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -619,7 +625,7 @@ public static IEnumerable&lt;(Pricing, Candle)&gt; WithPricing(this IEnumerable&
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="SignalTrading.Candle.html">Candle</a>&gt;</td>
+        <td><span class="xref">System.IObservable</span>&lt;<a class="xref" href="SignalTrading.Candle.html">Candle</a>&gt;</td>
         <td><span class="parametername">source</span></td>
         <td><p>Source elements.</p>
 </td>
@@ -642,23 +648,23 @@ public static IEnumerable&lt;(Pricing, Candle)&gt; WithPricing(this IEnumerable&
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>, <a class="xref" href="SignalTrading.Candle.html">Candle</a>&gt;&gt;</td>
-        <td><p>A sequence of tuples with pricing and candle.</p>
+        <td><span class="xref">System.IObservable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>, <a class="xref" href="SignalTrading.Candle.html">Candle</a>&gt;&gt;</td>
+        <td><p>An observable sequence of tuples with pricing and candle.</p>
 </td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="SignalTrading_ExtendIEnumerable_WithPricing_" data-uid="SignalTrading.ExtendIEnumerable.WithPricing*"></a>
-  <h4 id="SignalTrading_ExtendIEnumerable_WithPricing__1_System_Collections_Generic_IEnumerable___0__System_Func___0_SignalTrading_Pricing__" data-uid="SignalTrading.ExtendIEnumerable.WithPricing``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,SignalTrading.Pricing})">WithPricing&lt;TData&gt;(IEnumerable&lt;TData&gt;, Func&lt;TData, Pricing&gt;)</h4>
-  <div class="markdown level1 summary"><p>Generates pricing from a custom data sequence.</p>
+  <a id="SignalTrading_ExtendIObservable_WithPricing_" data-uid="SignalTrading.ExtendIObservable.WithPricing*"></a>
+  <h4 id="SignalTrading_ExtendIObservable_WithPricing__1_System_IObservable___0__System_Func___0_SignalTrading_Pricing__" data-uid="SignalTrading.ExtendIObservable.WithPricing``1(System.IObservable{``0},System.Func{``0,SignalTrading.Pricing})">WithPricing&lt;TData&gt;(IObservable&lt;TData&gt;, Func&lt;TData, Pricing&gt;)</h4>
+  <div class="markdown level1 summary"><p>Generates pricing from an observable custom data sequence.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Pure]
-public static IEnumerable&lt;(Pricing, TData)&gt; WithPricing&lt;TData&gt;(this IEnumerable&lt;TData&gt; source, Func&lt;TData, Pricing&gt; dataToPricingConverter)</code></pre>
+public static IObservable&lt;(Pricing, TData)&gt; WithPricing&lt;TData&gt;(this IObservable&lt;TData&gt; source, Func&lt;TData, Pricing&gt; dataToPricingConverter)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -671,7 +677,7 @@ public static IEnumerable&lt;(Pricing, TData)&gt; WithPricing&lt;TData&gt;(this 
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;TData&gt;</td>
+        <td><span class="xref">System.IObservable</span>&lt;TData&gt;</td>
         <td><span class="parametername">source</span></td>
         <td><p>Source elements.</p>
 </td>
@@ -694,8 +700,8 @@ public static IEnumerable&lt;(Pricing, TData)&gt; WithPricing&lt;TData&gt;(this 
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>, TData&gt;&gt;</td>
-        <td><p>A sequence of tuples with pricing and custom data.</p>
+        <td><span class="xref">System.IObservable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="SignalTrading.Pricing.html">Pricing</a>, TData&gt;&gt;</td>
+        <td><p>An observable sequence of tuples with pricing and custom data.</p>
 </td>
       </tr>
     </tbody>
