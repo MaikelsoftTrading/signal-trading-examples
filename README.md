@@ -26,7 +26,7 @@ Current version can be used without any costs. Starting at the first major versi
 
 ## Version history
 #### 0.5.5 -> 0.6.0 
-Small (*possibly breaking*) changes: 
+Small (**possibly breaking**) changes: 
 * Moved observable extension methods (ExtendIObservable) from SignalTrading.Reactive to SignalTrading namespace.
 * Renamed a few extension methods that are used for deriving data (ExtendIObservable and ExtendIEnumerable).
 * New extension methods for generating candles from pricing, that can be used for generating signals directly from candles (without generating charts).
