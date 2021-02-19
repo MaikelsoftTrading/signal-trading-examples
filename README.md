@@ -1,5 +1,5 @@
 # SignalTrading framework
-This repository contains the developer documentation and C# examples for the SignalTrading framework, which can be found on [NuGet](https://www.nuget.org/packages/SignalTrading.Core/). Bugs can be reported using the GitHub issue tracker. 
+This repository contains the developer documentation and C# examples for the SignalTrading framework, which can be found on [NuGet](https://www.nuget.org/packages/SignalTrading.Core/). You are welcome to share bugs and feature requests using the [Github issue tracker](https://github.com/MaikelsoftTrading/signal-trading-examples/issues). 
 
 ## About the framework
 This is a framework for building signal-based trading applications for backtesting, live testing and live trading. The framework can generate 
@@ -21,8 +21,8 @@ Current version can be used without any costs. Starting at the first major versi
 * .NET 5.0 framework and the .NET 5.0 SDK are installed
 * Latest [Visual C++ Redistributable (x64)](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) is installed if running on Windows
 * C# development environment with NuGet package manager
-* A .NET programming interface to a market data provider (for retrieving live prices, candles history, etc.).
-* For bot development: .NET interface for retrieving balances and placing orders at the broker or exchange
+* A .NET programming interface to a market data provider (for retrieving symbols, prices, candles).
+* For bot development: .NET interface for managing orders at your broker or exchange
 
 ## Version history
 #### 0.5.5 -> 0.6.0 
