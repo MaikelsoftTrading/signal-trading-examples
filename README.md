@@ -28,14 +28,6 @@ types are implemented as structs because of C#/C interopability.
 ## License key
 Current version can be used without any costs. Starting at the first major version (1.x.x), a license key must be obtained if you want to generate signals for more than one trading symbol.
 
-## Prerequisites
-* Basic understanding of functional programming and reactive programming in C#
-* .NET 5.0 framework and the .NET 5.0 SDK are installed
-* Latest [Visual C++ Redistributable (x64)](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) is installed if running on Windows
-* C# development environment with NuGet package manager
-* A .NET programming interface to a market data provider (for retrieving symbols, prices and candles).
-* For bot development: .NET interface for managing orders at your broker or exchange
-
 ## Version history
 #### 0.5.5 -> 0.6.0 
 Small (**possibly breaking**) changes: 
@@ -44,6 +36,14 @@ Small (**possibly breaking**) changes:
 * New extension methods for generating candles from pricing, that can be used for generating signals directly from candles (without generating charts).
 
 # Development guide
+## Prerequisites
+* Basic understanding of functional programming and reactive programming in C#
+* .NET 5.0 framework and the .NET 5.0 SDK are installed
+* Latest [Visual C++ Redistributable (x64)](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) is installed if running on Windows
+* C# development environment with NuGet package manager
+* A .NET programming interface to a market data provider (for retrieving symbols, prices and candles).
+* For bot development: .NET interface for managing orders at your broker or exchange
+* 
 ## Reference documentation
 The [C# reference documentation](https://maikelsofttrading.github.io/signal-trading-examples/api/index.html) here on Github is a detailed description of all data types, methods and functions of the framework.
 
