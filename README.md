@@ -43,7 +43,7 @@ Small (**possibly breaking**) changes:
 * C# development environment with NuGet package manager
 * A .NET programming interface to a market data provider (for retrieving symbols, prices and candles).
 * For bot development: .NET interface for managing orders at your broker or exchange
-* 
+
 ## Reference documentation
 The [C# reference documentation](https://maikelsofttrading.github.io/signal-trading-examples/api/index.html) here on Github is a detailed description of all data types, methods and functions of the framework.
 
