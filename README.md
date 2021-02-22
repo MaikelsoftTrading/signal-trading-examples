@@ -7,6 +7,7 @@ This is a framework for building signal-based trading applications for backtesti
 * It can be used for trading commodities, forex, stocks, cryptocurrencies and more.
 * No need to implement interfaces or inherit from framework classes. Instead, a trading strategy is implemented as a single C# function. 
 * Source data is not limited to prices. You can pair prices with custom data that is to be analyzed by your strategy. E.g. Twitter mentions, number of crypto wallets and other (fundamental) data that must be analyzed by your strategy.
+* Easy to use the same C# code for backtesting and live trading.
 
 ## Framework design
 The framework is built with .NET 5.0 on top of 64-bit native C libraries (Windows, Linux). It exposes only pure functions and immutable types. You will notice that most of these
