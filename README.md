@@ -10,9 +10,6 @@ signal performance in real-time.
 The framework is built with .NET 5.0 on top of 64-bit native C libraries (Windows, Linux). It exposes only pure functions and immutable types. You will notice that most of these
 types are implemented as structs because of C#/C interopability. 
 
-## Limitations
-The framework can be used in x64 applications that run on Windows or Linux (x64 platform should be selected). 
-
 ## License key
 Current version can be used without any costs. Starting at the first major version (1.x.x), a license key must be obtained if you want to generate signals for more than one trading symbol.
 
@@ -21,7 +18,7 @@ Current version can be used without any costs. Starting at the first major versi
 * .NET 5.0 framework and the .NET 5.0 SDK are installed
 * Latest [Visual C++ Redistributable (x64)](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) is installed if running on Windows
 * C# development environment with NuGet package manager
-* A .NET programming interface to a market data provider (for retrieving symbols, prices, candles).
+* A .NET programming interface to a market data provider (for retrieving symbols, prices and candles).
 * For bot development: .NET interface for managing orders at your broker or exchange
 
 ## Version history
@@ -36,22 +33,23 @@ Small (**possibly breaking**) changes:
 The [C# reference documentation](https://maikelsofttrading.github.io/signal-trading-examples/api/index.html) here on Github is a detailed description of all data types, methods and functions of the framework.
 
 ## Signal generation process
-The basic flow for generating signals from live price data, using candlestick charts, is described below. It requires an observable sequence of pricing objects, which can easily be created from any price data source (a Pricing object is timestamped Buy, Sell and Last prices). A time frame for the charts needs to be chosen and a strategy callback function must be provided.
+Trading signals are generated from a stream of tuples with a pricing object and additional data. The framework calls a provided strategy function for each tuple. It uses the pricing (timestamped buy, sell and last price) for determining if an enty or exit price is hit and for estimating unrealized profits. Additional data that is paired with pricing can be of a custom data type or a built-in data type such as a candlestick chart (derived from pricing elements).
+Source data can be provided using either push or pull mechanism: `IObservable<(Pricing, TData)>` versus `IEnumerable<(Pricing, TData)>`.
 
-1. Framework subscribes to provided pricing source
-2. Framework receives (next) pricing object from source
-3. If this is the first pricing, framework creates candlestick chart for provided time frame
-4. Framework updates chart from pricing
-5. If this is the first pricing/chart, framework creates signal for provided symbol
-6. Framework updates signal with latest prices and subsequently:
+The basic flow for generating signals from an observable sequence can be described as:
+
+1. Framework subscribes to provided source
+2. Framework receives (next) tuple from source
+3. If this is the first tuple, framework initializes signal for provided symbol
+4. Framework updates signal with latest prices and subsequently:
 	1. If signal position is closed and trades have been set up, position is opened if an entry price was triggered
 	2. If signal position is open, closes position if its profit target or loss limit price was triggered
-7. Framework calls provided stategy function with signal and chart as arguments
-8. Strategy function checks/modifies the signal as follows:
-	* If signal position is closed, sets trade setups for the next long and/or short position
-	* If signal postion is open, changes the profit target or loss limit if required (e.g. trailing stop loss)
-9. Framework provides observers with signal
-10. Flow continues at step 2
+5. Framework calls provided stategy function with signal and custom data as arguments
+6. Provided strategy function checks/modifies the signal as follows:
+	* If signal position is closed, sets up trades for the next long and/or short position
+	* If signal postion is open, changes the profit target or loss limit if required
+7. Framework provides observers with signal (paired with the source data)
+8. Process is repeated from step 2
 
 ## Tutorial
 This tutorial explains how to generate trading signals from last trade prices, and how to to accomplish this with automatically generated candlestick charts. The trading strategy in this tutorial will be fairly simple. 
