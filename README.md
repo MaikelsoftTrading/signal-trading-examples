@@ -33,7 +33,7 @@ Small (**possibly breaking**) changes:
 The [C# reference documentation](https://maikelsofttrading.github.io/signal-trading-examples/api/index.html) here on Github is a detailed description of all data types, methods and functions of the framework.
 
 ## Signal generation process
-Trading signals are generated from a stream of tuples with a pricing object and additional data. The framework calls a provided strategy function for each tuple. It uses the pricing (timestamped buy, sell and last price) for determining if an enty or exit price is hit and for estimating unrealized profits. Additional data that is paired with pricing can be of a custom data type or a built-in data type such as a candlestick chart (derived from pricing elements).
+Trading signals are generated from a stream of tuples with a pricing object and additional data. The framework calls a provided strategy function for each tuple. It uses the pricing (timestamped buy, sell and last price) for determining if an enty or exit price is hit and for estimating unrealized profits. Additional data that is paired with pricing can be of a custom data type or a built-in type such as a candlestick chart (derived from pricing elements).
 Source data can be provided using either push or pull mechanism: `IObservable<(Pricing, TData)>` versus `IEnumerable<(Pricing, TData)>`.
 
 The basic flow for generating signals from an observable sequence can be described as:
