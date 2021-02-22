@@ -9,6 +9,18 @@ This is a framework for building signal-based trading applications for backtesti
 * Prices can be paired with custom data that is to be analyzed by your strategy: e.g. Twitter mentions, number of crypto wallets, fundamentals.
 * Easy to use the same C# code for backtesting and live trading.
 
+Performance metrics that are collected for each signal:
+
+* Total investment
+* Total profit
+* Return on investment
+* Number of trades closed
+* Number of winning trades and win rate
+* Maximum drawdown
+* Estimated position value
+* Position closing costs
+* Fees and interest paid
+
 ## Framework design
 The framework is built with .NET 5.0 on top of 64-bit native C libraries (Windows, Linux). It exposes only pure functions and immutable types. You will notice that most of these
 types are implemented as structs because of C#/C interopability. 
