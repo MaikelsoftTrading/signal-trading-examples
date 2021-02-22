@@ -2,13 +2,11 @@
 This repository contains the developer documentation and C# examples for the SignalTrading framework, which can be found on [NuGet](https://www.nuget.org/packages/SignalTrading.Core/). You are welcome to share bugs and feature requests using the [Github issue tracker](https://github.com/MaikelsoftTrading/signal-trading-examples/issues). 
 
 ## About the framework
-This is a framework for building signal-based trading applications for backtesting, live testing and live trading. The framework can generate 
-signals from any price data source. It builds candlestick charts from live prices, supports margin trading, leverage, and estimates
-trading performance in real-time.
+This is a framework for building signal-based trading applications for backtesting, live testing and live trading. It builds candlestick charts from live prices, supports margin trading, leverage, and estimates trading performance in real-time.
 
 * It can be used for trading commodities, forex, stocks, cryptocurrencies and more.
-* There is no need to implement interfaces or inherit from framework classes. Instead, a trading strategy is implemented as a single C# function. 
-* Source data is not limited to trade prices. You can pair prices with any type of data that is to be analyzed by your strategy (e.g. for forecasting based on Twitter mentions, fundamental data, et cetera).
+* No need to implement interfaces or inherit from framework classes. Instead, a trading strategy is implemented as a single C# function. 
+* Source data is not limited to prices. You can pair prices with custom data that is to be analyzed by your strategy (e.g. number of Twitter mentions or fundamental data that is to be used for forecasting).
 
 ## Framework design
 The framework is built with .NET 5.0 on top of 64-bit native C libraries (Windows, Linux). It exposes only pure functions and immutable types. You will notice that most of these
@@ -36,7 +34,7 @@ Small (**possibly breaking**) changes:
 ## Reference documentation
 The [C# reference documentation](https://maikelsofttrading.github.io/signal-trading-examples/api/index.html) here on Github is a detailed description of all data types, methods and functions of the framework.
 
-## Signal generation process
+## How signals are generated
 Trading signals are generated from a stream of tuples with a pricing object and additional data. The framework calls a provided strategy function for each tuple. It uses the pricing (timestamped buy, sell and last price) for determining if an enty or exit price is hit and for estimating unrealized profits. Additional data that is paired with pricing can be of a custom data type or a built-in type such as a candlestick chart (derived from pricing elements).
 Source data can be provided using either push or pull mechanism: `IObservable<(Pricing, TData)>` versus `IEnumerable<(Pricing, TData)>`.
 
