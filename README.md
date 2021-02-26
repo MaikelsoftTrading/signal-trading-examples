@@ -67,7 +67,7 @@ The basic flow for generating signals from an observable sequence can be describ
 8. Process is repeated from step 2
 
 ## Tutorial
-This tutorial explains how to generate trading signals from last trade prices, and how to to accomplish this with automatically generated candlestick charts. The trading strategy in this tutorial will be fairly simple. 
+This tutorial explains how to generate trading signals from trade prices, and how to to accomplish this with automatically generated candlestick charts. The trading strategy in this tutorial will be fairly simple. Source code and a runnable console application can be found in this repository.
 
 ### Create the trading symbol
 First, we need to create the trading symbol for which we're going to generate signals. Name, lot size and tick size are mandatory. In a real trading scenario this information is retrieved from a broker or exchange using an API.
