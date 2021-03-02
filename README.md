@@ -166,7 +166,7 @@ public static IEnumerable<Candle> GetHistoricalPrices()
 }
 ```
 
-#### 2. Execute the test
+#### 2. Run the test
 ```C#
 public static void Backtest()
 {
@@ -224,42 +224,28 @@ public static IObservable<Pricing> GetPricing()
 }
 ```
 
-#### 2. Generate signals
+#### 2. Run the simulation
 ```C#
-public static void GenerateSignals()
+public static void SimulateLiveTrading()
 {
-	// Create a strategy function that uses a moving average length of 3
+	// Create a strategy function. We will use a moving average length of 3 candles.
 	Strategy<Chart> strategy = CreateMovingAverageStrategy(3);
 
 	// Get the prices
-	IObservable<Pricing> prices = GetPricing();
+	IObservable<Pricing> livePrices = GetLivePrices();
 
 	// Build charts from prices
-	IObservable<(Pricing, Chart)> pricingWithChart = prices.GenerateCharts(TimeSpan.FromHours(1));
+	IObservable<(Pricing, Chart)> pricesWithCharts = livePrices.GenerateCharts(TimeFrame);
 
 	// Generate signals from the charts
-	IObservable<(Signal, Chart)> signalsWithChart = pricingWithChart.GenerateSignals(Amazon, strategy);
+	IObservable<(Signal, Chart)> signalsWithChart = pricesWithCharts.GenerateSignals(Amazon, strategy);
 
 	// We're interested in the signals only
 	IObservable<Signal> signals = signalsWithChart.SelectSignals();
 
-	// In a real trading scenario we would subscribe to the observable. Here, we wait for the last
-	// signal.
-	Signal signal = signals.Wait();
-
-	// Show some information from the signal
-	Console.WriteLine($"{signal.Symbol.Name} signal @ {signal.Timestamp():u}:");
-	string baseFormat = $"N{signal.Symbol.BaseDecimals}";
-	string quoteFormat = $"N{signal.Symbol.QuoteDecimals}";
-	Console.WriteLine(
-		$"\tLast price: {signal.Pricing.Last.ToString(quoteFormat)} {signal.Symbol.QuoteCurrencyName}");
-	Console.WriteLine(
-		$"\tCurrent position size: {signal.Position.Size.ToString(baseFormat)} {signal.Symbol.BaseAssetName}");
-	Console.WriteLine(
-		$"\tInvestment: {signal.Performance.Investment.ToString(quoteFormat)} {signal.Symbol.QuoteCurrencyName}");
-	Console.WriteLine(
-		$"\tProfit: {signal.Performance.Profit.ToString(quoteFormat)} {signal.Symbol.QuoteCurrencyName}");
-	Console.WriteLine($"\tReturn on investment: {signal.Performance.ROI:P2}");
+	// Show information from each signal
+	IDisposable subscription = signals.Subscribe(ShowSignal);
+	subscription.Dispose();
 }
 ```
 ## Troubleshooting
