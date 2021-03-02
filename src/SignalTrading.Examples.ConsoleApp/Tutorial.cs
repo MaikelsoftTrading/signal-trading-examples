@@ -111,10 +111,10 @@ namespace SignalTrading.Examples.ConsoleApp
 			IEnumerable<Candle> candles = GetHistoricalPrices();
 
 			// Generate charts from the candles. Specified time frame must match the time frame of the candles.
-			IEnumerable<(Pricing, Chart)> pricesWithCharts = candles.GenerateCharts(TimeFrame);
+			IEnumerable<(Pricing, Chart)> pricesWithChart = candles.GenerateCharts(TimeFrame);
 
 			// Generate signals from the charts
-			IEnumerable<(Signal, Chart)> signalsWithChart = pricesWithCharts.GenerateSignals(Amazon, strategy);
+			IEnumerable<(Signal, Chart)> signalsWithChart = pricesWithChart.GenerateSignals(Amazon, strategy);
 
 			// We're interested in the signals only
 			IEnumerable<Signal> signals = signalsWithChart.SelectSignals();
@@ -157,10 +157,10 @@ namespace SignalTrading.Examples.ConsoleApp
 			IObservable<Pricing> livePrices = GetLivePrices();
 
 			// Build charts from prices
-			IObservable<(Pricing, Chart)> pricesWithCharts = livePrices.GenerateCharts(TimeFrame);
+			IObservable<(Pricing, Chart)> pricesWithChart = livePrices.GenerateCharts(TimeFrame);
 
 			// Generate signals from the charts
-			IObservable<(Signal, Chart)> signalsWithChart = pricesWithCharts.GenerateSignals(Amazon, strategy);
+			IObservable<(Signal, Chart)> signalsWithChart = pricesWithChart.GenerateSignals(Amazon, strategy);
 
 			// We're interested in the signals only
 			IObservable<Signal> signals = signalsWithChart.SelectSignals();
