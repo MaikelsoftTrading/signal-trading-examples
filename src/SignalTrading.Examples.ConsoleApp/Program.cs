@@ -13,7 +13,7 @@ namespace SignalTrading.Examples.ConsoleApp
 			ConsoleHelpers.ShowMenu(new  (string, Action)[]
 			{
 				("Backtest", Tutorial.Backtest),
-				("Live trading simulation", Tutorial.LiveTrading)
+				("Live trading simulation", Tutorial.SimulateLiveTrading)
 			}, "Main menu");
 		}
 	}

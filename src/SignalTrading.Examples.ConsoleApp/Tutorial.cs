@@ -57,12 +57,9 @@ namespace SignalTrading.Examples.ConsoleApp
 				// A setup for long trading can only be set if its entry price is below the last trade price and
 				// below current buy price. This can easily be validated before setting the new setup so an 
 				// exception will be avoided.
-				if (signal.IsTradeSetupAllowed(setup))
-				{
-					signal = signal.SetLongTradeSetup(setup);
-				}
-
-				return signal;
+				return signal.IsTradeSetupAllowed(setup) 
+					? signal.SetLongTradeSetup(setup) 
+					: signal;
 			};
 		}
 
@@ -71,6 +68,7 @@ namespace SignalTrading.Examples.ConsoleApp
 			// Define two helper functions for formatting amounts
 			string FormatBase(double value) => $"{value.ToString($"N{signal.Symbol.BaseDecimals}")} " +
 			                                   $"{signal.Symbol.BaseAssetName}";
+
 			string FormatQuote(double value) => $"{value.ToString($"N{signal.Symbol.QuoteDecimals}")} " +
 			                                    $"{signal.Symbol.QuoteCurrencyName}";
 
@@ -96,11 +94,11 @@ namespace SignalTrading.Examples.ConsoleApp
 
 			return new[]
 			{
-				Candle.Create(p0, 3000, 3101.14, 3000, 3101.14), 
-				Candle.Create(p1, 3000, 3230.65, 3000, 3230.65), 
-				Candle.Create(p2, 3000, 3410.81, 3000, 3410.81), 
-				Candle.Create(p3, 3000, 3240.16, 3000, 3240.16), 
-				Candle.Create(p4, 3000, 3300.77, 3000, 3300.77)
+				Candle.Create(p0, 3000.00, 3101.14, 3000.00, 3101.14),
+				Candle.Create(p1, 3101.14, 3230.65, 3004.89, 3230.65),
+				Candle.Create(p2, 3230.65, 3410.81, 3010.34, 3410.81),
+				Candle.Create(p3, 3410.81, 3420.20, 3005.23, 3240.16),
+				Candle.Create(p4, 3240.16, 3300.77, 3005.71, 3300.77)
 			};
 		}
 
@@ -150,7 +148,7 @@ namespace SignalTrading.Examples.ConsoleApp
 			}.ToObservable();
 		}
 
-		public static void LiveTrading()
+		public static void SimulateLiveTrading()
 		{
 			// Create a strategy function. We will use a moving average length of 3 candles.
 			Strategy<Chart> strategy = CreateMovingAverageStrategy(3);
@@ -167,12 +165,9 @@ namespace SignalTrading.Examples.ConsoleApp
 			// We're interested in the signals only
 			IObservable<Signal> signals = signalsWithChart.SelectSignals();
 
-			// In a real trading scenario we would subscribe to the observable. Here, we wait for the last
-			// signal.
-			Signal lastSignal = signals.Wait();
-
-			// Show some information from the signal
-			ShowSignal(lastSignal);
+			// Show information from each signal
+			IDisposable subscription = signals.Subscribe(ShowSignal);
+			subscription.Dispose();
 		}
 	}
 }
