@@ -77,17 +77,21 @@ The basic flow for generating signals is:
 ## Tutorial
 This tutorial explains how to generate trading signals from trade prices, and how to to accomplish this with automatically generated candlestick charts. The trading strategy in this tutorial will be fairly simple. Source code and a runnable console application can be found in this repository.
 
-### Create the trading symbol
-First, we need to create the trading symbol for which we're going to generate signals. Name, lot size and tick size are mandatory. In a real trading scenario this information is retrieved from a broker or exchange using an API.
+### 1. Create the symbol and define time frame
+First, we need to create the trading symbol for which we're going to generate signals. Name, lot size and tick size are mandatory. In a real trading scenario this information is retrieved from a broker or exchange using an API. We also define the time frame for candlestick charts that is needed later on when generating charts.
 ```C#
+// Create a symbol with lot size of 0.1 and tick size of 0.01
 private static readonly Symbol Amazon = Symbol
-	.Create("AMZN", lotSize: 0.1, tickSize: 0.01)
+	.Create("AMZN", 0.1, 0.01)
 	.SetBaseAssetName("AMZN")
 	.SetQuoteCurrencyName("USD");
+
+// Define the candles time frame
+private static readonly TimeSpan TimeFrame = TimeSpan.FromHours(1);
 ```
 
-### Create a factory for our strategy
-Strategies are implemented as callback functions (that conform to the Strategy<TData> delegate) and the method below will create the function for our strategy. The function computes a moving average from the charts, sets up a trade that enters below this average and takes profit at the average.	
+### 2. Create the trading strategy
+Strategies are implemented as callback functions that conform to the `Strategy<TData>` delegate. Our function computes a moving average from a candlestick chart, sets up a trade that enters below this average and takes profit at the average. The factory function below will create a strategy function for a specific moving average length.
 ```C#
 public static Strategy<Chart> CreateMovingAverageStrategy(int movingAverageLength)
 {
@@ -118,11 +122,11 @@ public static Strategy<Chart> CreateMovingAverageStrategy(int movingAverageLengt
 		}
 
 		// Compute the average of the last closing prices
-		double ma = chart.Values.TakeLast(movingAverageLength).Average(candle => candle.Close);
+		double average = chart.Values.TakeLast(movingAverageLength).Average(candle => candle.Close);
 
 		// Create a long trade setup that enters below current moving average and takes profit
 		// at current moving average.
-		double profitTarget = signal.Symbol.RoundToTickSize(ma); // Price should be rounded to tick size
+		double profitTarget = signal.Symbol.RoundToTickSize(average); // Price should be rounded to tick size
 		double entryPrice = profitTarget - 5;
 		double lossLimit = entryPrice - 10;
 		TradeSetup setup = TradeSetup.Long(entryPrice, 1, profitTarget, lossLimit);
@@ -139,9 +143,56 @@ public static Strategy<Chart> CreateMovingAverageStrategy(int movingAverageLengt
 	};
 }
 ```
+### 3. Backtest the strategy
+#### 1. Create historical price data
+```C#
+public static IEnumerable<Candle> GetHistoricalPrices()
+{
+	DateTimeOffset p0 = new DateTimeOffset(2021, 1, 1, 0, 0, 0, 0, TimeSpan.Zero);
+	DateTimeOffset p1 = p0.Add(TimeFrame);
+	DateTimeOffset p2 = p1.Add(TimeFrame);
+	DateTimeOffset p3 = p2.Add(TimeFrame);
+	DateTimeOffset p4 = p3.Add(TimeFrame);
 
-### Create test data
-In order to demonstrate our strategy, we need some test data in the form of an observable Pricing sequence. The function below creates this observable which returns prices with arbitrary timestamps. These will be converted into candlesticks by the framework in the next step.
+	return new[]
+	{
+		Candle.Create(p0, 3000, 3101.14, 3000, 3101.14), 
+		Candle.Create(p1, 3000, 3230.65, 3000, 3230.65), 
+		Candle.Create(p2, 3000, 3410.81, 3000, 3410.81), 
+		Candle.Create(p3, 3000, 3240.16, 3000, 3240.16), 
+		Candle.Create(p4, 3000, 3300.77, 3000, 3300.77)
+	};
+}
+```
+
+#### 2. Execute the test
+```C#
+public static void Backtest()
+{
+	// Create a strategy function. We will use a moving average length of 3 candles.
+	Strategy<Chart> strategy = CreateMovingAverageStrategy(3);
+
+	// Get the historical prices in the form of candles
+	IEnumerable<Candle> candles = GetHistoricalPrices();
+
+	// Generate charts from the candles. Specified time frame must match the time frame of the candles.
+	IEnumerable<(Pricing, Chart)> pricesWithCharts = candles.GenerateCharts(TimeFrame);
+
+	// Generate signals from the charts
+	IEnumerable<(Signal, Chart)> signalsWithChart = pricesWithCharts.GenerateSignals(Amazon, strategy);
+
+	// We're interested in the signals only
+	IEnumerable<Signal> signals = signalsWithChart.SelectSignals();
+
+	// Show info of the most recent signal
+	Signal lastSignal = signals.Last();
+	ShowSignal(lastSignal);
+}
+```
+
+### 4. Simulate live trading
+#### 1. Create price data
+In order to demonstrate live trading, we need some test data in the form of an observable Pricing sequence. The function below creates this observable which returns prices with arbitrary timestamps. These will be converted into candlesticks by the framework in the next step.
 ```C#
 public static IObservable<Pricing> GetPricing()
 {
@@ -172,7 +223,7 @@ public static IObservable<Pricing> GetPricing()
 }
 ```
 
-### Build charts and generate signals
+#### 2. Generate signals
 ```C#
 public static void GenerateSignals()
 {
