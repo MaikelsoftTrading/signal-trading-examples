@@ -21,6 +21,7 @@ Performance metrics that are collected for each signal:
 * Position closing costs
 * Fees and interest paid
 * Rounding errors (because of lot sizes)
+* Buy & hold return
 
 ## Framework design
 The framework is built with .NET 5.0 on top of 64-bit native C libraries (Windows, Linux). It exposes only pure functions and immutable types. You will notice that most of these
