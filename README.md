@@ -91,7 +91,31 @@ private static readonly Symbol Amazon = Symbol
 private static readonly TimeSpan TimeFrame = TimeSpan.FromHours(1);
 ```
 
-### 2. Create the trading strategy
+### 2. Create a method that displays a signal
+```C#
+public static void ShowSignal(Signal signal)
+{
+	// Define two helper functions for formatting amounts
+	string FormatBase(double value) => $"{value.ToString($"N{signal.Symbol.BaseDecimals}")} " +
+					   $"{signal.Symbol.BaseAssetName}";
+
+	string FormatQuote(double value) => $"{value.ToString($"N{signal.Symbol.QuoteDecimals}")} " +
+					    $"{signal.Symbol.QuoteCurrencyName}";
+
+	// Show some basic info (see reference documentation or IntelliSense for more Signal properties).
+	Console.WriteLine($"{signal.Symbol.Name} signal @ {signal.Timestamp():u}:");
+	Console.WriteLine($"\tLast price: {FormatQuote(signal.Pricing.Last)}");
+	Console.WriteLine($"\tCurrent position size: {FormatBase(signal.Position.Size)}");
+	Console.WriteLine($"\tInvestment: {FormatQuote(signal.Performance.Investment)}");
+	Console.WriteLine($"\tProfit: {FormatQuote(signal.Performance.Profit)}");
+	Console.WriteLine($"\tReturn on investment: {signal.Performance.ROI:p2}");
+	Console.WriteLine($"\tMaximum drawdown: {signal.Performance.MaximumDrawdown:p2}");
+	Console.WriteLine($"\tTrades closed: {signal.Performance.TradesClosed}");
+	Console.WriteLine($"\tTrades won: {signal.Performance.TradesWon} ({signal.Performance.WinRate:p2})");
+}
+```
+
+### 3. Create the trading strategy
 Strategies are implemented as callback functions that conform to the `Strategy<TData>` delegate. Our function computes a moving average from a candlestick chart, sets up a trade that enters below this average and takes profit at the average. The factory function below will create a strategy function for a specific moving average length.
 ```C#
 public static Strategy<Chart> CreateMovingAverageStrategy(int movingAverageLength)
@@ -141,7 +165,7 @@ public static Strategy<Chart> CreateMovingAverageStrategy(int movingAverageLengt
 	};
 }
 ```
-### 3. Backtest the strategy
+### 4. Backtest the strategy
 #### 1. Create historical price data
 ```C#
 public static IEnumerable<Candle> GetHistoricalPrices()
@@ -188,7 +212,7 @@ public static void Backtest()
 }
 ```
 
-### 4. Simulate live trading
+### 5. Simulate live trading
 #### 1. Create price data
 In order to demonstrate live trading, we need some test data in the form of an observable Pricing sequence. The function below creates this observable which returns prices with arbitrary timestamps. These will be converted into candlesticks by the framework in the next step.
 ```C#
