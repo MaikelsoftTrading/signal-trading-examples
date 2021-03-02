@@ -9,10 +9,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SignalTrading.Candle.html",
-          "hash": "89S/Z2mLCvsSYPuFLYdUeg=="
+          "hash": "vsp/Ir6ZEY9mibsC6EhJYA=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -24,7 +24,7 @@
           "hash": "PoJP2dDnDP4fXAI49sowcg=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -36,7 +36,7 @@
           "hash": "Xbu8KlX5FaR0h3rU97P0lQ=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -45,10 +45,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SignalTrading.ExtendIEnumerable.html",
-          "hash": "37CO1oy/kPWhnlU8QPjjIA=="
+          "hash": "DQzTY8zDJycbgLX8xWKHrQ=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -57,10 +57,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SignalTrading.ExtendIObservable.html",
-          "hash": "peKWOhhBGCPoylFkc6IXSw=="
+          "hash": "9KlZ2t+KFmlmgHdXJnm0ug=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -72,7 +72,7 @@
           "hash": "ORfYO1WRIP94ywufd7vogA=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -84,7 +84,7 @@
           "hash": "6B3ha1FxmUlT24jmM8crQw=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -96,7 +96,7 @@
           "hash": "pj03nNk8w7R86LZoJ+8TKw=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -105,10 +105,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SignalTrading.Signal.html",
-          "hash": "8I3PDsMjje0k6xApIC0Shg=="
+          "hash": "DeHS8d9DTBJzq6mJzEGDBQ=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -117,10 +117,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SignalTrading.SignalPerformance.html",
-          "hash": "Efu8QjI9Us/+AVdkoUMHWA=="
+          "hash": "bz0JWCGX2jkGhBGS9/2P8g=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -132,7 +132,7 @@
           "hash": "SdEnUPcJSlQVhthn6e9Qyg=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -144,7 +144,7 @@
           "hash": "euv//1qfMMvkI9ec9CD5MQ=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -156,7 +156,7 @@
           "hash": "ivGV7PRT+vxd/b6OiXUikg=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -168,7 +168,7 @@
           "hash": "yM2iEHlerG2lX3foPj5mGQ=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -180,7 +180,7 @@
           "hash": "Kl/XWOcoMwbo0q+Tht/XiQ=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -192,7 +192,7 @@
           "hash": "CPtWa1Tc+RDQXMtO5CS3bw=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -251,7 +251,7 @@
           "can_incremental": true,
           "incrementalPhase": "build",
           "total_file_count": 15,
-          "skipped_file_count": 8
+          "skipped_file_count": 15
         },
         "TocDocumentProcessor": {
           "can_incremental": false,

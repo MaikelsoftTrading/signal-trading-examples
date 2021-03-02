@@ -492,56 +492,9 @@ public static Candle Create(long openTimeMilliseconds, double open, double high,
   
   
   <a id="SignalTrading_Candle_IsClosed_" data-uid="SignalTrading.Candle.IsClosed*"></a>
-  <h4 id="SignalTrading_Candle_IsClosed_System_Int32_System_Int64_" data-uid="SignalTrading.Candle.IsClosed(System.Int32,System.Int64)">IsClosed(Int32, Int64)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Pure]
-public bool IsClosed(int timeFrameMilliseconds, long timeMilliseconds)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">timeFrameMilliseconds</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Int64</span></td>
-        <td><span class="parametername">timeMilliseconds</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="SignalTrading_Candle_IsClosed_" data-uid="SignalTrading.Candle.IsClosed*"></a>
   <h4 id="SignalTrading_Candle_IsClosed_System_TimeSpan_" data-uid="SignalTrading.Candle.IsClosed(System.TimeSpan)">IsClosed(TimeSpan)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns true if the candle is closed based on current UTC time, false otherwise.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -561,7 +514,8 @@ public bool IsClosed(TimeSpan timeFrame)</code></pre>
       <tr>
         <td><span class="xref">System.TimeSpan</span></td>
         <td><span class="parametername">timeFrame</span></td>
-        <td></td>
+        <td><p>Time frame of the candle.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -576,7 +530,8 @@ public bool IsClosed(TimeSpan timeFrame)</code></pre>
     <tbody>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
-        <td></td>
+        <td><p>True if candle end time is greater than or equal to current time, false otherwise.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -584,7 +539,8 @@ public bool IsClosed(TimeSpan timeFrame)</code></pre>
   
   <a id="SignalTrading_Candle_IsClosed_" data-uid="SignalTrading.Candle.IsClosed*"></a>
   <h4 id="SignalTrading_Candle_IsClosed_System_TimeSpan_System_DateTimeOffset_" data-uid="SignalTrading.Candle.IsClosed(System.TimeSpan,System.DateTimeOffset)">IsClosed(TimeSpan, DateTimeOffset)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns true if the candle is closed based on specified UTC time, false otherwise.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -604,12 +560,14 @@ public bool IsClosed(TimeSpan timeFrame, DateTimeOffset utcNow)</code></pre>
       <tr>
         <td><span class="xref">System.TimeSpan</span></td>
         <td><span class="parametername">timeFrame</span></td>
-        <td></td>
+        <td><p>Time frame of the candle.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.DateTimeOffset</span></td>
         <td><span class="parametername">utcNow</span></td>
-        <td></td>
+        <td><p>Current UTC time.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -624,7 +582,8 @@ public bool IsClosed(TimeSpan timeFrame, DateTimeOffset utcNow)</code></pre>
     <tbody>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
-        <td></td>
+        <td><p>True if candle end time is greater than or equal to specified time, false otherwise.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -653,49 +612,6 @@ public DateTimeOffset OpenTime()</code></pre>
         <td><span class="xref">System.DateTimeOffset</span></td>
         <td><p>DateTimeOffset</p>
 </td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="SignalTrading_Candle_SetClose_" data-uid="SignalTrading.Candle.SetClose*"></a>
-  <h4 id="SignalTrading_Candle_SetClose_System_Double_" data-uid="SignalTrading.Candle.SetClose(System.Double)">SetClose(Double)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Pure]
-public Candle SetClose(double close)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Double</span></td>
-        <td><span class="parametername">close</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SignalTrading.Candle.html">Candle</a></td>
-        <td></td>
       </tr>
     </tbody>
   </table>

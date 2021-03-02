@@ -58,12 +58,6 @@ references:
   isSpec: "True"
   fullName: SignalTrading.Candle.High
   nameWithType: Candle.High
-- uid: SignalTrading.Candle.IsClosed(System.Int32,System.Int64)
-  name: IsClosed(Int32, Int64)
-  href: api/SignalTrading.Candle.html#SignalTrading_Candle_IsClosed_System_Int32_System_Int64_
-  commentId: M:SignalTrading.Candle.IsClosed(System.Int32,System.Int64)
-  fullName: SignalTrading.Candle.IsClosed(System.Int32, System.Int64)
-  nameWithType: Candle.IsClosed(Int32, Int64)
 - uid: SignalTrading.Candle.IsClosed(System.TimeSpan)
   name: IsClosed(TimeSpan)
   href: api/SignalTrading.Candle.html#SignalTrading_Candle_IsClosed_System_TimeSpan_
@@ -148,19 +142,6 @@ references:
   isSpec: "True"
   fullName: SignalTrading.Candle.PricesAreMidPoints
   nameWithType: Candle.PricesAreMidPoints
-- uid: SignalTrading.Candle.SetClose(System.Double)
-  name: SetClose(Double)
-  href: api/SignalTrading.Candle.html#SignalTrading_Candle_SetClose_System_Double_
-  commentId: M:SignalTrading.Candle.SetClose(System.Double)
-  fullName: SignalTrading.Candle.SetClose(System.Double)
-  nameWithType: Candle.SetClose(Double)
-- uid: SignalTrading.Candle.SetClose*
-  name: SetClose
-  href: api/SignalTrading.Candle.html#SignalTrading_Candle_SetClose_
-  commentId: Overload:SignalTrading.Candle.SetClose
-  isSpec: "True"
-  fullName: SignalTrading.Candle.SetClose
-  nameWithType: Candle.SetClose
 - uid: SignalTrading.Candle.Turnover
   name: Turnover
   href: api/SignalTrading.Candle.html#SignalTrading_Candle_Turnover
@@ -976,6 +957,19 @@ references:
   isSpec: "True"
   fullName: SignalTrading.Signal.ClearShortTradeSetup
   nameWithType: Signal.ClearShortTradeSetup
+- uid: SignalTrading.Signal.InitialPricing
+  name: InitialPricing
+  href: api/SignalTrading.Signal.html#SignalTrading_Signal_InitialPricing
+  commentId: P:SignalTrading.Signal.InitialPricing
+  fullName: SignalTrading.Signal.InitialPricing
+  nameWithType: Signal.InitialPricing
+- uid: SignalTrading.Signal.InitialPricing*
+  name: InitialPricing
+  href: api/SignalTrading.Signal.html#SignalTrading_Signal_InitialPricing_
+  commentId: Overload:SignalTrading.Signal.InitialPricing
+  isSpec: "True"
+  fullName: SignalTrading.Signal.InitialPricing
+  nameWithType: Signal.InitialPricing
 - uid: SignalTrading.Signal.IsTradeSetupAllowed(SignalTrading.TradeSetup)
   name: IsTradeSetupAllowed(TradeSetup)
   href: api/SignalTrading.Signal.html#SignalTrading_Signal_IsTradeSetupAllowed_SignalTrading_TradeSetup_
@@ -1203,6 +1197,19 @@ references:
   commentId: T:SignalTrading.SignalPerformance
   fullName: SignalTrading.SignalPerformance
   nameWithType: SignalPerformance
+- uid: SignalTrading.SignalPerformance.BuyAndHoldReturn
+  name: BuyAndHoldReturn
+  href: api/SignalTrading.SignalPerformance.html#SignalTrading_SignalPerformance_BuyAndHoldReturn
+  commentId: P:SignalTrading.SignalPerformance.BuyAndHoldReturn
+  fullName: SignalTrading.SignalPerformance.BuyAndHoldReturn
+  nameWithType: SignalPerformance.BuyAndHoldReturn
+- uid: SignalTrading.SignalPerformance.BuyAndHoldReturn*
+  name: BuyAndHoldReturn
+  href: api/SignalTrading.SignalPerformance.html#SignalTrading_SignalPerformance_BuyAndHoldReturn_
+  commentId: Overload:SignalTrading.SignalPerformance.BuyAndHoldReturn
+  isSpec: "True"
+  fullName: SignalTrading.SignalPerformance.BuyAndHoldReturn
+  nameWithType: SignalPerformance.BuyAndHoldReturn
 - uid: SignalTrading.SignalPerformance.Equity
   name: Equity
   href: api/SignalTrading.SignalPerformance.html#SignalTrading_SignalPerformance_Equity
@@ -1294,32 +1301,6 @@ references:
   isSpec: "True"
   fullName: SignalTrading.SignalPerformance.RoMaD
   nameWithType: SignalPerformance.RoMaD
-- uid: SignalTrading.SignalPerformance.StartTime
-  name: StartTime()
-  href: api/SignalTrading.SignalPerformance.html#SignalTrading_SignalPerformance_StartTime
-  commentId: M:SignalTrading.SignalPerformance.StartTime
-  fullName: SignalTrading.SignalPerformance.StartTime()
-  nameWithType: SignalPerformance.StartTime()
-- uid: SignalTrading.SignalPerformance.StartTime*
-  name: StartTime
-  href: api/SignalTrading.SignalPerformance.html#SignalTrading_SignalPerformance_StartTime_
-  commentId: Overload:SignalTrading.SignalPerformance.StartTime
-  isSpec: "True"
-  fullName: SignalTrading.SignalPerformance.StartTime
-  nameWithType: SignalPerformance.StartTime
-- uid: SignalTrading.SignalPerformance.StartTimeMilliseconds
-  name: StartTimeMilliseconds
-  href: api/SignalTrading.SignalPerformance.html#SignalTrading_SignalPerformance_StartTimeMilliseconds
-  commentId: P:SignalTrading.SignalPerformance.StartTimeMilliseconds
-  fullName: SignalTrading.SignalPerformance.StartTimeMilliseconds
-  nameWithType: SignalPerformance.StartTimeMilliseconds
-- uid: SignalTrading.SignalPerformance.StartTimeMilliseconds*
-  name: StartTimeMilliseconds
-  href: api/SignalTrading.SignalPerformance.html#SignalTrading_SignalPerformance_StartTimeMilliseconds_
-  commentId: Overload:SignalTrading.SignalPerformance.StartTimeMilliseconds
-  isSpec: "True"
-  fullName: SignalTrading.SignalPerformance.StartTimeMilliseconds
-  nameWithType: SignalPerformance.StartTimeMilliseconds
 - uid: SignalTrading.SignalPerformance.TradesClosed
   name: TradesClosed
   href: api/SignalTrading.SignalPerformance.html#SignalTrading_SignalPerformance_TradesClosed
