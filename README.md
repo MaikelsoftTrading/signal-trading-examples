@@ -154,11 +154,11 @@ public static IEnumerable<Candle> GetHistoricalPrices()
 
 	return new[]
 	{
-		Candle.Create(p0, 3000, 3101.14, 3000, 3101.14), 
-		Candle.Create(p1, 3000, 3230.65, 3000, 3230.65), 
-		Candle.Create(p2, 3000, 3410.81, 3000, 3410.81), 
-		Candle.Create(p3, 3000, 3240.16, 3000, 3240.16), 
-		Candle.Create(p4, 3000, 3300.77, 3000, 3300.77)
+		Candle.Create(p0, 3000.00, 3101.14, 3000.00, 3101.14),
+		Candle.Create(p1, 3101.14, 3230.65, 3004.89, 3230.65),
+		Candle.Create(p2, 3230.65, 3410.81, 3010.34, 3410.81),
+		Candle.Create(p3, 3410.81, 3420.20, 3005.23, 3240.16),
+		Candle.Create(p4, 3240.16, 3300.77, 3005.71, 3300.77)
 	};
 }
 ```
