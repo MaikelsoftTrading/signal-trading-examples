@@ -216,31 +216,27 @@ public static void Backtest()
 #### 1. Create price data
 In order to demonstrate live trading, we need some test data in the form of an observable Pricing sequence. The function below creates this observable which returns prices with arbitrary timestamps. These will be converted into candlesticks by the framework in the next step.
 ```C#
-public static IObservable<Pricing> GetPricing()
+public static IObservable<Pricing> GetLivePrices()
 {
-	DateTimeOffset h0 = DateTimeOffset.UtcNow.Date;
-	DateTimeOffset h1 = h0.AddHours(1);
-	DateTimeOffset h2 = h1.AddHours(1);
-	DateTimeOffset h3 = h2.AddHours(1);
-	DateTimeOffset h4 = h3.AddHours(1);
+	DateTimeOffset p0 = new DateTimeOffset(2021, 1, 1, 0, 0, 0, 0, TimeSpan.Zero);
+	DateTimeOffset p1 = p0.Add(TimeFrame);
+	DateTimeOffset p2 = p1.Add(TimeFrame);
+	DateTimeOffset p3 = p2.Add(TimeFrame);
+	DateTimeOffset p4 = p3.Add(TimeFrame);
 
 	// Emit some prices at irregular intervals
 	return new[]
 	{
-		Pricing.FromLastPrice(h0.AddMinutes(10), 3000.34),
-		Pricing.FromLastPrice(h0.AddMinutes(24), 3101.14),
-
-		Pricing.FromLastPrice(h1.AddMinutes(21), 3000.97),
-		Pricing.FromLastPrice(h1.AddMinutes(56), 3230.65),
-
-		Pricing.FromLastPrice(h2.AddMinutes(13), 3000.33),
-		Pricing.FromLastPrice(h2.AddMinutes(50), 3410.81),
-
-		Pricing.FromLastPrice(h3.AddMinutes(42), 3308.11),
-		Pricing.FromLastPrice(h3.AddMinutes(49), 3240.16),
-
-		Pricing.FromLastPrice(h4.AddMinutes(10), 3312.67),
-		Pricing.FromLastPrice(h4.AddMinutes(14), 3300.77)
+		Pricing.FromLastPrice(p0.AddMinutes(10), 3000.34),
+		Pricing.FromLastPrice(p0.AddMinutes(24), 3101.14),
+		Pricing.FromLastPrice(p1.AddMinutes(21), 3000.97),
+		Pricing.FromLastPrice(p1.AddMinutes(56), 3230.65),
+		Pricing.FromLastPrice(p2.AddMinutes(13), 3000.33),
+		Pricing.FromLastPrice(p2.AddMinutes(50), 3410.81),
+		Pricing.FromLastPrice(p3.AddMinutes(42), 3308.11),
+		Pricing.FromLastPrice(p3.AddMinutes(49), 3240.16),
+		Pricing.FromLastPrice(p4.AddMinutes(10), 3312.67),
+		Pricing.FromLastPrice(p4.AddMinutes(14), 3300.77)
 	}.ToObservable();
 }
 ```
