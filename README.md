@@ -135,12 +135,9 @@ public static Strategy<Chart> CreateMovingAverageStrategy(int movingAverageLengt
 		// A setup for long trading can only be set if its entry price is below the last trade price and
 		// below current buy price. This can easily be validated before setting the new setup so an 
 		// exception will be avoided.
-		if (signal.IsTradeSetupAllowed(setup))
-		{
-			signal = signal.SetLongTradeSetup(setup);
-		}
-
-		return signal;
+		return signal.IsTradeSetupAllowed(setup) 
+			? signal.SetLongTradeSetup(setup) 
+			: signal;
 	};
 }
 ```
