@@ -35,6 +35,13 @@ Small (**possibly breaking**) changes:
 * Moved extensions for `IObservable<T>` (defined in `ExtendIObservable` class) from `SignalTrading.Reactive` to `SignalTrading` namespace.
 * Renamed a few extension methods that are used for deriving data (`ExtendIObservable` and `ExtendIEnumerable` classes).
 * New extension methods for generating candles from pricing, that can be used for generating signals directly from candles (without generating charts).
+#### 0.6.1
+* Added buy & hold return to `SignalPerformance` class
+* Added initial pricing to `Signal` class
+* Removed `SignalPerformance.StartTime` method. Timestamp of initial pricing can be used instead.
+* Fixed a bug in chart generation where closed candles were incorrectly set to open (only occurred in `ExtendIEnumerable.GenerateCharts` method)
+#### 0.6.2
+* Removed method that should have been internal
 
 # Development guide
 ## Prerequisites
