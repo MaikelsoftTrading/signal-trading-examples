@@ -72,7 +72,7 @@ The basic flow for generating signals is:
 	* If signal position is closed, sets up trades for the next long and/or short position
 	* If signal postion is open, changes the profit target or loss limit if required
 7. Framework provides observers with signal (paired with the source data)
-8. Process is repeated from step 2
+8. Flow continues at step 2
 
 ## Tutorial
 This tutorial explains how to generate trading signals from trade prices, and how to to accomplish this with automatically generated candlestick charts. The trading strategy in this tutorial will be fairly simple. Source code and a runnable console application can be found in this repository.
