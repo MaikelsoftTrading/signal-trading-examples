@@ -166,7 +166,9 @@ public static Strategy<Chart> CreateMovingAverageStrategy(int movingAverageLengt
 }
 ```
 ### 4. Backtest the strategy
-#### 1. Create historical price data
+#### 1. Get historical price data
+Since backtesting uses historical data, candles must be retrieved from a market data source. In this tutorial we will not connect to a real data source and
+just return some mock data. 
 ```C#
 public static IEnumerable<Candle> GetHistoricalPrices()
 {
@@ -188,6 +190,7 @@ public static IEnumerable<Candle> GetHistoricalPrices()
 ```
 
 #### 2. Run the test
+Backtesting is usually done using Linq extensions (Reactive extensions can be used as an alternative). After the strategy is instantiated, candles are retrieved, candlestick chartsare generated and signals are generated from these charts.
 ```C#
 public static void Backtest()
 {
@@ -213,7 +216,7 @@ public static void Backtest()
 ```
 
 ### 5. Simulate live trading
-#### 1. Create price data
+#### 1. Get live prices
 In order to demonstrate live trading, we need some test data in the form of an observable Pricing sequence. The function below creates this observable which returns prices with arbitrary timestamps. These will be converted into candlesticks by the framework in the next step.
 ```C#
 public static IObservable<Pricing> GetLivePrices()
