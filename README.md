@@ -6,12 +6,12 @@ The framework generates trading signals from price data and custom data using a 
 
 * Not limited to a specific type of asset. Signals can be generated for every trading instrument.
 * No need to implement interfaces or inherit from framework classes. Instead, a trading strategy is implemented as a single C# function. 
-* Prices can be paired with custom data that is to be analyzed by your strategy
+* Prices can be paired with custom data that is to be analyzed by your strategy.
 * Easy to share C# code for backtesting and live trading.
 
 Performance metrics that are collected for each signal:
 
-* Total investment
+* Amount of money invested (automatically calculated)
 * Total profit
 * Return on investment
 * Number of trades closed
@@ -19,9 +19,8 @@ Performance metrics that are collected for each signal:
 * Maximum drawdown
 * Estimated position value
 * Position closing costs
-* Fees and interest paid
-* Rounding errors (because of lot sizes)
 * Buy & hold return
+* Details such as fees and interest paid, rounding errors
 
 ## Framework design
 The framework is built with .NET 5.0 on top of 64-bit native C libraries (Windows, Linux). It exposes only pure functions and immutable types. You will notice that most of these
