@@ -35,14 +35,14 @@ Current version can be used without any costs. Starting at the first major versi
 * Renamed a few extension methods that are used for deriving data (`ExtendIObservable` and `ExtendIEnumerable` classes).
 * New extension methods for generating candles from pricing, that can be used for generating signals directly from candles (without generating charts).
 #### 0.6.1
-* Added buy & hold return to `SignalPerformance` class
-* Added initial pricing to `Signal` class
+* Added buy & hold return to `SignalPerformance` class.
+* Added initial pricing to `Signal` class.
 * Removed `SignalPerformance.StartTime` method. Timestamp of initial pricing can be used instead.
-* Fixed a bug in chart generation where closed candles were incorrectly set to open (only occurred in `ExtendIEnumerable.GenerateCharts` method)
+* Fixed a bug in chart generation where closed candles were incorrectly set to open (only occurred in `ExtendIEnumerable.GenerateCharts` method).
 #### 0.6.2
-* Removed method from API that should have been internal
+* Removed method from API that should have been internal.
 #### 0.7.0
-* New feature: methods for detecting signal changes which can be used for generating alerts or placing orders
+* New feature: methods for detecting signal changes, which can be used for generating alerts or placing orders.
 
 # Development guide
 ## Prerequisites
